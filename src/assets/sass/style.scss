@@ -1,0 +1,6 @@
+// define global variables used throughout all stylesheets
+@import './_variables.scss';
+// main styles
+@import './_screen.scss';
+// response media query styles
+@import './_responsive.scss';
