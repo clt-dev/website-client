@@ -1,13 +1,20 @@
-# gatsby-starter-default
-The default Gatsby starter
+# Website
+The public INiT website.
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/)
-
-Install this starter (assuming Gatsby is installed) by running from your CLI:
+## To Install
 ```
-gatsby new gatsby-example-site
+npm install --global gatsby-cli
+npm install
 ```
 
-## Deploy
+## To Develop
+```
+gatsby develop
+```
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+## To Deploy
+```
+gatsby build
+```
+
+... and then upload to server
