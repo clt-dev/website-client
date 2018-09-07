@@ -1,9 +1,10 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
+import Link from 'gatsby-link';
+import Rellax from 'react-rellax';
 
 const IndexPage = () => (
 	<div id="home">
-		<section></section>
+		<Rellax as="section" className="rellax" data-rellax-speed="-2"></Rellax>
 		<section>
 			<article>
 				<span id="Logo"></span>
@@ -13,9 +14,9 @@ const IndexPage = () => (
 				</blockquote>
 			</article>
 			<article>
-				<a href="https://www.facebook.com/realeyezapparel/shop/?rt=19" target="_BLANK" id="Realeyez" alt="Realeyez Apparel"></a>
-				<a href="https://instagram.com/beheardla" target="_BLANK" id="Heard" alt="Heard"></a>
-				<a href="https://giv.deals" target="_BLANK" id="Giv" alt="Giv"></a>
+				<a href="https://realeyezapparel.com" target="_BLANK" id="Realeyez" alt="Realeyez Apparel"></a>
+				<a href="https://beheard.la" target="_BLANK" id="Heard" alt="Heard"></a>
+				<a href="https://giv.deals/how-it-works" target="_BLANK" id="Giv" alt="Giv"></a>
 				<a href="http://thetoastedpost.com" target="_BLANK" id="Toasted" alt="The Toasted Post"></a>
 			</article>
 		</section>

@@ -23,25 +23,29 @@ header {
   section {
     &:first-child {
       min-height: 75vh;
-      background: url('../img/banner.jpg') no-repeat scroll center / cover;
+      background: url('../img/banner.jpg') no-repeat scroll bottom center / cover;
     }
     &:last-child {
       background: white;
+      position: relative;
+      z-index: 999;
       article {
         &:first-child {
+          @include transform(translate(0,-90px));
+          margin-bottom: -90px;
+          overflow: hidden;
           #Logo {
             display: block;
             margin: 0 auto;
             background: url('../img/logo.png') no-repeat scroll center / contain;
             width: 273px;
             height: 186px;
-            @include transform(translate(0,-90px));
           }
           blockquote {
             width: 800px;
-            margin: 0 auto;
+            margin: 25px auto 0;
             font-size: 36px;
-            line-height: 60px;
+            line-height: 50px;
             color: #9B9B9B;
             position: relative;
             &:before {
@@ -185,7 +189,7 @@ footer {
     }
     .price {
       font-family: 'cocogoose', sans-serif;
-      font-size: 72px;
+      font-size: 64px;
       text-align: center;
       color: $green;
       letter-spacing: 1px;
@@ -195,8 +199,20 @@ footer {
         font-size: 18px;
         color: #767676;
         font-family: 'Didact Gothic', sans-serif;
-        text-transform: uppercase;
+        text-transform: lowercase;
         vertical-align: middle;
+        &:before {
+          content: "/";
+          display: inline;
+          padding: 0 2px;
+        }
+        &.sign {
+          font-size: 21px;
+          color: $green;
+          &:before{
+            display: none;
+          }
+        }
       }
       &:before {
         content: "";
@@ -233,7 +249,7 @@ footer {
         width: 50%;
         box-sizing: border-box;
         padding: 0 50px;
-        font-size: 36px;
+        font-size: 28px;
         margin: 0;
         vertical-align: top;
         &.hours {
@@ -250,7 +266,7 @@ footer {
         }
         &.price {
           font-family: 'cocogoose', sans-serif;
-          font-size: 36px;
+          font-size: 28px;
           vertical-align: middle;
           text-align: left;
           letter-spacing: 1px;
@@ -271,6 +287,130 @@ footer {
       margin-top: 100px;
       font-size: 24px;
       letter-spacing: 2px;
+    }
+  }
+}
+
+@media (max-width:1024px) {
+  
+}
+@media (max-width:768px) {
+  #home {
+    section{
+      &:first-child {
+        min-height: 50vh;
+      }
+      &:last-child {
+        article{
+          &:first-child {
+            blockquote {
+              width: 100%;
+              box-sizing: border-box;
+              padding: 0 25px;
+              font-size: 28px;
+              line-height: 38px;
+              text-align: center;
+              margin: 0 auto;
+              &:before {
+                display: none;
+              }
+              cite {
+                margin: 25px auto 0;
+                float: none;
+                width: 150px;
+              }
+            }
+          }
+          a {
+            &:after {
+              background-size: 50% !important;
+            }
+          }
+          &:last-child {
+            margin-bottom: 0;
+            a {
+              width: 100%;
+              display: block;
+              &:nth-child(3),
+              &:nth-child(4) {
+                @include transform(translate(0,0));
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  footer {
+    padding: 100px 0;
+    min-height: auto;
+    section {
+      &:before {
+        height: 200px;
+        bottom: 100px;
+      }
+    }
+  }
+}
+@media (max-width:480px) {
+  #home {
+    blockquote {
+      padding: 0 25px 0 50px;
+      font-size: 24px;
+      line-height: 36px;
+      &:before {
+        left: 15px;
+        top: -50px;
+      }
+      cite {
+        margin: 15px 0 0 0;
+        float: right;
+      }
+      &:after {
+        content: "";
+        clear: both;
+        display: block;
+      }
+    }
+    section{
+      &:last-child {
+        article{
+          &:first-child {
+            #Logo {
+              width: 200px;
+            }
+          }
+          &:last-child {
+            padding: 0;
+            margin: 50px 0 -10px 0;
+          }
+        }
+      }
+    }
+  }
+  footer {
+    section {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0 25px;
+      .price {
+        span {
+          font-size: 14px;
+        }
+      }
+      article {
+        p {
+          padding: 0 25px;
+          &.price {
+            span {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+      .main-btn {
+        margin-top: 75px;
+      }
     }
   }
 }

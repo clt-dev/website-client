@@ -9,16 +9,7 @@ import '../assets/sass/style.scss'
 
 const TemplateWrapper = ({ children }) => (
   <div>
-    <Helmet
-      title="The INiT Group"
-      meta={[
-        { 
-          name: 'description', 
-          content: 'We’re a collective of creative problem solvers, digital nomads, lifetime travelers, and pioneers of creative space. We’re in it for it, or not in it at all.' 
-        },
-        { name: 'keywords', content: 'design, development, creative, apps, branding, startup' },
-      ]}
-    >
+    <Helmet>
       <link rel="canonical" href="http://theinitgroup.com" />
       <meta property="og:locale" content="en_US" />
       <meta property="og:type" content="website" />
@@ -38,13 +29,13 @@ const TemplateWrapper = ({ children }) => (
         property="og:image:secure_url"
         content=""
       />
-      // Schema
-      <meta itemprop="name" content="The INiT Group - Creative Problem Solving"> 
+
+      <meta itemprop="name" content="The INiT Group - Creative Problem Solving" /> 
       <meta 
         itemprop="description" 
-        content="We’re a collective of creative problem solvers, digital nomads, lifetime travelers, and pioneers of creative space. We’re in it for it, or not in it at all."> 
-      <meta itemprop="image" content="http://theinitgroup.com/src/assets/img/default_google.jpg">
-      // Twitter
+        content="We’re a collective of creative problem solvers, digital nomads, lifetime travelers, and pioneers of creative space. We’re in it for it, or not in it at all." /> 
+      <meta itemprop="image" content="http://theinitgroup.com/src/assets/img/default_google.jpg" />
+
       <meta name="twitter:card" content="summary_large_image" />
       <meta
         name="twitter:description"
