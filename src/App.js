@@ -57,7 +57,10 @@ const IndexPage = () => (
         <a href="https://realeyezapparel.com" target="_BLANK" alt="Realeyez Apparel">
           <img src={realeyez} />
         </a>
-        <a href="https://instagram.com/beheardla" target="_BLANK" alt="Heard">
+        <a href="https://instagram.com/beheardla" className="hideMobile" target="_BLANK" alt="Heard">
+          <img src={heard} />
+        </a>
+        <a href="instagram://user?username=beheardla" className="showMobile" target="_BLANK" alt="Heard">
           <img src={heard} />
         </a>
         <a href="http://andersonpaak.com" target="_BLANK" alt="Anderson .Paak">

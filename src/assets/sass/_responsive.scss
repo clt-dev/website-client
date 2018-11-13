@@ -2,6 +2,12 @@
 	
 }
 @media (max-width:768px) {
+	.hideMobile {
+	  display: none !important;
+	}
+	.showMobile {
+	  display: block !important;
+	}
 	#home {
 		section{
 			&#projects {

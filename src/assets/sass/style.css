@@ -23,6 +23,12 @@ body, html {
   text-transform: uppercase;
   font-family: 'cocogoose', sans-serif; }
 
+.hideMobile {
+  display: inline-block !important; }
+
+.showMobile {
+  display: none !important; }
+
 #home section#banner {
   min-height: 80vh;
   background: url("../img/banner.jpg") no-repeat scroll 50% 70%/cover;
@@ -232,6 +238,10 @@ footer {
       letter-spacing: 2px; }
 
 @media (max-width: 768px) {
+  .hideMobile {
+    display: none !important; }
+  .showMobile {
+    display: block !important; }
   #home section#projects article:first-child blockquote {
     width: 100%;
     box-sizing: border-box;
