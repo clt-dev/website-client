@@ -3,6 +3,13 @@ import Rellax from 'react-rellax';
 import ReactPixel from 'react-facebook-pixel';
 import './assets/sass/style.css';
 
+import realeyez from './assets/img/realeyez_bg.jpg';
+import heard from './assets/img/heard_bg.jpg';
+import ap from './assets/img/ap_bg.jpg';
+import twoTimeLosers from './assets/img/2xl_bg.jpg';
+import smokeBreak from './assets/img/smokebreak_bg.jpg';
+import trackArtwork from './assets/img/track_bg.jpg';
+
 const advancedMatching = {};
 const options = {
     autoConfig: true,
@@ -47,12 +54,24 @@ const IndexPage = () => (
         </blockquote>
       </article>
       <article>
-        <a href="https://realeyezapparel.com" target="_BLANK" alt="Realeyez Apparel"></a>
-        <a href="https://instagram.com/beheardla" target="_BLANK" alt="Heard"></a>
-        <a href="http://andersonpaak.com" target="_BLANK" alt="Anderson .Paak"></a>
-        <a href="https://twotimelosers.co" target="_BLANK" alt="Two Time Losers"></a>
-        <a href="https://smokebreak.live" target="_BLANK" alt="Smoke Break"></a>
-        <a href="https://kylebebeau.com/track-artwork" target="_BLANK" alt="Track Artwork"></a>
+        <a href="https://realeyezapparel.com" target="_BLANK" alt="Realeyez Apparel">
+          <img src={realeyez} />
+        </a>
+        <a href="https://instagram.com/beheardla" target="_BLANK" alt="Heard">
+          <img src={heard} />
+        </a>
+        <a href="http://andersonpaak.com" target="_BLANK" alt="Anderson .Paak">
+          <img src={ap} />
+        </a>
+        <a href="https://twotimelosers.co" target="_BLANK" alt="Two Time Losers">
+          <img src={twoTimeLosers} />
+        </a>
+        <a href="https://smokebreak.live" target="_BLANK" alt="Smoke Break">
+          <img src={smokeBreak} />
+        </a>
+        <a href="https://kylebebeau.com/track-artwork" target="_BLANK" alt="Track Artwork">
+          <img src={trackArtwork} />
+        </a>
       </article>
     </section>
     <Footer />

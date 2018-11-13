@@ -4,7 +4,7 @@
 @media (max-width:768px) {
 	#home {
 		section{
-			&:last-child {
+			&#projects {
 				article{
 					&:first-child {
 						blockquote {
@@ -41,11 +41,13 @@
 @media (max-width:480px) {
 	#home {
 		section{
-			&:first-child {
+			&#banner {
 				min-height: 50vh;
+				background: url('../img/banner.jpg') no-repeat scroll bottom / cover;
 			}
-			&:last-child {
+			&#projects {
 				article{
+					transform: translate(0,0);
 					&:first-child {
 						#Logo {
 							width: 50%;
@@ -61,7 +63,7 @@
 							cite {
 								margin: 25px auto 0;
 								width: 175px;
-								@include transform(translate(-10px,0));
+								@include transform(translate(-15px,0));
 							}
 							&:after {
 								content: "";
@@ -72,12 +74,11 @@
 					}
 					&:last-child {
 						padding: 0;
-						margin: 50px 0 -10px 0;
+						margin: 50px 0 0 0;
 						a  {
-							min-height: 50vh;
+							min-height: auto;
 							width: 100%;
 							@include transform(translate(0,0));
-							margin-bottom: -5px;
 						}
 					}
 				}
@@ -85,6 +86,7 @@
 		}
 	}
 	footer {
+		padding: 0;
 		section {
 			width: 100%;
 			box-sizing: border-box;

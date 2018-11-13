@@ -80,6 +80,9 @@ body, html {
       min-height: 60vh;
       display: inline-block;
       position: relative; }
+      #home section#projects article:last-child a img {
+        max-width: 100%;
+        margin-bottom: -5px; }
       #home section#projects article:last-child a:before {
         content: "";
         display: block;
@@ -108,23 +111,6 @@ body, html {
         -ms-transform: translate(-50%, -50%);
         -webkit-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%); }
-      #home section#projects article:last-child a:first-child {
-        background: url("../img/realeyez_bg.jpg") no-repeat scroll top/cover; }
-      #home section#projects article:last-child a:nth-child(2) {
-        background: url("../img/heard_bg.jpg") no-repeat scroll center/cover;
-        transform: translate(-1px, 0); }
-      #home section#projects article:last-child a:nth-child(3) {
-        background: url("../img/ap_bg.jpg") no-repeat scroll center/cover;
-        transform: translate(0, -5px); }
-      #home section#projects article:last-child a:nth-child(4) {
-        background: url("../img/2xl_bg.jpg") no-repeat scroll center/cover;
-        transform: translate(-1px, -5px); }
-      #home section#projects article:last-child a:nth-child(5) {
-        background: url("../img/smokebreak_bg.jpg") no-repeat scroll center/cover;
-        transform: translate(0, -10px); }
-      #home section#projects article:last-child a:last-child {
-        background: url("../img/track_bg.jpg") no-repeat scroll center/cover;
-        transform: translate(-1px, -10px); }
       #home section#projects article:last-child a:hover:before {
         cursor: pointer;
         opacity: 0.1;
@@ -157,7 +143,7 @@ footer {
     width: 400px;
     margin: 0 auto;
     position: relative;
-    transform: scale(0.7); }
+    transform: scale(0.8); }
     footer section:before {
       content: "";
       width: 1px;
@@ -246,69 +232,73 @@ footer {
       letter-spacing: 2px; }
 
 @media (max-width: 768px) {
-  #home section:last-child article:first-child blockquote {
+  #home section#projects article:first-child blockquote {
     width: 100%;
     box-sizing: border-box;
     padding: 0 100px;
     font-size: 32px;
     line-height: 50px; }
-    #home section:last-child article:first-child blockquote:before {
+    #home section#projects article:first-child blockquote:before {
       left: 45px; }
-    #home section:last-child article:first-child blockquote cite {
+    #home section#projects article:first-child blockquote cite {
       margin: 25px 0 0 375px; }
-  #home section:last-child article a:after {
+  #home section#projects article a:after {
     background-size: 50% !important; }
-  #home section:last-child article:last-child {
+  #home section#projects article:last-child {
     margin-bottom: 0; }
   footer {
     box-sizing: border-box;
     padding: 100px 0; } }
 
 @media (max-width: 480px) {
-  #home section:first-child {
-    min-height: 50vh; }
-  #home section:last-child article:first-child #Logo {
-    width: 50%; }
-  #home section:last-child article:first-child blockquote {
-    padding: 0 25px 0 50px;
-    font-size: 25px;
-    line-height: 36px; }
-    #home section:last-child article:first-child blockquote:before {
-      left: 15px;
-      top: -50px; }
-    #home section:last-child article:first-child blockquote cite {
-      margin: 25px auto 0;
-      width: 175px;
-      -moz-transform: translate(-10px, 0);
-      -o-transform: translate(-10px, 0);
-      -ms-transform: translate(-10px, 0);
-      -webkit-transform: translate(-10px, 0);
-      transform: translate(-10px, 0); }
-    #home section:last-child article:first-child blockquote:after {
-      content: "";
-      clear: both;
-      display: block; }
-  #home section:last-child article:last-child {
-    padding: 0;
-    margin: 50px 0 -10px 0; }
-    #home section:last-child article:last-child a {
-      min-height: 50vh;
+  #home section#banner {
+    min-height: 50vh;
+    background: url("../img/banner.jpg") no-repeat scroll bottom/cover; }
+  #home section#projects article {
+    transform: translate(0, 0); }
+    #home section#projects article:first-child #Logo {
+      width: 50%; }
+    #home section#projects article:first-child blockquote {
+      padding: 0 25px 0 50px;
+      font-size: 25px;
+      line-height: 36px; }
+      #home section#projects article:first-child blockquote:before {
+        left: 15px;
+        top: -50px; }
+      #home section#projects article:first-child blockquote cite {
+        margin: 25px auto 0;
+        width: 175px;
+        -moz-transform: translate(-15px, 0);
+        -o-transform: translate(-15px, 0);
+        -ms-transform: translate(-15px, 0);
+        -webkit-transform: translate(-15px, 0);
+        transform: translate(-15px, 0); }
+      #home section#projects article:first-child blockquote:after {
+        content: "";
+        clear: both;
+        display: block; }
+    #home section#projects article:last-child {
+      padding: 0;
+      margin: 50px 0 0 0; }
+      #home section#projects article:last-child a {
+        min-height: auto;
+        width: 100%;
+        -moz-transform: translate(0, 0);
+        -o-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0); }
+  footer {
+    padding: 0; }
+    footer section {
       width: 100%;
-      -moz-transform: translate(0, 0);
-      -o-transform: translate(0, 0);
-      -ms-transform: translate(0, 0);
-      -webkit-transform: translate(0, 0);
-      transform: translate(0, 0);
-      margin-bottom: -5px; }
-  footer section {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 0 25px; }
-    footer section .price span {
-      font-size: 14px; }
-    footer section article p {
+      box-sizing: border-box;
       padding: 0 25px; }
-      footer section article p.price span {
+      footer section .price span {
         font-size: 14px; }
-    footer section .main-btn {
-      margin-top: 50px; } }
+      footer section article p {
+        padding: 0 25px; }
+        footer section article p.price span {
+          font-size: 14px; }
+      footer section .main-btn {
+        margin-top: 50px; } }

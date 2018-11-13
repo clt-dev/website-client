@@ -77,6 +77,10 @@ header {
             min-height: 60vh;
             display: inline-block;
             position: relative;
+            img {
+              max-width: 100%;
+              margin-bottom: -5px;
+            }
             &:before {
               content: "";
               display: block;
@@ -99,29 +103,6 @@ header {
               left: 50%;
               width: 100%;
               @include transform(translate(-50%,-50%));
-            }
-            &:first-child {
-              background: url('../img/realeyez_bg.jpg') no-repeat scroll top / cover;
-            }
-            &:nth-child(2) {
-              background: url('../img/heard_bg.jpg') no-repeat scroll center / cover;
-              transform: translate(-1px,0);
-            }
-            &:nth-child(3) {
-              background: url('../img/ap_bg.jpg') no-repeat scroll center / cover;
-              transform: translate(0,-5px);
-            }
-            &:nth-child(4) {
-              background: url('../img/2xl_bg.jpg') no-repeat scroll center / cover;
-              transform: translate(-1px,-5px);
-            }
-            &:nth-child(5) {
-              background: url('../img/smokebreak_bg.jpg') no-repeat scroll center / cover;
-              transform: translate(0,-10px);
-            }
-            &:last-child {
-              background: url('../img/track_bg.jpg') no-repeat scroll center / cover;
-              transform: translate(-1px,-10px);
             }
             &:hover {
               &:before {
@@ -161,7 +142,7 @@ footer {
     width: 400px;
     margin: 0 auto;
     position: relative;
-    transform: scale(0.7);
+    transform: scale(0.8);
     &:before {
       content:"";
       width: 1px;
