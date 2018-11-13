@@ -1,29 +1,33 @@
 {
   "name": "init",
-  "description": "The INiT Group",
-  "version": "1.0.0",
-  "author": "Kyle Bebeau <kyle@theinitgroup.com>",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "friendly-errors-webpack-plugin": "^1.7.0",
-    "gatsby": "^1.9.277",
-    "gatsby-link": "^1.6.34",
-    "gatsby-plugin-react-helmet": "^2.0.3",
-    "gatsby-plugin-sass": "^1.0.26",
-    "react-helmet": "^5.2.0",
-    "react-rellax": "^1.0.2"
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "node-sass-chokidar": "^1.3.4",
+    "path": "^0.12.7",
+    "react": "^16.6.1",
+    "react-dom": "^16.6.1",
+    "react-facebook-pixel": "^0.1.1",
+    "react-rellax": "^1.0.2",
+    "react-scripts": "2.1.1"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "main": "n/a",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/assets/sass/ -o src/assets/sass/ --watch --recursive",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "devDependencies": {
-    "prettier": "^1.10.2"
-  }
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
