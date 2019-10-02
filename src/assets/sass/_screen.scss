@@ -3,6 +3,12 @@ body, html {
   padding: 0;
   font-family: 'Didact Gothic', sans-serif;
 }
+.hideMobile {
+  display: block !important;
+}
+.showMobile {
+  display: none !important;
+}
 .main-btn {
   background: white;
   line-height: 60px;
@@ -15,12 +21,6 @@ body, html {
   color: #4A4A4A;
   text-transform: uppercase;
   font-family: 'cocogoose', sans-serif;
-}
-.hideMobile {
-  display: inline-block !important;
-}
-.showMobile {
-  display: none !important;
 }
 header {
 
@@ -65,11 +65,16 @@ header {
               background: url('../img/quote.png') no-repeat scroll center / contain;
             }
             cite {
-              margin: 25px 0 0 400px;
               display: block;
+              float: right;
+              margin: 25px 0;
               width: 200px;
               height: 59px;
               background: url('../img/signature.jpg') no-repeat scroll center / contain;
+            }
+            a {
+              text-decoration: none;
+              color: black;
             }
           }
         }
@@ -77,15 +82,24 @@ header {
           box-sizing: border-box;
           padding: 50px;
           margin: 0;
+         &:before {
+            content: "";
+            display: block;
+            clear: both;
+            height: 1px;
+          }
           a {
             box-sizing: border-box;
             width: 50%;
-            min-height: 60vh;
             display: inline-block;
             position: relative;
+            &.hideMobile {
+              display: inline-block !important;
+            }
             img {
               max-width: 100%;
               margin-bottom: -5px;
+              margin-left: -1px;
             }
             &:before {
               content: "";
@@ -243,10 +257,27 @@ footer {
         }
       }
     }
-    .main-btn {
+    .social {
       margin-top: 100px;
       font-size: 24px;
       letter-spacing: 2px;
+      text-align: center;
+      a {
+        margin: 0 10px;
+        display: inline-block;
+        border-radius: 50%;
+        @include transition(all 0.3s $authenticMotion);
+        img {
+          color: white;
+          width: 40px;
+          height: 40px;
+          vertical-align: middle;
+        }
+        &:hover {
+          background: darken(#4A4A4A, 5%);
+          @include transition(all 0.3s $authenticMotion);
+        }
+      }
     }
   }
 }

@@ -3,12 +3,22 @@ import Rellax from 'react-rellax';
 import ReactPixel from 'react-facebook-pixel';
 import './assets/sass/style.css';
 
-import realeyez from './assets/img/realeyez_bg.jpg';
+import Footer from './footer';
+
 import heard from './assets/img/heard_bg.jpg';
 import ap from './assets/img/ap_bg.jpg';
-import twoTimeLosers from './assets/img/2xl_bg.jpg';
 import smokeBreak from './assets/img/smokebreak_bg.jpg';
 import trackArtwork from './assets/img/track_bg.jpg';
+import logos from './assets/img/logos_bg.jpg';
+import paakhouse from './assets/img/paakhouse_bg.jpg';
+import coonguard from './assets/img/coonguard_bg.jpg';
+import jessame from './assets/img/jessame_bg.jpg';
+
+// import realeyez from './assets/img/realeyez_bg.jpg';
+// import fiveStar from './assets/img/5star_bg.jpg';
+// import thetoastedpost from './assets/img/ttp_bg.jpg';
+
+import resume from './assets/docs/kylebebeau_resume.pdf';
 
 const advancedMatching = {};
 const options = {
@@ -18,67 +28,63 @@ const options = {
 ReactPixel.init('2055850057979112', advancedMatching, options);
 ReactPixel.pageView();
 
-const Footer = () => {
-  return (
-    <footer>
-      <section>
-        <p className="price main">$125<span>/hour</span></p>
-        <span className="or">or</span>
-        <article>
-          <p className="hours">8<span>hrs</span></p>
-          <p className="price main">$1k<span>/month</span></p>
-        </article>
-        <article>
-          <p className="hours">24<span>hrs</span></p>
-          <p className="price main">$2k<span>/month</span></p>
-        </article>
-        <article>
-          <p className="hours">40<span>hrs</span></p>
-          <p className="price main">$3k<span>/month</span></p>
-        </article>
-        <a href="mailto:kyle@theinitgroup.com?subject=Design/Development" className="main-btn">Contact</a>
-      </section>
-    </footer>
-  );
-};
-
-const IndexPage = () => (
-  <div id="home">
-    <Rellax as="section" id="banner" data-rellax-speed="-2"></Rellax>
-    <section id="projects">
-      <article>
-        <span id="Logo"></span>
-        <blockquote>
-          We’re a collective of creative problem solvers, digital nomads, lifetime travelers, and pioneers of creative space. We’re in it for it, or not in it at all.
-          <cite></cite>
-        </blockquote>
-      </article>
-      <article>
-        <a href="https://realeyezapparel.com" target="_BLANK" alt="Realeyez Apparel">
-          <img src={realeyez} />
-        </a>
-        <a href="https://instagram.com/beheardla" className="hideMobile" target="_BLANK" alt="Heard">
-          <img src={heard} />
-        </a>
-        <a href="instagram://user?username=beheardla" className="showMobile" target="_BLANK" alt="Heard">
-          <img src={heard} />
-        </a>
-        <a href="http://andersonpaak.com" target="_BLANK" alt="Anderson .Paak">
-          <img src={ap} />
-        </a>
-        <a href="https://twotimelosers.co" target="_BLANK" alt="Two Time Losers">
-          <img src={twoTimeLosers} />
-        </a>
-        <a href="https://smokebreak.live" target="_BLANK" alt="Smoke Break">
-          <img src={smokeBreak} />
-        </a>
-        <a href="https://kylebebeau.com/track-artwork" target="_BLANK" alt="Track Artwork">
-          <img src={trackArtwork} />
-        </a>
-      </article>
-    </section>
-    <Footer />
-  </div>
-)
+class IndexPage extends Component {
+  render(){
+    return (
+      <div id="home">
+        <Rellax as="section" id="banner" data-rellax-speed="-2"></Rellax>
+        <section id="projects">
+          <article>
+            <span id="Logo"></span>
+            <blockquote>
+              <p>
+                I'm not a service offering. I'm in it as an artist, a creative problem solver, a software engineer.
+                I may be able to help you, but you must be able to pay me.
+              </p>
+              <p>
+                My name is <a target="_BLANK" href={resume} rel="noopener noreferrer">Kyle Bebeau</a>. 
+                I've survived off of my own creativity, despite the odds. I'm creating my own livelihood, and helping who I can along the way. Below are some of my recent successes.
+              </p>
+              <p>
+                If you're a creative, know your worth. <a target="_BLANK" href="https://twitter.com/intent/tweet?text=Don't let clients name their price. Know your worth.&amp;hashtags=noworkweak" rel="noopener noreferrer">#noworkweak</a>
+              </p>
+              <cite />
+            </blockquote>
+          </article>
+          <article>
+            <a href="https://jessame.com" target="_BLANK" rel="noopener noreferrer">
+              <img src={jessame} alt="Jessame Raz Berry" />
+            </a>
+            <a href="http://andersonpaak.com" target="_BLANK" rel="noopener noreferrer">
+              <img src={ap} alt="Anderson .Paak" />
+            </a>
+            <a href="http://paakhouse.org" target="_BLANK" rel="noopener noreferrer">
+              <img src={paakhouse} alt=".Paak House" />
+            </a>
+            <a href="https://smokebreak.live" target="_BLANK" rel="noopener noreferrer">
+              <img src={smokeBreak} alt="Smoke Break" />
+            </a>
+            <a href="https://kylebebeau.com/track-artwork" target="_BLANK" rel="noopener noreferrer">
+              <img src={trackArtwork} alt="Track Artwork" />
+            </a>
+            <a href="https://heardmusic.app" className="hideMobile" target="_BLANK" alt="Heard" rel="noopener noreferrer">
+              <img src={heard} alt="Heard" />
+            </a>
+            <a href="instagram://user?username=heardmusicapp" className="showMobile" target="_BLANK" alt="Heard" rel="noopener noreferrer">
+              <img src={heard} alt="Heard" />
+            </a>
+            <a href="https://coonguard.com" target="_BLANK" rel="noopener noreferrer">
+              <img src={coonguard} alt="Texas Bandit Coon Guard" />
+            </a>
+            <a href="https://kylebebeau.com/logos" target="_BLANK" rel="noopener noreferrer">
+              <img src={logos} alt="Logos" />
+            </a>
+          </article>
+        </section>
+        <Footer />
+      </div>
+    )
+  }
+}
 
 export default IndexPage;

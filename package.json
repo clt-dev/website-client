@@ -2,6 +2,7 @@
   "name": "init",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "https://theinitgroup.com",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",

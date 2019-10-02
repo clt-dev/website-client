@@ -10,6 +10,12 @@ body, html {
   padding: 0;
   font-family: 'Didact Gothic', sans-serif; }
 
+.hideMobile {
+  display: block !important; }
+
+.showMobile {
+  display: none !important; }
+
 .main-btn {
   background: white;
   line-height: 60px;
@@ -22,12 +28,6 @@ body, html {
   color: #4A4A4A;
   text-transform: uppercase;
   font-family: 'cocogoose', sans-serif; }
-
-.hideMobile {
-  display: inline-block !important; }
-
-.showMobile {
-  display: none !important; }
 
 #home section#banner {
   min-height: 80vh;
@@ -71,24 +71,35 @@ body, html {
       left: -60px;
       background: url("../img/quote.png") no-repeat scroll center/contain; }
     #home section#projects article:first-child blockquote cite {
-      margin: 25px 0 0 400px;
       display: block;
+      float: right;
+      margin: 25px 0;
       width: 200px;
       height: 59px;
       background: url("../img/signature.jpg") no-repeat scroll center/contain; }
+    #home section#projects article:first-child blockquote a {
+      text-decoration: none;
+      color: black; }
   #home section#projects article:last-child {
     box-sizing: border-box;
     padding: 50px;
     margin: 0; }
+    #home section#projects article:last-child:before {
+      content: "";
+      display: block;
+      clear: both;
+      height: 1px; }
     #home section#projects article:last-child a {
       box-sizing: border-box;
       width: 50%;
-      min-height: 60vh;
       display: inline-block;
       position: relative; }
+      #home section#projects article:last-child a.hideMobile {
+        display: inline-block !important; }
       #home section#projects article:last-child a img {
         max-width: 100%;
-        margin-bottom: -5px; }
+        margin-bottom: -5px;
+        margin-left: -1px; }
       #home section#projects article:last-child a:before {
         content: "";
         display: block;
@@ -232,10 +243,30 @@ footer {
             margin-left: 5px; }
           footer section article p.price:before {
             display: none; }
-    footer section .main-btn {
+    footer section .social {
       margin-top: 100px;
       font-size: 24px;
-      letter-spacing: 2px; }
+      letter-spacing: 2px;
+      text-align: center; }
+      footer section .social a {
+        margin: 0 10px;
+        display: inline-block;
+        border-radius: 50%;
+        -moz-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        -o-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        footer section .social a img {
+          color: white;
+          width: 40px;
+          height: 40px;
+          vertical-align: middle; }
+        footer section .social a:hover {
+          background: #3d3d3d;
+          -moz-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          -o-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
 
 @media (max-width: 768px) {
   .hideMobile {
@@ -256,6 +287,8 @@ footer {
     background-size: 50% !important; }
   #home section#projects article:last-child {
     margin-bottom: 0; }
+    #home section#projects article:last-child a.hideMobile {
+      display: none !important; }
   footer {
     box-sizing: border-box;
     padding: 100px 0; } }
@@ -277,6 +310,7 @@ footer {
         top: -50px; }
       #home section#projects article:first-child blockquote cite {
         margin: 25px auto 0;
+        float: none;
         width: 175px;
         -moz-transform: translate(-15px, 0);
         -o-transform: translate(-15px, 0);
