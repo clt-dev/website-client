@@ -38,12 +38,11 @@ class IndexPage extends Component {
             <span id="Logo"></span>
             <blockquote>
               <p>
-                I'm not a service offering. I'm in it as an artist, a creative problem solver, a software engineer.
-                I may be able to help you, but you must be able to pay me.
+                I'm not a service offering. I'm an artist, a creative problem solver, a software engineer, a fuckin ginger named <a target="_BLANK" href={resume} rel="noopener noreferrer">Kyle</a>.
+                I may be able to help you, but we have to find a way to help each other.
               </p>
-              <p>
-                My name is <a target="_BLANK" href={resume} rel="noopener noreferrer">Kyle Bebeau</a>. 
-                I've survived off of my own creativity, despite the odds. I'm creating my own livelihood, and helping who I can along the way. Below are some of my recent successes.
+              <p> 
+                I've been surviving off of my own creativity, despite those odds. I'm creating my own livelihood, and contributing to what I can along the way. Below are a few footprints from the path I'm on.
               </p>
               <p>
                 If you're a creative, know your worth. <a target="_BLANK" href="https://twitter.com/intent/tweet?text=Don't let clients name their price. Know your worth.&amp;hashtags=noworkweak" rel="noopener noreferrer">#noworkweak</a>
