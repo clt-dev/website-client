@@ -12,11 +12,10 @@ import trackArtwork from './assets/img/track_bg.jpg';
 import logos from './assets/img/logos_bg.jpg';
 import paakhouse from './assets/img/paakhouse_bg.jpg';
 import coonguard from './assets/img/coonguard_bg.jpg';
-import jessame from './assets/img/jessame_bg.jpg';
 
 // import realeyez from './assets/img/realeyez_bg.jpg';
 // import fiveStar from './assets/img/5star_bg.jpg';
-// import thetoastedpost from './assets/img/ttp_bg.jpg';
+import thetoastedpost from './assets/img/ttp_bg.jpg';
 
 import resume from './assets/docs/kylebebeau_resume.pdf';
 
@@ -38,11 +37,12 @@ class IndexPage extends Component {
             <span id="Logo"></span>
             <blockquote>
               <p>
-                I'm not a service. I'm an artist, a creative problem solver, a software engineer. I'm a real fuckin' person named <a target="_BLANK" href={resume} rel="noopener noreferrer">Kyle Bebeau</a>.
-                I may be able to help you, but we must find a way to help each other.
+                Imagination is the only weapon in the war against reality.
+                I'm an artist, a creative problem solver, a software engineer. My name is <a target="_BLANK" href={resume} rel="noopener noreferrer">Kyle Bebeau</a>.
+                At times it seems so very unrealistic. Therefore, I dream.
               </p>
-              <p> 
-                I've been surviving off of my own creativity, despite those odds. I'm creating my own livelihood, and I contribute to what I can along the way. Below are a few footprints from the path I've been on.
+              <p>
+                Below are live projects I've designed and/or have engineered.
               </p>
               <p>
                 If you're a creative, know your worth. <a target="_BLANK" href="https://twitter.com/intent/tweet?text=Don't let clients name their price. Know your worth.&amp;hashtags=noworkweak" rel="noopener noreferrer">#noworkweak</a>
@@ -51,9 +51,6 @@ class IndexPage extends Component {
             </blockquote>
           </article>
           <article>
-            <a href="https://jessame.com" target="_BLANK" rel="noopener noreferrer">
-              <img src={jessame} alt="Jessame Raz Berry" />
-            </a>
             <a href="http://andersonpaak.com" target="_BLANK" rel="noopener noreferrer">
               <img src={ap} alt="Anderson .Paak" />
             </a>
@@ -72,11 +69,14 @@ class IndexPage extends Component {
             <a href="instagram://user?username=heardmusicapp" className="showMobile" target="_BLANK" alt="Heard" rel="noopener noreferrer">
               <img src={heard} alt="Heard" />
             </a>
+            <a href="https://kylebebeau.com/logos" target="_BLANK" rel="noopener noreferrer">
+              <img src={logos} alt="Logos" />
+            </a>
             <a href="https://coonguard.com" target="_BLANK" rel="noopener noreferrer">
               <img src={coonguard} alt="Texas Bandit Coon Guard" />
             </a>
-            <a href="https://kylebebeau.com/logos" target="_BLANK" rel="noopener noreferrer">
-              <img src={logos} alt="Logos" />
+            <a href="https://thetoastedpost.com" target="_BLANK" rel="noopener noreferrer">
+              <img src={thetoastedpost} alt="The Toasted Post" />
             </a>
           </article>
         </section>
