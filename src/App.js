@@ -63,7 +63,7 @@ class Homepage extends React.Component {
             <a href="https://customnatureproducts.com" target="_BLANK" rel="noopener noreferrer">
               <img src={customNature} alt="Custom Nature, LLC" />
             </a>
-            <a href="https://theinitgroup.com/paakhouse" target="_BLANK" rel="noopener noreferrer">
+            <a href="https://paakhouse.org" target="_BLANK" rel="noopener noreferrer">
               <img src={paakhouse} alt=".Paak House" />
             </a>
             <a href="https://andersonpaak.com" target="_BLANK" rel="noopener noreferrer">
