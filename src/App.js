@@ -81,7 +81,7 @@ class Homepage extends React.Component {
             <a href="https://5starvintage.com" target="_BLANK" alt="5 Star Vintage" rel="noopener noreferrer">
               <img src={fiveStar} alt="Five Star Vintage" />
             </a>
-            <a href="https://coonguard.com" target="_BLANK" alt="Texas Bandit Coon Guard" rel="noopener noreferrer">
+            <a href="http://34.219.204.113:3000/" target="_BLANK" alt="Texas Bandit Coon Guard" rel="noopener noreferrer">
               <img src={coonguard} alt="Texas Bandit Coon Guard" />
             </a>
             <a href="https://heardmusic.app" target="_BLANK" rel="noopener noreferrer">
