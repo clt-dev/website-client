@@ -1,6 +1,5 @@
 import React from 'react';
 import Rellax from 'react-rellax';
-import ReactPixel from 'react-facebook-pixel';
 import './assets/sass/style.css';
 
 import Footer from './footer';
@@ -13,22 +12,12 @@ import trackArtwork from './assets/img/track_bg.jpg';
 import logos from './assets/img/logos_bg.jpg';
 import paakhouse from './assets/img/paakhouse_bg.jpg';
 import fiveStar from './assets/img/5star_bg.jpg';
-
 import hue from './assets/img/hue_bg.jpg';
 import dreamworks from './assets/img/dreamworks_bg.jpg';
-
 import coonguard from './assets/img/coonguard_bg.jpg';
-import heard from './assets/img/heard_bg.jpg';
+import traitmarketplace from './assets/img/traitmarketplace_bg.jpg';
 
 import resume from './assets/docs/kylebebeau_resume.pdf';
-
-const advancedMatching = {};
-const options = {
-    autoConfig: true,
-    debug: false,
-};
-ReactPixel.init('2055850057979112', advancedMatching, options);
-ReactPixel.pageView();
 
 class Homepage extends React.Component {
   render(){
@@ -54,9 +43,6 @@ class Homepage extends React.Component {
             <a href="http://fyc.dreamworks.com" target="_BLANK" rel="noopener noreferrer">
               <img src={dreamworks} alt="Dreamworks FYC 2021" />
             </a>
-            <a href="http://realeyezapparel.com" target="_BLANK" rel="noopener noreferrer">
-              <img src={realeyez} alt="Realeyez" />
-            </a>
             <a href="https://smokebreak.live" target="_BLANK" rel="noopener noreferrer">
               <img src={smokeBreak} alt="Smoke Break" />
             </a>
@@ -69,23 +55,26 @@ class Homepage extends React.Component {
             <a href="https://andersonpaak.com" target="_BLANK" rel="noopener noreferrer">
               <img src={ap} alt="Anderson .Paak" />
             </a>
-            <a href="http://kylebebeau.com/track-artwork" target="_BLANK" rel="noopener noreferrer">
-              <img src={trackArtwork} alt="Track Artwork" />
-            </a>
-            <a href="https://hueunlimited.com" target="_BLANK" rel="noopener noreferrer">
-              <img src={hue} alt="Hue Unlimited, LLC" />
-            </a>
-            <a href="http://kylebebeau.com/logos" target="_BLANK" rel="noopener noreferrer">
-              <img src={logos} alt="Logos" />
+            <a href="https://traitmarketplace.com" target="_BLANK" rel="noopener noreferrer">
+              <img src={traitmarketplace} alt="Trait Marketplace" />
             </a>
             <a href="https://5starvintage.com" target="_BLANK" alt="5 Star Vintage" rel="noopener noreferrer">
               <img src={fiveStar} alt="Five Star Vintage" />
             </a>
-            <a href="http://34.219.204.113:3000/" target="_BLANK" alt="Texas Bandit Coon Guard" rel="noopener noreferrer">
-              <img src={coonguard} alt="Texas Bandit Coon Guard" />
+            <a href="http://kylebebeau.com/track-artwork" target="_BLANK" rel="noopener noreferrer">
+              <img src={trackArtwork} alt="Track Artwork" />
             </a>
-            <a href="https://heardmusic.app" target="_BLANK" rel="noopener noreferrer">
-              <img src={heard} alt="Heard" />
+            <a href="http://realeyezapparel.com" target="_BLANK" rel="noopener noreferrer">
+              <img src={realeyez} alt="Realeyez" />
+            </a>
+            <a href="http://kylebebeau.com/logos" target="_BLANK" rel="noopener noreferrer">
+              <img src={logos} alt="Logos" />
+            </a>
+            <a href="https://hueunlimited.com" target="_BLANK" rel="noopener noreferrer">
+              <img src={hue} alt="Hue Unlimited, LLC" />
+            </a>
+            <a href="https://texasbanditcoonguard.com/" target="_BLANK" alt="Texas Bandit Coon Guard" rel="noopener noreferrer">
+              <img src={coonguard} alt="Texas Bandit Coon Guard" />
             </a>
           </article>
         </section>
