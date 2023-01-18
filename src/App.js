@@ -17,8 +17,6 @@ import dreamworks from './assets/img/dreamworks_bg.jpg';
 import coonguard from './assets/img/coonguard_bg.jpg';
 import traitmarketplace from './assets/img/traitmarketplace_bg.jpg';
 
-import resume from './assets/docs/kylebebeau_resume.pdf';
-
 class Homepage extends React.Component {
   render(){
     return (
@@ -31,7 +29,7 @@ class Homepage extends React.Component {
               <p>
                 Imagination is the only weapon in the war against reality.
                 I aim to please, but shoot to kill.
-                I'm an artist, a problem solver, a software engineer, a creative gun for hire, etc. My name is <a target="_BLANK" href={resume} rel="noopener noreferrer">Kyle Bebeau</a>. 
+                I'm an artist, a problem solver, a software engineer, a creative gun for hire, etc. My name is Kyle Bebeau.
               </p>
               <p>
                 Below is my current portfolio of live projects.

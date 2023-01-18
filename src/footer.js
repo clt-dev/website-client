@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import angellist from './assets/img/icons/angellist.svg';
 import linkedin from './assets/img/icons/linkedin.svg';
 import dribble from './assets/img/icons/dribble.svg';
 import github from './assets/img/icons/github.svg';
@@ -35,10 +34,7 @@ class Footer extends Component {
             <a className="db" href="https://dribbble.com/kylebebeau" target="_blank" rel="noopener noreferrer">
               <img src={dribble} alt="Dribbble" />
             </a>
-            <a className="ag" href="https://angel.co/kylebebeau" target="_blank" rel="noopener noreferrer">
-              <img src={angellist} alt="Angel List" />
-            </a>
-            <a className="mail" href="mailto:kyle@theinitgroup.com?subject=Creative Service Request" target="_blank" rel="noopener noreferrer">
+            <a className="mail" href="mailto:kylebebeau@gmail.com?subject=Creative Service Request" target="_blank" rel="noopener noreferrer">
               <img src={mail} alt="Email" />
             </a>
           </article>
