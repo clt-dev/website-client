@@ -12,10 +12,12 @@ import trackArtwork from './assets/img/track_bg.jpg';
 import logos from './assets/img/logos_bg.jpg';
 import paakhouse from './assets/img/paakhouse_bg.jpg';
 import fiveStar from './assets/img/5star_bg.jpg';
-import hue from './assets/img/hue_bg.jpg';
 import dreamworks from './assets/img/dreamworks_bg.jpg';
 import coonguard from './assets/img/coonguard_bg.jpg';
 import traitmarketplace from './assets/img/traitmarketplace_bg.jpg';
+import pgmoutfitters from './assets/img/pgm-outfitters.jpg';
+
+import resume from './assets/docs/kylebebeau_resume.pdf';
 
 class Homepage extends React.Component {
   render(){
@@ -29,10 +31,10 @@ class Homepage extends React.Component {
               <p>
                 Imagination is the only weapon in the war against reality.
                 I aim to please, but shoot to kill.
-                I'm an artist, a problem solver, a software engineer, a creative gun for hire, etc. My name is Kyle Bebeau.
+                I'm an artist, a problem solver, a software engineer, a creative gun for hire, etc. My name is <a href={resume} target="_BLANK" rel="noreferrer">Kyle Bebeau</a>.
               </p>
               <p>
-                Below is my current portfolio of live projects.
+                Below is my portfolio of live projects.
               </p>
               <cite />
             </blockquote>
@@ -68,8 +70,8 @@ class Homepage extends React.Component {
             <a href="http://kylebebeau.com/logos" target="_BLANK" rel="noopener noreferrer">
               <img src={logos} alt="Logos" />
             </a>
-            <a href="https://hueunlimited.com" target="_BLANK" rel="noopener noreferrer">
-              <img src={hue} alt="Hue Unlimited, LLC" />
+            <a href="https://pgmoutfitters.com" target="_BLANK" rel="noopener noreferrer">
+              <img src={pgmoutfitters} alt="Next Generation Deer Feeders" />
             </a>
             <a href="https://texasbanditcoonguard.com/" target="_BLANK" alt="Texas Bandit Coon Guard" rel="noopener noreferrer">
               <img src={coonguard} alt="Texas Bandit Coon Guard" />
