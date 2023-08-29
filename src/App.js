@@ -16,6 +16,8 @@ import pgmoutfitters from './assets/img/websites/pgm-outfitters.jpg';
 import resume from './assets/docs/kylebebeau_resume.pdf';
 import {Logos, Posters, Prints} from './artwork';
 
+import {ReactComponent as Logo} from './assets/img/cltdev.svg';
+
 const Homepage = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState('');
@@ -41,28 +43,37 @@ const Homepage = () => {
     <div id="home">
 
       <section id="intro">
-        <div id="banner"></div>
+        {/* <div id="banner"></div> */}
+        <Logo className="logo" />
         <blockquote>
           <p>
-            Imagination is the only weapon in the war against reality.
-            I aim to please, but shoot to kill.
-            I'm an artist, a problem solver, a software engineer, a creative gun for hire, etc. My name is <a href={resume} target="_BLANK" rel="noreferrer">Kyle Bebeau</a>.
+            We are two old-head newcomers to this space. 
+            We are self-reliant individuals who take true ownership of our work and actions. 
+            We never miss our mark.
+            We aim to please, but shoot to kill. 
+            We are the artists, problem solvers, software engineers, you've been looking for. 
+            We are creative guns for hire. 
+            We are CLT devs.
           </p>
+          <p>Below are links to live client projects.</p>
           <cite />
         </blockquote>
-        <a href="mailto:kylebebeau@gmail.com?subject=Creative Service Request" className="btn">Start A Project</a>
+        <a href="mailto:kylebebeau@gmail.com?subject=Creative Service Request" className="btn">Get A Quote</a>
       </section>
 
       <section id="websites">
-        <h3>Development</h3>
+        {/* <h3>Development</h3> */}
         <a href="http://fyc.dreamworks.com" target="_BLANK" rel="noopener noreferrer">
           <img src={dreamworks} alt="Dreamworks FYC 2021" />
         </a>
-        <a href="https://www.npmjs.com/package/@bebeau/globe" target="_BLANK" rel="noopener noreferrer">
+        {/* <a href="https://www.npmjs.com/package/@bebeau/globe" target="_BLANK" rel="noopener noreferrer">
           <img src={globe} alt="Globe Package" />
-        </a>
+        </a> */}
         <a href="https://andersonpaak.com" target="_BLANK" rel="noopener noreferrer">
           <img src={ap} alt="Anderson .Paak" />
+        </a>
+        <a href="https://pgmoutfitters.com" target="_BLANK" rel="noopener noreferrer">
+          <img src={pgmoutfitters} alt="Next Generation Deer Feeders" />
         </a>
         <a href="https://customnatureproducts.com" target="_BLANK" rel="noopener noreferrer">
           <img src={customNature} alt="Custom Nature, LLC" />
@@ -82,15 +93,12 @@ const Homepage = () => {
         <a href="http://realeyezapparel.com" target="_BLANK" rel="noopener noreferrer">
           <img src={realeyez} alt="Realeyez" />
         </a>
-        <a href="https://pgmoutfitters.com" target="_BLANK" rel="noopener noreferrer">
-          <img src={pgmoutfitters} alt="Next Generation Deer Feeders" />
-        </a>
-        <a href="https://texasbanditcoonguard.com/" target="_BLANK" alt="Texas Bandit Coon Guard" rel="noopener noreferrer">
+        {/* <a href="https://texasbanditcoonguard.com/" target="_BLANK" alt="Texas Bandit Coon Guard" rel="noopener noreferrer">
           <img src={coonguard} alt="Texas Bandit Coon Guard" />
-        </a>
+        </a> */}
       </section>
 
-      <section id="logos">
+      {/* <section id="logos">
         <h3>Logos</h3>
         {Logos.map((image, index) => {
           return(
@@ -117,9 +125,9 @@ const Homepage = () => {
             </article>
           )
         })}
-      </section>
+      </section> */}
 
-      <Footer />
+      {/* <Footer /> */}
 
     </div>
     </>

@@ -9,7 +9,7 @@ class Footer extends Component {
   render(){
     return (
       <footer>
-        <a className="btn" href="mailto:kylebebeau@gmail.com?subject=Creative Service Request">Start A Project</a>
+        <a className="btn" href="mailto:kylebebeau@gmail.com?subject=Creative Service Request">Get A Quote</a>
         <article className="social">
           <a className="gh" href="https://github.com/bebeau" target="_blank" rel="noopener noreferrer">
             <img src={github} alt="GitHub" />
