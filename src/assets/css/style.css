@@ -76,6 +76,7 @@ body, html {
 #home #intro .logo {
   width: 150px;
   fill: white;
+  padding-top: 40px;
 }
 #home #intro blockquote {
   color: #999;

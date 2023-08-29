@@ -71,6 +71,7 @@ body, html {
     .logo {
       width: 150px;
       fill: white;
+      padding-top: 40px;
     }
     blockquote {
       color: #999;
@@ -118,6 +119,7 @@ body, html {
     #intro {
       .logo {
         width: 200px;
+        padding-top: 0;
       }
       blockquote {
         font-size: 1.6rem;
