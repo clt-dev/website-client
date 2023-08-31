@@ -33,13 +33,9 @@ const Homepage = () => {
         <Logo className="logo" />
         <blockquote>
           <p>
-            We are two old-head newcomers to this space. 
-            We are self-reliant individuals who take true ownership of our work and actions. 
-            We never miss our mark.
             We aim to please, but shoot to kill. 
             We are the artists, problem solvers, software engineers, you've been looking for. 
-            We are creative guns for hire. 
-            We are CLT devs.
+            We are Charlotte devs, creative guns for hire.
           </p>
           <p>Below are links to live client projects.</p>
         </blockquote>

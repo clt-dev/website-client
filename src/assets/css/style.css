@@ -120,6 +120,7 @@ body, html {
 @media (min-width: 768px) {
   #home #intro .logo {
     width: 200px;
+    padding-top: 0;
   }
   #home #intro blockquote {
     font-size: 1.6rem;
