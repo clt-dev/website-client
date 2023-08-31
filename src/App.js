@@ -10,7 +10,7 @@ import dreamworks from './assets/img/websites/dreamworks_bg.jpg';
 import traitmarketplace from './assets/img/websites/traitmarketplace_bg.jpg';
 import pgmoutfitters from './assets/img/websites/pgm-outfitters.jpg';
 
-import {ReactComponent as Logo} from './assets/img/cltdev.svg';
+import {ReactComponent as Logo} from './assets/img/logo.svg';
 
 const Homepage = () => {
 
@@ -32,14 +32,14 @@ const Homepage = () => {
       <section id="intro">
         <Logo />
         <blockquote>
-          <p>
+            We are two Charlotte, NC based developers. 
             We aim to please, but shoot to kill. 
-            We are the artists, problem solvers, software engineers, you've been looking for. 
-            We are Charlotte devs, creative guns for hire.
-          </p>
-          <p>Below are links to live client projects.</p>
+            We are the artists, the problem solvers, the software engineers you've been looking for. We are creative guns for hire.
         </blockquote>
         <button className="btn" onClick={() => handleBtnClick()}>Get A Quote</button>
+        <div className="scroll">
+          <div className="arrow"></div>
+        </div>
       </section>
 
       <section id="websites">

@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Poppins:wght@100;300;400&display=swap');
+
+@keyframes bounce {
+  from {
+      transform: translateY(10px);
+  }
+  to {
+      transform: translateY(0);
+  }
+}
+
 body, html {
   margin: 0;
   padding: 0;
@@ -63,19 +74,21 @@ body, html {
 }
 #home {
   position: relative;
-  z-index: 2;
   #intro {
     min-height: 100vh;
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 2;
+    padding: 20px 0;
+    box-sizing: border-box;
     #logo {
       width: 200px;
       fill: white;
-      padding-top: 40px;
       #fill {
         fill: #111;
       }
@@ -84,7 +97,10 @@ body, html {
       color: #999;
       font-size: 1.2rem;
       margin-top: 0;
-      padding: 20px 0;
+      padding: 20px 0 40px;
+      margin-top: 20px;
+      letter-spacing: 0.5px;
+      font-weight: lighter;
       a {
         text-decoration: none;
         font-weight: bold;
@@ -98,6 +114,9 @@ body, html {
     flex-wrap: wrap;
     margin: 0 auto;
     padding: 20px;
+    position: relative;
+    z-index: 3;
+    background: #111111;
     a {
       flex: 0 0 100%;
       display: block;
@@ -118,6 +137,52 @@ body, html {
         }
       }
     }
+  }
+}
+.scroll {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translate(-50%,0);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  svg {
+    fill: grey;
+    width: 25px;
+    height: 25px;
+  }
+  .arrow {
+    animation: bounce 1s infinite alternate;
+    &:before {
+      content: "";
+      display: block;
+      width: 8px;
+      height: 1px;
+      background: grey;
+      bottom: -5px;
+      left: 50%;
+      position: fixed;
+      transform: translateX(-3px) rotate(-45deg);
+      transform-origin: right;
+    }
+    &:after {
+      content: "";
+      display: block;
+      width: 8px;
+      height: 1px;
+      background: grey;
+      bottom: -5px;
+      left: 50%;
+      position: fixed;
+      transform: translateY(5px) rotate(-135deg);
+      transform-origin: left;
+    }
+  }
+  &:hover {
+    cursor: pointer;
   }
 }
 
