@@ -39,7 +39,7 @@ body, html {
   display: none !important;
 }
 .btn {
-  background: white;
+  background: darken(white, 5%);
   text-align: center;
   padding: 0 20px;
   width: 300px;
@@ -51,10 +51,14 @@ body, html {
   text-transform: uppercase;
   letter-spacing: 2px;
   border-radius: 10px;
+  border: none;
+  transition: all 0.3s ease-in-out;
   &:hover {
     cursor: pointer;
     background: white;
     color: black;
+    letter-spacing: 2.5px;
+    transition: all 0.3s ease-in-out;
   }
 }
 #home {
@@ -68,10 +72,13 @@ body, html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    .logo {
-      width: 150px;
+    #logo {
+      width: 200px;
       fill: white;
       padding-top: 40px;
+      #fill {
+        fill: #111;
+      }
     }
     blockquote {
       color: #999;

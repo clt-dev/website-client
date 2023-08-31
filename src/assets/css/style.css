@@ -41,7 +41,7 @@ body, html {
 }
 
 .btn {
-  background: white;
+  background: #f2f2f2;
   text-align: center;
   padding: 0 20px;
   width: 300px;
@@ -53,11 +53,15 @@ body, html {
   text-transform: uppercase;
   letter-spacing: 2px;
   border-radius: 10px;
+  border: none;
+  transition: all 0.3s ease-in-out;
 }
 .btn:hover {
   cursor: pointer;
   background: white;
   color: black;
+  letter-spacing: 2.5px;
+  transition: all 0.3s ease-in-out;
 }
 
 #home {
@@ -73,10 +77,13 @@ body, html {
   align-items: center;
   justify-content: center;
 }
-#home #intro .logo {
-  width: 150px;
+#home #intro #logo {
+  width: 200px;
   fill: white;
   padding-top: 40px;
+}
+#home #intro #logo #fill {
+  fill: #111;
 }
 #home #intro blockquote {
   color: #999;

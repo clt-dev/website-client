@@ -30,7 +30,7 @@ const Homepage = () => {
     <div id="home">
 
       <section id="intro">
-        <Logo className="logo" />
+        <Logo />
         <blockquote>
           <p>
             We aim to please, but shoot to kill. 
