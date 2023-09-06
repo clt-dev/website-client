@@ -38,7 +38,7 @@ const Homepage = () => {
   return (
     <div id="home">
 
-      <video preload='metadata' autoPlay muted loop playsInline id="video">
+      <video preload='metadata' playsInline autoPlay loop muted id="video">
         <source src={webm} type="video/webm"></source>
       </video>
 
