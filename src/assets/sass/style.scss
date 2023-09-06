@@ -165,7 +165,7 @@ body, html {
 }
 .scroll {
   position: fixed;
-  bottom: 80px;
+  bottom: 20px;
   left: 50%;
   transform: translate(-50%,0);
   z-index: 2;
@@ -211,6 +211,9 @@ body, html {
 }
 
 @media (min-width: 768px) {
+  .scroll {
+    bottom: 80px;
+  }
   #home {
     #intro {
       .logo {
