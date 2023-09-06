@@ -49,7 +49,7 @@ const Homepage = () => {
           We are creative guns for hire.
           We aim to please, but shoot to kill. 
           We are the artists, the problem solvers, the software engineers you've been looking for.
-          We are Charlotte, NC developers.
+          We are Charlotte, NC software developers.
         </blockquote>
         <button className="btn" onClick={() => handleBtnClick()}>Get A Quote</button>
         <div className="scroll">
