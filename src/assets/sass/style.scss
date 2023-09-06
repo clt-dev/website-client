@@ -110,7 +110,7 @@ body, html {
     padding: 20px 0;
     box-sizing: border-box;
     #logo {
-      width: 200px;
+      width: 150px;
       fill: white;
       #fill {
         fill: #111111;
@@ -165,7 +165,7 @@ body, html {
 }
 .scroll {
   position: fixed;
-  bottom: 20px;
+  bottom: 40px;
   left: 50%;
   transform: translate(-50%,0);
   z-index: 2;

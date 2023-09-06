@@ -113,7 +113,7 @@ body, html {
   box-sizing: border-box;
 }
 #home #intro #logo {
-  width: 200px;
+  width: 150px;
   fill: white;
 }
 #home #intro #logo #fill {
@@ -167,7 +167,7 @@ body, html {
 
 .scroll {
   position: fixed;
-  bottom: 80px;
+  bottom: 40px;
   left: 50%;
   transform: translate(-50%, 0);
   z-index: 2;
@@ -213,6 +213,9 @@ body, html {
 }
 
 @media (min-width: 768px) {
+  .scroll {
+    bottom: 80px;
+  }
   #home #intro .logo {
     width: 200px;
     padding-top: 0;
