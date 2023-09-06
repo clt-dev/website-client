@@ -216,7 +216,7 @@ body, html {
   .scroll {
     bottom: 80px;
   }
-  #home #intro .logo {
+  #home #intro #logo {
     width: 200px;
     padding-top: 0;
   }
