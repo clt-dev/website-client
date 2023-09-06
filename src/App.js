@@ -12,7 +12,7 @@ import pgmoutfitters from './assets/img/websites/pgm-outfitters.jpg';
 
 import {ReactComponent as Logo} from './assets/img/logo.svg';
 import webm from './assets/video/clt.webm';
-// import mp4 from './assets/video/clt.mp4';
+import mp4 from './assets/video/clt.mp4';
 
 const Homepage = () => {
   const webRef = useRef();
@@ -39,6 +39,7 @@ const Homepage = () => {
     <div id="home">
 
       <video preload='metadata' playsInline autoPlay loop muted id="video">
+        <source src={mp4} type="video/mp4"></source>
         <source src={webm} type="video/webm"></source>
       </video>
 
