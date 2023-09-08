@@ -4,42 +4,15 @@
     transform: translateY(10px);
   }
   to {
-    transform: translateY(0);
+    transform: translateY(5px);
   }
 }
 body, html {
   margin: 0;
   padding: 0;
   font-family: "Didact Gothic", sans-serif;
-  background: black;
+  background: #111111;
   scroll-behavior: smooth;
-}
-
-#root:before {
-  content: "";
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  background: #111;
-}
-#root:after {
-  content: "";
-  display: block;
-  position: fixed;
-  pointer-events: none;
-  height: 150px;
-  width: 100%;
-  bottom: -150px;
-  left: 0;
-  right: 0;
-  border-radius: 50%;
-  background: black;
-  z-index: 3;
-  filter: blur(50px);
 }
 
 .hideMobile {
@@ -54,7 +27,7 @@ body, html {
   background: #f2f2f2;
   text-align: center;
   padding: 0 20px;
-  width: 300px;
+  width: 100%;
   line-height: 60px;
   margin: 0 auto;
   color: black;
@@ -65,6 +38,7 @@ body, html {
   border-radius: 10px;
   border: none;
   transition: all 0.3s ease-in-out;
+  white-space: nowrap;
 }
 .btn:hover {
   cursor: pointer;
@@ -74,22 +48,50 @@ body, html {
   transition: all 0.3s ease-in-out;
 }
 
-#home {
+p {
+  font-size: 1.6rem;
+}
+
+h3,
+.keyTitle {
+  margin: 0;
+  font-size: 2rem;
+}
+h3 span,
+.keyTitle span {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  border: 3px solid black;
+  border-radius: 5px;
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 0 10px 5px 0;
+  margin-right: 5px;
+  background: white;
+}
+h3.dark span,
+.keyTitle.dark span {
+  background: #111;
+  border-color: white;
+  color: white;
+}
+
+#logo {
   position: relative;
+  z-index: 99;
+  width: 150px;
+  fill: white;
+  box-sizing: border-box;
 }
-#home:after {
-  content: "";
-  position: fixed;
-  display: block;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 2;
-  background: rgba(17, 17, 17, 0.8);
+#logo #fill {
+  fill: #111111;
 }
-#home #video {
-  position: fixed;
+
+#video {
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -100,92 +102,119 @@ body, html {
   z-index: 1;
   filter: grayscale(100%);
 }
+
+.container {
+  position: relative;
+  transform: scale(1);
+  transition: all 0.5s ease-in-out;
+}
+.container.out {
+  transform: scale(0.98);
+  transition: all 0.5s ease-in-out;
+}
+
+@media (min-width: 768px) {
+  .scroll {
+    bottom: 80px;
+  }
+  .btn {
+    width: 300px;
+  }
+  #home #intro blockquote {
+    font-size: 1.6rem;
+  }
+}
+#home {
+  position: relative;
+  background: #111;
+}
 #home #intro {
   min-height: 100vh;
-  max-width: 700px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   position: relative;
   z-index: 3;
-  padding: 20px 0;
+  padding: 20px;
+  box-sizing: border-box;
+  color: white;
+}
+#home #intro .left,
+#home #intro .right {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#home #intro .left {
   box-sizing: border-box;
 }
-#home #intro #logo {
-  width: 150px;
-  fill: white;
+#home #intro .left h1 {
+  font-size: 4rem;
+  line-height: 5.4rem;
+  margin: 40px 0 0;
+  align-self: flex-start;
 }
-#home #intro #logo #fill {
-  fill: #111111;
-}
-#home #intro blockquote {
+#home #intro .left blockquote {
   color: white;
   font-size: 1.2rem;
-  margin-top: 0;
+  margin: 0;
   padding: 20px 0 40px;
-  margin-top: 20px;
   letter-spacing: 0.5px;
   font-weight: lighter;
 }
-#home #intro blockquote a {
+#home #intro .left blockquote a {
   text-decoration: none;
   font-weight: bold;
   font-family: "helvetica", sans-serif;
   color: #333333;
 }
-#home #websites {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  position: relative;
-  z-index: 3;
-  border-radius: 20px;
-  overflow: hidden;
-  background: black;
+#home #intro .left .btn {
+  align-self: flex-start;
+  margin: 0;
 }
-#home #websites a {
-  flex: 0 0 100%;
+#home #intro .right {
+  margin-top: 40px;
+  border: 3px solid white;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+#home #intro .right a {
+  font-size: 1.6rem;
+  color: white;
+  text-decoration: none;
   display: block;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   overflow: hidden;
 }
-#home #websites a img {
-  width: 100%;
-  margin: 0 0 -5px;
-  opacity: 0.8;
-  transform: scale(1);
-  transition: all 0.2s ease-in-out;
+#home #intro .right a:last-child {
+  margin: 0;
 }
-#home #websites a:hover {
-  cursor: pointer;
+#home #intro .right a:hover span {
+  background: #222;
 }
-#home #websites a:hover img {
-  opacity: 1;
-  transform: scale(1.02);
-  transition: all 0.2s ease-in-out;
-}
-
-.scroll {
-  position: fixed;
+#home #intro .scroll {
+  position: absolute;
   bottom: 40px;
   left: 50%;
   transform: translate(-50%, 0);
   z-index: 2;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: darkgrey;
+  font-size: 0.8rem;
 }
-.scroll svg {
-  fill: grey;
-  width: 25px;
-  height: 25px;
-}
-.scroll .arrow {
+#home #intro .scroll .arrow {
   animation: bounce 1s infinite alternate;
 }
-.scroll .arrow:before {
+#home #intro .scroll .arrow:before {
   content: "";
   display: block;
   width: 8px;
@@ -197,7 +226,7 @@ body, html {
   transform: translateX(-3px) rotate(-45deg);
   transform-origin: right;
 }
-.scroll .arrow:after {
+#home #intro .scroll .arrow:after {
   content: "";
   display: block;
   width: 8px;
@@ -209,32 +238,473 @@ body, html {
   transform: translateY(5px) rotate(-135deg);
   transform-origin: left;
 }
-.scroll:hover {
+#home #intro .scroll:hover {
   cursor: pointer;
 }
 
 @media (min-width: 768px) {
-  .scroll {
-    bottom: 80px;
+  #home #intro {
+    flex-direction: row;
+    padding: 40px;
   }
-  #home #intro #logo {
-    width: 200px;
-    padding-top: 0;
+  #home #intro .scroll {
+    display: flex;
   }
-  #home #intro blockquote {
+  #home #intro .left {
+    padding: 0 40px;
+  }
+  #home #intro .left h1 {
+    font-size: 4rem;
+  }
+  #home #intro .left blockquote {
     font-size: 1.6rem;
   }
-  #home #websites a {
+  #home #intro .right {
     flex: 0 0 50%;
+    margin: 0;
+    border: none;
+    background: none;
+  }
+  #home #intro .right a {
+    font-size: 1.6rem;
+  }
+}
+@media (min-width: 1200px) {
+  #home #intro .left {
+    padding: 0 100px;
+  }
+}
+#page {
+  margin: 0 auto;
+  color: white;
+}
+#page .banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#page .banner div {
+  flex: 1 1 50%;
+}
+#page .banner .image {
+  background: lightgrey;
+  align-self: stretch;
+}
+#page .banner .copy {
+  padding: 40px;
+  box-sizing: border-box;
+}
+#page .banner .copy h1 {
+  margin-top: 0;
+}
+#page .full {
+  position: relative;
+  background: grey;
+  box-sizing: border-box;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#page .full:after {
+  content: "";
+  width: 100%;
+  height: 30px;
+  filter: blur(20px);
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+#page .full.top:after {
+  top: -50px;
+}
+#page .full.bottom:after {
+  bottom: -50px;
+}
+#page .full p {
+  max-width: 800px;
+  font-size: 1.6rem;
+  text-align: left;
+  margin: 0 0 40px;
+}
+#page .blocks {
+  background: white;
+  color: #111111;
+  position: relative;
+  z-index: 10;
+}
+#page .blocks div {
+  box-sizing: border-box;
+  padding: 40px;
+}
+#page .blocks div h3 {
+  font-size: 2.4rem;
+}
+#page .blocks div p {
+  margin-bottom: 0;
+  color: #666;
+}
+#page .cta {
+  min-height: 100vh;
+  position: relative;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#page .cta:after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  background: rgba(17, 17, 17, 0.8);
+}
+#page .cta .copy {
+  position: relative;
+  z-index: 3;
+}
+#page .cta .copy #logo {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 200px;
+}
+#page .cta .copy p {
+  padding: 40px 0;
+}
+
+@media (min-width: 768px) {
+  #page .banner {
+    flex-direction: row;
+    min-height: 100vh;
+  }
+  #page .banner .copy {
+    padding: 100px;
+  }
+  #page .banner .copy h1 {
+    font-size: 3rem;
+    line-height: 3.6rem;
+    line-break: break-word;
+    margin: 0;
+  }
+  #page .banner .copy .btn {
+    margin-top: 40px;
+  }
+  #page .full {
+    padding: 100px;
+  }
+  #page .blocks {
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  #page .blocks div {
+    flex: 1 1 50%;
+    padding: 40px 100px;
+  }
+  #page .blocks div h3 {
+    font-size: 2rem;
+  }
+  #page .cta {
+    padding: 100px;
+  }
+  #page .cta p {
+    max-width: 800px;
+    font-size: 2rem;
+    margin: 40px 0 60px;
   }
 }
 @media (min-width: 991px) {
-  #home #websites {
-    max-width: 1400px;
-    margin-bottom: 40px;
+  #page .full {
+    flex-direction: row-reverse;
   }
-  #home #websites a {
+  #page .full p {
+    padding-left: 40px;
+    margin: 0;
+  }
+  #page .full .btn {
+    flex: 0 0 300px;
+  }
+}
+#websites {
+  box-sizing: border-box;
+  background: #111;
+  max-height: 0;
+  height: auto;
+  overflow: hidden;
+}
+#websites.show {
+  padding: 10px;
+  max-height: 9999px;
+  transition: all 0.8s ease-in-out;
+}
+#websites .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  position: relative;
+  z-index: 3;
+  border-radius: 20px;
+  overflow: hidden;
+}
+#websites .wrap a {
+  flex: 0 0 100%;
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+#websites .wrap a img {
+  width: 100%;
+  margin: 0 0 -5px;
+  opacity: 0.8;
+  transform: scale(1);
+  transition: all 0.2s ease-in-out;
+}
+#websites .wrap a .overlay {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  background: none;
+  border: 5px solid white;
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: translate(0, 200px) scale(0.9);
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+#websites .wrap a .overlay h3 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+#websites .wrap a .overlay p {
+  font-size: 1rem;
+  margin: 0;
+}
+#websites .wrap a:hover {
+  cursor: pointer;
+}
+#websites .wrap a:hover .overlay {
+  transform: scale(1);
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
+}
+#websites .wrap a:hover img {
+  opacity: 0.5;
+  transform: scale(2);
+  transition: all 0.2s ease-in-out;
+  filter: blur(10px);
+}
+
+@media (min-width: 768px) {
+  #websites.show {
+    padding: 40px;
+  }
+  #websites .wrap a {
+    flex: 0 0 50%;
+  }
+  #websites .wrap a .overlay {
+    padding: 20px;
+  }
+  #websites .wrap a .overlay p.desc {
+    font-size: 1.2rem;
+  }
+}
+@media (min-width: 991px) {
+  #websites .wrap {
+    max-width: 1400px;
+  }
+  #websites .wrap a {
     flex: 0 0 33.333333%;
+  }
+  #websites .wrap a .overlay {
+    padding: 10px;
+  }
+  #websites .wrap a .overlay h3 {
+    font-size: 1.2rem;
+  }
+  #websites .wrap a .overlay p {
+    font-size: 0.8rem;
+  }
+  #websites .wrap a .overlay p.desc {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 1200px) {
+  #websites .wrap a .overlay {
+    padding: 30px;
+  }
+  #websites .wrap a .overlay h3 {
+    font-size: 1.6rem;
+  }
+  #websites .wrap a .overlay p {
+    font-size: 1rem;
+  }
+  #websites .wrap a .overlay p.desc {
+    font-size: 1.2rem;
+  }
+}
+.modal {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 9999;
+  margin: 0 auto;
+  height: 100vh;
+  background: #111111;
+  box-sizing: border-box;
+  color: white;
+  transform: translateY(150%) scale(0.9);
+  transition: all 0.5s ease-in-out;
+  overflow-y: scroll;
+}
+.modal.show {
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+  transition: all 0.5s ease-in-out;
+}
+.modal .close {
+  width: 50px;
+  height: 50px;
+  border-radius: 999px;
+  background: white;
+  border: none;
+  box-shadow: 0 0 0;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.modal .close:before, .modal .close:after {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: #111;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+}
+.modal .close:before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.modal .close:after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.modal .half {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.modal .half .image {
+  height: 20vh;
+  align-self: stretch;
+  background-position: center;
+  background-size: cover;
+}
+.modal .half .form {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.modal .half .form .half {
+  height: auto;
+}
+.modal .field {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.modal .field .half {
+  gap: 20px;
+}
+.modal input,
+.modal textarea {
+  border: none;
+  background: #222222;
+  font-size: 1.4rem;
+  padding: 15px;
+  border-radius: 5px;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  color: white;
+}
+.modal input:focus, .modal input:active,
+.modal textarea:focus,
+.modal textarea:active {
+  outline: none;
+}
+.modal textarea {
+  resize: none;
+  min-height: 200px;
+  font-family: "Didact Gothic", sans-serif;
+}
+.modal .phone-number-input {
+  color: white;
+}
+.modal .phone-number-input button {
+  border: none;
+  background: #222222;
+  color: white;
+}
+.modal .phone-number-input input {
+  width: 100%;
+  min-width: auto;
+  max-width: auto;
+}
+.modal .label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 20px;
+}
+
+@media (min-width: 768px) {
+  .modal .field {
+    margin-bottom: 20px;
+  }
+  .modal .half {
+    flex-direction: row;
+  }
+  .modal .half .image,
+  .modal .half .form {
+    flex: 1 1 50%;
+  }
+  .modal .half .image {
+    height: auto;
+  }
+  .modal .half .form {
+    padding: 100px;
+  }
+  .modal .half .form .half {
+    gap: 20px;
   }
 }
 

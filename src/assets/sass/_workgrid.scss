@@ -1,0 +1,141 @@
+#websites {
+  box-sizing: border-box;
+  background: #111;
+  max-height: 0;
+  height: auto;
+  overflow: hidden;
+  &.show {
+    padding: 10px;
+    max-height: 9999px;
+    transition: all 0.8s ease-in-out;
+  }
+  .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+    border-radius: 20px;
+    overflow: hidden;
+    a {
+      flex: 0 0 100%;
+      display: block;
+      overflow: hidden;
+      position: relative;
+      img {
+        width: 100%;
+        margin: 0 0 -5px;
+        opacity: 0.8;
+        transform: scale(1);
+        transition: all 0.2s ease-in-out;
+      }
+      .overlay {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        color: white;
+        padding: 20px;
+        box-sizing: border-box;
+        background: none;
+        border: 5px solid white;
+        box-sizing: border-box;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transform: translate(0,200px) scale(0.9);
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
+        h3 {
+          font-size: 1.4rem;
+          margin: 0;
+        }
+        p {
+          font-size: 1rem;
+          margin: 0;
+        }
+      }
+      &:hover {
+        cursor: pointer;
+        .overlay {
+          transform: scale(1);
+          opacity: 1;
+          transition: all 0.2s ease-in-out;
+        }
+        img {
+          opacity: 0.5;
+          transform: scale(2);
+          transition: all 0.2s ease-in-out;
+          filter: blur(10px);
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  #websites {
+    &.show {
+      padding: 40px;
+    }
+    .wrap {
+      a {
+        flex: 0 0 50%;
+        .overlay {
+          padding: 20px;
+          p {
+            &.desc {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 991px) {
+  #websites {
+    .wrap {
+      max-width: 1400px;
+      a {
+        flex: 0 0 33.333333%;
+        .overlay {
+          padding: 10px;
+          h3 {
+            font-size: 1.2rem;
+          }
+          p {
+            font-size: 0.8rem;
+            &.desc {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  #websites {
+    .wrap {
+      a {
+        .overlay {
+          padding: 30px;
+          h3 {
+            font-size: 1.6rem;
+          }
+          p {
+            font-size: 1rem;
+            &.desc {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
