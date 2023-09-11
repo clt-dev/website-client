@@ -1,6 +1,6 @@
 #websites {
   box-sizing: border-box;
-  background: #111;
+  background: $dark;
   max-height: 0;
   height: auto;
   overflow: hidden;
@@ -66,9 +66,9 @@
         }
         img {
           opacity: 0.5;
-          transform: scale(2);
+          transform: scale(1.5);
           transition: all 0.2s ease-in-out;
-          filter: blur(10px);
+          filter: blur(5px);
         }
       }
     }

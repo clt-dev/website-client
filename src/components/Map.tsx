@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Homepage from './Homepage';
 
@@ -11,31 +11,50 @@ import Identity from './services/Identity';
 import InquiryForm from './InquiryForm';
 
 const Map = () => {
+  const keyRef = useRef<any>(false);
+  const pauseRef = useRef<boolean>(false);
   const [showInquiry, setShowInquiry] = useState<boolean>(false);
 
-  const handleKeyPress = (key: string) => {
-    const target = key.toLowerCase();
-    if (target === 'w') {
+  const handleKeyPress = (e: KeyboardEvent) => {
+    const key = e.key.toLowerCase();
+
+    if (key === 'escape') {
+      e.preventDefault();
+      setShowInquiry(false);
+    }
+
+    if (pauseRef.current) return;
+
+    if (key === 'h') {
+      window.location.pathname = '/'
+    }
+    if (key === 'w') {
       window.location.pathname = '/services/website-design-development'
     }
-    if (target === 's') {
+    if (key === 's') {
       window.location.pathname = '/services/software-development'
     }
-    if (target === 'p') {
+    if (key === 'p') {
       window.location.pathname = '/services/product-engineering'
     }
-    if (target === 'u') {
+    if (key === 'u') {
       window.location.pathname = '/services/user-interface-design'
     }
-    if (target === 'i') {
+    if (key === 'i') {
       window.location.pathname = '/services/identity-design'
     }
   }
 
   useEffect(() => {
-    window.addEventListener('keydown', (e) => handleKeyPress(e.key));
+    pauseRef.current = showInquiry;
+  }, [showInquiry]);
+
+  useEffect(() => {
+    if (keyRef.current) return;
+    keyRef.current = true;
+    window.addEventListener('keydown', (e) => handleKeyPress(e));
     return () => {
-      window.removeEventListener('keydown', (e) => handleKeyPress(e.key));
+      window.removeEventListener('keydown', (e) => handleKeyPress(e));
     };
   }, []);
 
@@ -43,7 +62,7 @@ const Map = () => {
     <>
     <InquiryForm 
       show={showInquiry}
-      showInquiry={(value: boolean) => setShowInquiry(value)}
+      toggle={() => setShowInquiry(!showInquiry)}
     />
     <div className={showInquiry ? 'container out' : 'container'}>
       <Router>
@@ -52,7 +71,8 @@ const Map = () => {
             path="/" 
             element={
               <Homepage 
-                showInquiry={(value: boolean) => setShowInquiry(value)}
+                inquiry={showInquiry}
+                toggle={() => setShowInquiry(!showInquiry)}
               />
             } 
           />

@@ -1,11 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Poppins:wght@100;300;400&display=swap');
 
+$dark: #1e1f1e;
+
 @keyframes bounce {
   from {
-      transform: translateY(10px);
+    transform: translateY(10px);
   }
   to {
-      transform: translateY(5px);
+    transform: translateY(5px);
+  }
+}
+
+@keyframes blink {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
@@ -13,7 +24,7 @@ body, html {
   margin: 0;
   padding: 0;
   font-family: 'Didact Gothic', sans-serif;
-  background: #111111;
+  background: $dark;
   scroll-behavior: smooth;
 }
 .hideMobile {
@@ -69,7 +80,7 @@ h3,
   }
   &.dark {
     span {
-      background: #111;
+      background: $dark;
       border-color: white;
       color: white;
     }
@@ -82,7 +93,7 @@ h3,
   fill: white;
   box-sizing: border-box;
   #fill {
-    fill: #111111;
+    fill: $dark;
   }
 }
 #video {

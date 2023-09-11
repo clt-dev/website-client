@@ -1,23 +1,24 @@
-import React, {useRef} from 'react';
+import React, {useRef, useEffect} from 'react';
 import WorkGrid from './WorkGrid';
 
 import {ReactComponent as Logo} from '../assets/img/logo.svg';
 
 const Homepage = (props: {
-  showInquiry: (value: boolean) => void;
+  inquiry: boolean;
+  toggle: () => void;
 }) => {
 
   const workRef = useRef<HTMLDivElement | null>(null);
 
-  const logAnalytics = async () => {
-    window.gtag('config', 'AW-11171481429');
-    window.gtag('event', 'inquiry_click', {
-      send_to: 'AW-11313458751/yymXCNWButgYEL_c1pIq',
-    })
-  }
+  // const logAnalytics = async () => {
+  //   window.gtag('config', 'AW-11171481429');
+  //   window.gtag('event', 'inquiry_click', {
+  //     send_to: 'AW-11313458751/yymXCNWButgYEL_c1pIq',
+  //   })
+  // }
 
-  const handleBtnClick = async () => {
-    props.showInquiry(true);
+  const handleBtnClick = () => {
+    props.toggle();
     // await logAnalytics();
   }
 

@@ -7,11 +7,19 @@
     transform: translateY(5px);
   }
 }
+@keyframes blink {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 body, html {
   margin: 0;
   padding: 0;
   font-family: "Didact Gothic", sans-serif;
-  background: #111111;
+  background: #1e1f1e;
   scroll-behavior: smooth;
 }
 
@@ -74,7 +82,7 @@ h3 span,
 }
 h3.dark span,
 .keyTitle.dark span {
-  background: #111;
+  background: #1e1f1e;
   border-color: white;
   color: white;
 }
@@ -87,7 +95,7 @@ h3.dark span,
   box-sizing: border-box;
 }
 #logo #fill {
-  fill: #111111;
+  fill: #1e1f1e;
 }
 
 #video {
@@ -126,7 +134,7 @@ h3.dark span,
 }
 #home {
   position: relative;
-  background: #111;
+  background: #1e1f1e;
 }
 #home #intro {
   min-height: 100vh;
@@ -257,7 +265,7 @@ h3.dark span,
     font-size: 4rem;
   }
   #home #intro .left blockquote {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
   #home #intro .right {
     flex: 0 0 50%;
@@ -440,7 +448,7 @@ h3.dark span,
 }
 #websites {
   box-sizing: border-box;
-  background: #111;
+  background: #1e1f1e;
   max-height: 0;
   height: auto;
   overflow: hidden;
@@ -510,9 +518,9 @@ h3.dark span,
 }
 #websites .wrap a:hover img {
   opacity: 0.5;
-  transform: scale(2);
+  transform: scale(1.5);
   transition: all 0.2s ease-in-out;
-  filter: blur(10px);
+  filter: blur(5px);
 }
 
 @media (min-width: 768px) {
@@ -573,139 +581,85 @@ h3.dark span,
   pointer-events: none;
   z-index: 9999;
   margin: 0 auto;
-  height: 100vh;
-  background: #111111;
+  padding: 10px;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  background: #1e1f1e;
   box-sizing: border-box;
-  color: white;
-  transform: translateY(150%) scale(0.9);
-  transition: all 0.5s ease-in-out;
-  overflow-y: scroll;
+  color: #cccccc;
+  display: none;
+  font-family: "menlo", "courier", serif;
 }
 .modal.show {
   pointer-events: auto;
-  transform: translateY(0) scale(1);
-  transition: all 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.modal .modalCopy {
+  height: 100vh;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  padding-bottom: 60px;
+}
+.modal img {
+  max-width: 400px;
+  height: auto;
+  margin: 0 0 20px;
 }
 .modal .close {
-  width: 50px;
-  height: 50px;
-  border-radius: 999px;
-  background: white;
+  color: #cccccc;
+  background: none;
   border: none;
   box-shadow: 0 0 0;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-.modal .close:before, .modal .close:after {
-  content: "";
-  width: 20px;
-  height: 2px;
-  background: #111;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transform-origin: center;
-}
-.modal .close:before {
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-.modal .close:after {
-  transform: translate(-50%, -50%) rotate(-45deg);
-}
-.modal .half {
-  display: flex;
-  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  background: #1e1f1e;
+  border-top: 1px solid #cccccc;
   width: 100%;
-  height: 100%;
+  text-align: left;
 }
-.modal .half .image {
-  height: 20vh;
-  align-self: stretch;
-  background-position: center;
-  background-size: cover;
-}
-.modal .half .form {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-sizing: border-box;
-}
-.modal .half .form .half {
-  height: auto;
-}
-.modal .field {
-  width: 100%;
-  margin-bottom: 10px;
-}
-.modal .field .half {
-  gap: 20px;
-}
-.modal input,
-.modal textarea {
-  border: none;
-  background: #222222;
-  font-size: 1.4rem;
-  padding: 15px;
+.modal .close .block {
+  display: inline-block;
+  background: #cccccc;
+  color: #1e1f1e;
+  padding: 5px;
   border-radius: 5px;
-  width: 100%;
-  min-width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
+}
+.modal .userInput {
   color: white;
 }
-.modal input:focus, .modal input:active,
-.modal textarea:focus,
-.modal textarea:active {
+.modal .userInput input,
+.modal .userInput textarea {
+  background: none;
+  border: none;
+  font-family: "menlo", "courier", serif;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  caret-color: transparent;
+  color: green;
+  margin-bottom: 10px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  width: 0;
+  display: inline-block;
+}
+.modal .userInput input:focus,
+.modal .userInput textarea:focus {
   outline: none;
 }
-.modal textarea {
-  resize: none;
-  min-height: 200px;
-  font-family: "Didact Gothic", sans-serif;
-}
-.modal .phone-number-input {
-  color: white;
-}
-.modal .phone-number-input button {
-  border: none;
-  background: #222222;
-  color: white;
-}
-.modal .phone-number-input input {
-  width: 100%;
-  min-width: auto;
-  max-width: auto;
-}
-.modal .label {
-  font-size: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  line-height: 20px;
-}
-
-@media (min-width: 768px) {
-  .modal .field {
-    margin-bottom: 20px;
-  }
-  .modal .half {
-    flex-direction: row;
-  }
-  .modal .half .image,
-  .modal .half .form {
-    flex: 1 1 50%;
-  }
-  .modal .half .image {
-    height: auto;
-  }
-  .modal .half .form {
-    padding: 100px;
-  }
-  .modal .half .form .half {
-    gap: 20px;
-  }
+.modal .userInput.focus:after {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 18px;
+  background: white;
+  animation: blink 0.9s infinite;
+  animation-timing-function: ease;
 }
 
 /*# sourceMappingURL=style.css.map */
