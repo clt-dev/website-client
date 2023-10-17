@@ -92,7 +92,6 @@ const InquiryForm = (props: {
     }
 
     if (activeIndex === 3) {
-      console.log(messageRef.current.value);
       updateField(messageRef.current.value, 'message');
       setPromptsShown([0, 1, 2, 3]);
     }
@@ -102,7 +101,7 @@ const InquiryForm = (props: {
   }
 
   const handleSendInquiry = useCallback(() => {
-    console.log(inquiry);
+    // TODO: send inquiry to server to send email
     setPromptsShown([]);
     setActiveIndex(5);
   }, [inquiry]);
