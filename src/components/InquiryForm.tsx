@@ -1,4 +1,4 @@
-import React, {Key, useState, useRef, useEffect} from 'react';
+import {useState, useRef, useEffect, useCallback} from 'react';
 import Typewriter from './Typewriter';
 
 import TextTag from '../assets/img/tag.jpg';
@@ -16,9 +16,17 @@ const InquiryForm = (props: {
   toggle: () => void;
 }) => {
   const modalRef = useRef<any>(null);
+
+  const serviceRef = useRef<any>(null);
+  const contactTypeRef = useRef<any>(null);
+  const contactInfoRef = useRef<any>(null);
+  const messageRef = useRef<any>(null);
+  const successRef = useRef<any>(null);
+
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [promptsShown, setPromptsShown] = useState<number[]>([]);
   const [emailOrPhone, setEmailOrPhone] = useState<string>('');
+  const [hasFocus, setHasFocus] = useState<number>(0);
 
   const [inquiry, setInquiry] = useState({
     service: '',
@@ -29,11 +37,9 @@ const InquiryForm = (props: {
   const serviceListHTML = () => {
     let count = 1;
     let html = '';
-    {
-      services.map((service: string, index: Key) => {
-        return html += `<div> [${count++}] ${service}</div>`;
-      })
-    }
+    services.map((service: string) => {
+      return html += `<div> [${count++}] ${service}</div>`;
+    })
     return html;
   }
 
@@ -42,8 +48,7 @@ const InquiryForm = (props: {
     info[key as keyof typeof info] = value;
 
     setInquiry(info);
-    handleEndPrompt();
-  }
+  };
 
   const handleContactPreference = (value: string) => {
     if (value.includes('1')) {
@@ -52,21 +57,67 @@ const InquiryForm = (props: {
     if (value.includes('2')) {
       setEmailOrPhone('phone');
     }
-    handleEndPrompt();
   }
 
-  const handleEndPrompt = () => {
-    let shown: number[] = [...promptsShown];
-    shown.push(activeIndex);
+  const handleKeyPress = (e: any) => {
+    const key = e.key.toLowerCase();
 
-    setPromptsShown(shown);
-    setActiveIndex(activeIndex+1);
+    if (activeIndex === 5) {
+      props.toggle();
+
+      setActiveIndex(0);
+      setPromptsShown([]);
+      setInquiry({
+        service: '',
+        contact: '',
+        message: ''
+      });
+    }
+
+    if (key !== 'enter') return;
+      
+    if (activeIndex === 0) {
+      updateField(services[serviceRef.current.value - 1], 'service');
+      setPromptsShown([0]);
+    }
+
+    if (activeIndex === 1) {
+      handleContactPreference(contactTypeRef.current.value);
+      setPromptsShown([0, 1]);
+    }
+
+    if (activeIndex === 2) {
+      updateField(contactInfoRef.current.value, 'contact');
+      setPromptsShown([0, 1, 2]);
+    }
+
+    if (activeIndex === 3) {
+      console.log(messageRef.current.value);
+      updateField(messageRef.current.value, 'message');
+      setPromptsShown([0, 1, 2, 3]);
+    }
+
+    let active = activeIndex+1;
+    setActiveIndex(active);
   }
+
+  const handleSendInquiry = useCallback(() => {
+    console.log(inquiry);
+    setPromptsShown([]);
+    setActiveIndex(5);
+  }, [inquiry]);
+
+  useEffect(() => {
+    setHasFocus(activeIndex);
+    if (activeIndex === 4) {
+      handleSendInquiry();
+    }
+  }, [activeIndex, handleSendInquiry]);
 
   return (
     <div className={props.show ? 'modal show' : 'modal'}>
       <div ref={modalRef} className="modalCopy">
-        <img src={TextTag} />
+        <img src={TextTag} alt="cltdev.com" />
         {props.show && (
           <>
           {(promptsShown.includes(0) || activeIndex === 0) && (
@@ -78,7 +129,10 @@ const InquiryForm = (props: {
               complete={promptsShown.includes(0)}
               current={activeIndex === 0}
               delay={5}
-              callback={(value) => updateField(value, 'service')}
+              ref={serviceRef}
+              keydown={handleKeyPress}
+              focus={() => setHasFocus(0)}
+              hasFocus={hasFocus === 0}
             />
           )}
           {(promptsShown.includes(1) || activeIndex === 1) && (
@@ -90,7 +144,10 @@ const InquiryForm = (props: {
               current={activeIndex === 1}
               hideInput={true}
               delay={5}
-              callback={(value) => handleContactPreference(value)}
+              ref={contactTypeRef}
+              keydown={handleKeyPress}
+              focus={() => setHasFocus(1)}
+              hasFocus={hasFocus === 1}
             />
           )}
           {(promptsShown.includes(2) || activeIndex === 2) && (
@@ -102,7 +159,10 @@ const InquiryForm = (props: {
               complete={promptsShown.includes(2)}
               current={activeIndex === 2}
               delay={5}
-              callback={(value) => updateField(value, 'contact')}
+              ref={contactInfoRef}
+              keydown={handleKeyPress}
+              focus={() => setHasFocus(2)}
+              hasFocus={hasFocus === 2}
             />
           )}
           {(promptsShown.includes(3) || activeIndex === 3) && (
@@ -116,7 +176,23 @@ const InquiryForm = (props: {
               modalRef={modalRef.current}
               current={activeIndex === 3}
               delay={5}
-              callback={(value) => updateField(value, 'message')}
+              ref={messageRef}
+              keydown={handleKeyPress}
+              focus={() => setHasFocus(3)}
+              hasFocus={hasFocus === 3}
+            />
+          )}
+          {(activeIndex === 5) && (
+            <Typewriter
+              text={
+                `> Thank you for your interest in working with us.<br />> We have received your message and will contact you shortly.<br /><br />> Press any key to close this terminal.`
+              }
+              complete={promptsShown.includes(5)}
+              modalRef={modalRef.current}
+              current={activeIndex === 5}
+              delay={5}
+              keydown={handleKeyPress}
+              ref={successRef}
             />
           )}
           </>

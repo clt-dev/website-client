@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import {useState, useEffect, useRef} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Homepage from './Homepage';
 
@@ -11,11 +11,10 @@ import Identity from './services/Identity';
 import InquiryForm from './InquiryForm';
 
 const Map = () => {
-  const keyRef = useRef<any>(false);
   const pauseRef = useRef<boolean>(false);
   const [showInquiry, setShowInquiry] = useState<boolean>(false);
 
-  const handleKeyPress = (e: KeyboardEvent) => {
+  const handleKeyPress = (e: any) => {
     const key = e.key.toLowerCase();
 
     if (key === 'escape') {
@@ -49,17 +48,8 @@ const Map = () => {
     pauseRef.current = showInquiry;
   }, [showInquiry]);
 
-  useEffect(() => {
-    if (keyRef.current) return;
-    keyRef.current = true;
-    window.addEventListener('keydown', (e) => handleKeyPress(e));
-    return () => {
-      window.removeEventListener('keydown', (e) => handleKeyPress(e));
-    };
-  }, []);
-
   return (
-    <>
+    <div onKeyDown={handleKeyPress}>
     <InquiryForm 
       show={showInquiry}
       toggle={() => setShowInquiry(!showInquiry)}
@@ -119,7 +109,7 @@ const Map = () => {
         </Routes>
       </Router>
     </div>
-    </>
+    </div>
   )
 }
 

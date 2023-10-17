@@ -1,53 +1,38 @@
-import React, {useState, useEffect, useRef} from 'react';
+import {useState, useEffect, forwardRef} from 'react';
 
-const services = [
-  'Website Design & Development',
-  'Software Development',
-  'Product Engineering',
-  'User-Interface Design',
-  'Identity & Branding Design'
-]
-
-const Typewriter = (props: { 
+const Typewriter = forwardRef((props: { 
   text: string, 
   delay: number,
+  complete: boolean, 
+  current: boolean,
+  keydown: Function,
+  focus?: Function,
+  hasFocus?: boolean,
   value?: string,
   hideInput?: boolean,
   isTextArea?: boolean,
   modalRef?: any,
-  complete: boolean, 
-  current: boolean,
-  callback: (value: string) => void
-}) => {
-  const keyRef = useRef<boolean>(false);
-  const inputRef = useRef<any>(null);
-  const valueRef = useRef<string>('');
-  const currentRef = useRef<boolean>(false);
+}, ref: any) => {
+
   const [currentText, setCurrentText] = useState<string>('');
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [typeComplete, setTypeComplete] = useState<boolean>(false);
   const [value, setValue] = useState<string>('');
-  const [hide, setHide] = useState<boolean>(false);
   const [focus, setFocus] = useState<boolean>(false);
 
-  const enterKeyPress = (e: any) => {
-    if (!currentRef.current) return;
-    const key = e.key.toLowerCase();
-    if (key === 'enter') {
-      e.preventDefault();
-      props.callback(valueRef.current);
-      if (props.hideInput) {
-        setHide(true);
-      }
-    }
-  }
-
   const handleValueUpdate = (e: any) => {
-    setValue(e.target.value);
-    valueRef.current = e.target.value;
+    setValue(ref.current.value);
+    
     if (props.modalRef) {
       props.modalRef.scrollTop = props.modalRef.scrollHeight;
     }
+  }
+
+  const handlePromptClick = () => {
+    if (props.focus) {
+      props.focus();
+    }
+    ref.current?.focus();
   }
 
   useEffect(() => {
@@ -71,54 +56,46 @@ const Typewriter = (props: {
     }
     if (props.value) {
       setValue(props.value);
-      valueRef.current = props.value;
     }
   }, [props]);
 
   useEffect(() => {
     if (props.current) {
-      currentRef.current = true;
       setFocus(true);
-      inputRef.current?.focus();
+      ref.current?.focus();
     }
-  }, [props.current, inputRef.current, currentRef.current, typeComplete]);
-
-  useEffect(() => {
-    if (keyRef.current) return;
-    keyRef.current = true;
-    window.addEventListener('keydown', (e) => enterKeyPress(e));
-    return () => {
-      window.removeEventListener('keydown', (e) => enterKeyPress(e));
-    };
-  }, []);
+    if (props.hasFocus) {
+      setFocus(props.hasFocus);
+    }
+  }, [props, ref, typeComplete]);
 
   return (
-    <>
+    <div onClick={handlePromptClick}>
     <div 
       className={typeComplete ? 'prompt complete' : 'prompt'} 
       dangerouslySetInnerHTML={{
       __html: currentText
       }}>
     </div>
-    {typeComplete && !hide && (
-      <div className={focus ? 'userInput focus' : 'userInput'} onClick={() => inputRef.current?.focus()}>
+    {typeComplete && (
+      <div className={focus ? 'userInput focus' : 'userInput'}>
         {props.isTextArea && (
           <>
-            <textarea ref={inputRef} onChange={(e) => handleValueUpdate(e)}>
+            <textarea ref={ref} value={value} onChange={(e) => handleValueUpdate(e)} onKeyDown={(e) => props.keydown(e)}>
             </textarea>
             {value}
           </>
         )}
         {!props.isTextArea && (
           <>
-            <input ref={inputRef} type="text" onChange={(e) => handleValueUpdate(e)} />
-            {value}
+            <input ref={ref} type="text" value={value} onChange={(e) => handleValueUpdate(e)} onKeyDown={(e) => props.keydown(e)} />
+            <span onFocus={ref.current?.focus()}>{value}</span>
           </>
         )}
       </div>
     )}
-    </>
+    </div>
   );
-};
+});
 
 export default Typewriter;

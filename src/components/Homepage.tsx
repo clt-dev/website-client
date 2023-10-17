@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from 'react';
+import {useRef} from 'react';
 import WorkGrid from './WorkGrid';
 
 import {ReactComponent as Logo} from '../assets/img/logo.svg';
@@ -36,12 +36,12 @@ const Homepage = (props: {
         <div className="left">
           <Logo />
           <h1>Hello World.</h1>
-          <blockquote> 
+          <p> 
             We are creative guns for hire.
             We aim to please, but shoot to kill. 
             We are the artists, the problem solvers, the software engineers you've been looking for.
             We are CLT dev, Charlotte, NC software developers.
-          </blockquote>
+          </p>
           <button className="btn" onClick={() => handleBtnClick()}>Get A Quote</button>
         </div>
 

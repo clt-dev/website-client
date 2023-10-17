@@ -1,9 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
-import Map from './components/Map';
-import './assets/css/style.css';
+import Home from './components/Home';
+
 import reportWebVitals from './reportWebVitals';
+
+import './assets/css/style.css';
 
 declare global {
   interface Window {
@@ -17,7 +18,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <Map />
+    <Home />
   </React.StrictMode>
 );
 
