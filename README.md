@@ -1,2 +1,2 @@
-# Website
-The public INiT website.
+# cltdev.com
+Client code for cltdev.com public website.
