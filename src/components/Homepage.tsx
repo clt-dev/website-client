@@ -40,7 +40,6 @@ const Homepage = (props: {
             We are creative guns for hire.
             We aim to please, but shoot to kill. 
             We are the artists, the problem solvers, the software engineers you've been looking for.
-            We are CLT dev, Charlotte, NC software developers.
           </p>
           <button className="btn" onClick={() => handleBtnClick()}>Get A Quote</button>
         </div>
@@ -48,9 +47,9 @@ const Homepage = (props: {
         <div className="right">
           <a href="/services/website-design-development" className="keyTitle dark"><span>W</span>ebsite Design & Development</a>
           <a href="/services/software-development" className="keyTitle dark"><span>S</span>oftware Development</a>
-          <a href="/services/product-engineering" className="keyTitle dark"><span>P</span>roduct Engineering</a>
-          <a href="/services/user-interface-design" className="keyTitle dark"><span>U</span>ser-Interface Design</a>
-          <a href="/services/identity-design" className="keyTitle dark"><span>I</span>dentity Design</a>
+          {/* <a href="/services/product-engineering" className="keyTitle dark"><span>P</span>roduct Engineering</a>
+          <a href="/services/user-interface-design" className="keyTitle dark"><span>U</span>ser-Interface Design</a> */}
+          <a href="/services/identity-design" className="keyTitle dark"><span>I</span>dentity & Brand Design</a>
         </div>
         
         <div className="scroll" onClick={() => scrollToWork()}>

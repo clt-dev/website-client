@@ -1,6 +1,9 @@
-import React, {useRef} from 'react';
+import {useRef} from 'react';
 import CTA from '../CTA';
 import WorkGrid from '../WorkGrid';
+
+import Logos from '../../assets/data/logos';
+import {ReactComponent as Logo} from '../../assets/img/logo.svg';
 
 const Identity = (props: {
   showInquiry: (value: boolean) => void;
@@ -19,20 +22,35 @@ const Identity = (props: {
       workRef2.current.scrollIntoView(true, { behavior: 'smooth' });
     }
   }
+
   return (
     <div id="page">
 
-      <div className="half banner">
-        <div className="image"></div>
+      <a href="/" id="pageLogo"><Logo /></a>
+      
+      <div className="banner full">
+        <div className="image">
+          <div className="logos">
+            {Logos && Logos.map((img, index: number) => {
+              return <img key={`logo-${index}`} src={img} alt="" />
+            })}
+          </div>
+        </div>
         <div className="copy">
-          <h1>Identity<br />Design<br />Services</h1>
-          <p>Your brand's visual identity is the face it presents to the world, and our Identity Design Services are dedicated to crafting a distinctive and memorable brand image that sets you apart from the competition. We understand that a strong visual identity is essential for building brand recognition, trust, and loyalty.</p>
-          <button className="btn" onClick={() => props.showInquiry(true)}>Get A Quote</button>
+          <div className="bg">Identity<br />Design<br />Ser<span>v</span>ices</div>
+          <h1>Identity<br />Design<br />Ser<span>v</span>ices</h1>
+          <div className="desc">
+            <p>Your brand's visual identity is the face it presents to the world, and our Identity Design Services are dedicated to crafting a distinctive and memorable brand image that sets you apart from the competition. We understand that a strong visual identity is essential for building brand recognition, trust, and loyalty.</p>
+            <button className="btn" onClick={() => props.showInquiry(true)}>Get A Quote</button>
+          </div>
         </div>
       </div>
 
       <div className="full bottom">
-        <p>Our team of talented identity designers specializes in creating cohesive and impactful brand identities that reflect your values, mission, and vision. Whether you're a startup establishing your brand or an established business looking to refresh your identity, our Identity Design Services are tailored to help you make a lasting impression.</p>
+        <div>
+          <p>Our team of talented identity designers specializes in creating cohesive and impactful brand identities that reflect your values, mission, and vision.</p>
+          <p>Whether you're a startup establishing your brand or an established business looking to refresh your identity, our Identity Design Services are tailored to help you make a lasting impression.</p>
+        </div>
         <button className="btn" onClick={() => handleShowWork(workRef1.current)}>View Our Work</button>
       </div>
 
@@ -76,7 +94,10 @@ const Identity = (props: {
       </div>
 
       <div className="full top">
-        <p>Whether you're starting a new venture, evolving your brand, or simply want to stand out in a competitive market, our Identity Design Services are tailored to meet your specific goals and budget. Let us be your partner in creating a visual identity that resonates with your target audience and drives brand recognition and loyalty.</p>
+        <div>
+          <p>Whether you're starting a new venture, evolving your brand, or simply want to stand out in a competitive market, our Identity Design Services are tailored to meet your specific goals and budget.</p>
+          <p>Let us be your partner in creating a visual identity that resonates with your target audience and drives brand recognition and loyalty.</p>
+        </div>
         <button className="btn" onClick={() => handleShowWork(workRef2.current)}>View Our Work</button>
       </div>
 

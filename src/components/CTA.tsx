@@ -1,4 +1,3 @@
-import React from 'react';
 import {ReactComponent as Logo} from '../assets/img/logo.svg';
 
 import webm from '../assets/video/clt.webm';
@@ -11,7 +10,7 @@ const CTA = (props: {
   return (
     <div className="cta">
       <div className="copy">
-        <Logo />
+        <a href="/"><Logo /></a>
         <p>{props.copy}</p>
         <button className="btn" onClick={() => props.showInquiry(true)}>Get Started</button>
       </div>

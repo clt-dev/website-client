@@ -1,5 +1,12 @@
 import {useState, useEffect, forwardRef} from 'react';
 
+import
+{
+  validatePhoneNumberLength,
+  AsYouType,
+  CountryCode
+} from 'libphonenumber-js';
+
 const Typewriter = forwardRef((props: { 
   text: string, 
   delay: number,
@@ -8,9 +15,11 @@ const Typewriter = forwardRef((props: {
   keydown: Function,
   focus?: Function,
   hasFocus?: boolean,
+  hasError?: boolean,
   value?: string,
   hideInput?: boolean,
   isTextArea?: boolean,
+  isPhone?: boolean,
   modalRef?: any,
 }, ref: any) => {
 
@@ -19,13 +28,31 @@ const Typewriter = forwardRef((props: {
   const [typeComplete, setTypeComplete] = useState<boolean>(false);
   const [value, setValue] = useState<string>('');
   const [focus, setFocus] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+
+  const onPhoneChange = (value: any) => {
+    if (validatePhoneNumberLength(value, 'US' as CountryCode) === 'TOO_LONG') {
+      return;
+    }
+
+    let number = new AsYouType('US' as CountryCode).input(value);
+    if (validatePhoneNumberLength(value, 'US' as CountryCode) === 'TOO_SHORT') {
+      number = value;
+    }
+
+    setValue(number);
+	}
 
   const handleValueUpdate = (e: any) => {
-    setValue(ref.current.value);
-    
     if (props.modalRef) {
       props.modalRef.scrollTop = props.modalRef.scrollHeight;
     }
+
+    if (props.isPhone) {
+      return onPhoneChange(ref.current.value);
+    }
+
+    setValue(ref.current.value);
   }
 
   const handlePromptClick = () => {
@@ -57,6 +84,11 @@ const Typewriter = forwardRef((props: {
     if (props.value) {
       setValue(props.value);
     }
+    if (props.hasError) {
+      setError(true);
+      setTimeout(() => setError(false), 200);
+
+    }
   }, [props]);
 
   useEffect(() => {
@@ -69,6 +101,12 @@ const Typewriter = forwardRef((props: {
     }
   }, [props, ref, typeComplete]);
 
+  const inputStyles = `
+    userInput
+    ${focus ? 'focus' : ''}
+    ${error ? 'error' : ''}
+  `;
+
   return (
     <div onClick={handlePromptClick}>
     <div 
@@ -78,7 +116,7 @@ const Typewriter = forwardRef((props: {
       }}>
     </div>
     {typeComplete && (
-      <div className={focus ? 'userInput focus' : 'userInput'}>
+      <div className={inputStyles}>
         {props.isTextArea && (
           <>
             <textarea ref={ref} value={value} onChange={(e) => handleValueUpdate(e)} onKeyDown={(e) => props.keydown(e)}>

@@ -1,4 +1,4 @@
-import React, {useEffect, forwardRef} from 'react';
+import {forwardRef} from 'react';
 
 import realeyez from '../assets/img/websites/realeyez_bg.jpg';
 import customNature from '../assets/img/websites/customNature_bg.jpg';

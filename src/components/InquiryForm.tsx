@@ -1,14 +1,18 @@
 import {useState, useRef, useEffect, useCallback} from 'react';
+import APIUtils from '../utils/APIUtils';
+import EmailUtils from '../utils/EmailUtils';
 import Typewriter from './Typewriter';
 
 import TextTag from '../assets/img/tag.jpg';
+
+import {isPossibleNumber} from 'libphonenumber-js';
 
 const services = [
   'Website Design & Development',
   'Software Development',
   'Product Engineering',
   'User-Interface Design',
-  'Identity & Branding Design'
+  'Identity & Brand Design'
 ]
 
 const InquiryForm = (props: {
@@ -27,6 +31,8 @@ const InquiryForm = (props: {
   const [promptsShown, setPromptsShown] = useState<number[]>([]);
   const [emailOrPhone, setEmailOrPhone] = useState<string>('');
   const [hasFocus, setHasFocus] = useState<number>(0);
+
+  const [hasError, setHasError] = useState<number | undefined>();
 
   const [inquiry, setInquiry] = useState({
     service: '',
@@ -51,12 +57,13 @@ const InquiryForm = (props: {
   };
 
   const handleContactPreference = (value: string) => {
-    if (value.includes('1')) {
-      setEmailOrPhone('email');
+    if (value === '1') {
+      return 'email';
     }
-    if (value.includes('2')) {
-      setEmailOrPhone('phone');
+    if (value === '2') {
+      return 'phone';
     }
+    return false;
   }
 
   const handleKeyPress = (e: any) => {
@@ -77,33 +84,65 @@ const InquiryForm = (props: {
     if (key !== 'enter') return;
       
     if (activeIndex === 0) {
-      updateField(services[serviceRef.current.value - 1], 'service');
       setPromptsShown([0]);
+      if (!serviceRef.current.value || serviceRef.current.value > 5) {
+        updateField('', 'service');
+        return setHasError(0);
+      }
+      updateField(services[serviceRef.current.value - 1], 'service');
     }
 
     if (activeIndex === 1) {
-      handleContactPreference(contactTypeRef.current.value);
       setPromptsShown([0, 1]);
+      let response = handleContactPreference(contactTypeRef.current.value);
+
+      if (!response) return setHasError(1);
+      setEmailOrPhone(response);
     }
 
     if (activeIndex === 2) {
-      updateField(contactInfoRef.current.value, 'contact');
       setPromptsShown([0, 1, 2]);
+
+      if (
+        !contactInfoRef.current.value || 
+        (emailOrPhone === 'email' && !EmailUtils.isValid(contactInfoRef.current.value)) ||
+        (emailOrPhone === 'phone' && !isPossibleNumber(contactInfoRef.current.value, 'US'))
+      ) {
+        updateField('', 'contact');
+        return setHasError(2);
+      }
+
+      updateField(contactInfoRef.current.value, 'contact');
     }
 
     if (activeIndex === 3) {
-      updateField(messageRef.current.value, 'message');
       setPromptsShown([0, 1, 2, 3]);
+      if (!messageRef.current.value) return setHasError(3);
+      updateField(messageRef.current.value, 'message');
     }
 
     let active = activeIndex+1;
     setActiveIndex(active);
   }
 
-  const handleSendInquiry = useCallback(() => {
-    // TODO: send inquiry to server to send email
-    setPromptsShown([]);
-    setActiveIndex(5);
+  const handlePromptClick = (index: number) => {
+    setHasFocus(index);
+    setActiveIndex(index);
+  }
+
+  const handleSendInquiry = useCallback( async () => {
+    try {
+      let response = await APIUtils.callPost('api/inquiry/submit', inquiry);
+      if (response.status !== 200) {
+        // TODO: handle server error response
+        console.log('error');
+        return;
+      }
+      setPromptsShown([]);
+      setActiveIndex(5);
+    } catch (err) {
+      console.error(err);
+    }
   }, [inquiry]);
 
   useEffect(() => {
@@ -122,7 +161,7 @@ const InquiryForm = (props: {
           {(promptsShown.includes(0) || activeIndex === 0) && (
             <Typewriter
               text={
-                `> Hello! Thank you for your interest in CLT dev.<br />> Let's get started.<br /><br />${serviceListHTML()}<br />> What service are you interested in:`
+                `> Hello! Thank you for your interest in working with CLT dev.<br />> Let's get started.<br /><br />${serviceListHTML()}<br />> What service are you interested in:`
               }
               value={inquiry['service']}
               complete={promptsShown.includes(0)}
@@ -130,8 +169,9 @@ const InquiryForm = (props: {
               delay={5}
               ref={serviceRef}
               keydown={handleKeyPress}
-              focus={() => setHasFocus(0)}
+              focus={() => handlePromptClick(0)}
               hasFocus={hasFocus === 0}
+              hasError={hasError === 0}
             />
           )}
           {(promptsShown.includes(1) || activeIndex === 1) && (
@@ -145,8 +185,9 @@ const InquiryForm = (props: {
               delay={5}
               ref={contactTypeRef}
               keydown={handleKeyPress}
-              focus={() => setHasFocus(1)}
+              focus={() => handlePromptClick(1)}
               hasFocus={hasFocus === 1}
+              hasError={hasError === 1}
             />
           )}
           {(promptsShown.includes(2) || activeIndex === 2) && (
@@ -160,8 +201,10 @@ const InquiryForm = (props: {
               delay={5}
               ref={contactInfoRef}
               keydown={handleKeyPress}
-              focus={() => setHasFocus(2)}
+              focus={() => handlePromptClick(2)}
               hasFocus={hasFocus === 2}
+              hasError={hasError === 2}
+              isPhone={emailOrPhone === 'phone'}
             />
           )}
           {(promptsShown.includes(3) || activeIndex === 3) && (
@@ -177,8 +220,9 @@ const InquiryForm = (props: {
               delay={5}
               ref={messageRef}
               keydown={handleKeyPress}
-              focus={() => setHasFocus(3)}
+              focus={() => handlePromptClick(3)}
               hasFocus={hasFocus === 3}
+              hasError={hasError === 3}
             />
           )}
           {(activeIndex === 5) && (

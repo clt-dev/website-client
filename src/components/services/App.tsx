@@ -1,6 +1,9 @@
-import React, {useState, useRef, useEffect} from 'react';
+import {useRef} from 'react';
 import CTA from '../CTA';
 import WorkGrid from '../WorkGrid';
+
+import {ReactComponent as Logo} from '../../assets/img/logo.svg';
+import banner from '../../assets/img/services/appdev.jpg';
 
 const App = (props: {
   showInquiry: (value: boolean) => void;
@@ -23,18 +26,26 @@ const App = (props: {
   
   return (
     <div id="page">
+      
+      <a href="/" id="pageLogo"><Logo /></a>
 
-      <div className="half banner">
-        <div className="image"></div>
+      <div className="banner full">
+        <div className="image" style={{backgroundImage: `url(${banner})`}}></div>
         <div className="copy">
-          <h1>Application<br />Development<br />Services</h1>
-          <p>In the digital age, a well-crafted mobile or web application can be a game-changer for your business. Our application development services are designed to turn your ideas into innovative and user-friendly software solutions that cater to your unique needs.</p>
-          <button className="btn" onClick={() => props.showInquiry(true)}>Get A Quote</button>
+          <div className="bg">Software<br />Development<br />Ser<span>v</span>ices</div>
+          <h1>Software<br />Development<br />Ser<span>v</span>ices</h1>
+          <div className="desc">
+            <p>In the digital age, a well-crafted mobile or web application can be a game-changer for your business. Our application development services are designed to turn your ideas into innovative and user-friendly software solutions that cater to your unique needs.</p>
+            <button className="btn" onClick={() => props.showInquiry(true)}>Get A Quote</button>
+          </div>
         </div>
       </div>
 
       <div className="full bottom">
-        <p>Our seasoned team of developers specializes in creating cutting-edge applications that deliver exceptional user experiences. Whether you need a mobile app for iOS and Android, a web-based platform, or a custom software solution, we have the expertise to bring your vision to life.</p>
+        <div>
+          <p>Our seasoned team of developers specializes in creating cutting-edge applications that deliver exceptional user experiences.</p>
+          <p>Whether you need a mobile app for iOS and Android, a web-based platform, or a custom software solution, we have the expertise to bring your vision to life.</p>
+        </div>
         <button className="btn" onClick={() => handleShowWork(workRef1.current)}>View Our Work</button>
       </div>
 
@@ -78,7 +89,10 @@ const App = (props: {
       </div>
 
       <div className="full top">
-        <p>Whether you're a startup with a groundbreaking idea or an established enterprise looking to streamline your operations, our application development services are tailored to meet your specific goals and budget. Let us help you transform your concept into a powerful digital reality.</p>
+        <div>
+          <p>Whether you're a startup with a groundbreaking idea or an established enterprise looking to streamline your operations, our application development services are tailored to meet your specific goals and budget.</p>
+          <p>Let us help you transform your concept into a powerful digital reality.</p>
+        </div>
         <button className="btn" onClick={() => handleShowWork(workRef2.current)}>View Our Work</button>
       </div>
 

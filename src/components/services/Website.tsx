@@ -1,6 +1,9 @@
-import React, {useRef} from 'react';
+import {useRef} from 'react';
 import CTA from '../CTA';
 import WorkGrid from '../WorkGrid';
+
+import {ReactComponent as Logo} from '../../assets/img/logo.svg';
+import banner from '../../assets/img/services/web.jpg';
 
 const Website = (props: {
   showInquiry: (value: boolean) => void;
@@ -21,18 +24,26 @@ const Website = (props: {
   }
   return (
     <div id="page">
-
-      <div className="half banner">
-        <div className="image"></div>
+      
+      <a href="/" id="pageLogo"><Logo /></a>
+      
+      <div className="banner full">
+        <div className="image" style={{backgroundImage: `url(${banner})`}}></div>
         <div className="copy">
+          <div className="bg">Website<br />Design &<br />Development</div>
           <h1>Website<br />Design &<br />Development</h1>
-          <p>Are you looking to establish a strong online presence or revamp your existing website? Our professional website development services are designed to create stunning, user-friendly, and highly functional websites tailored to your unique needs.</p>
-          <button className="btn" onClick={() => props.showInquiry(true)}>Get A Quote</button>
+          <div className="desc">
+            <p>Are you looking to establish a strong online presence or revamp your existing website? Our professional website development services are designed to create stunning, user-friendly, and highly functional websites tailored to your unique needs.</p>
+            <button className="btn" onClick={() => props.showInquiry(true)}>Get A Quote</button>
+          </div>
         </div>
       </div>
 
       <div className="full bottom">
-        <p>Our team of experienced web developers combines creative design with cutting-edge technology to deliver websites that not only look impressive but also perform flawlessly. Whether you need a simple informational site, an e-commerce platform, a blog, or a complex web application, we have the expertise to bring your vision to life.</p>
+        <div>
+          <p>Our team of experienced web developers combines creative design with cutting-edge technology to deliver websites that not only look impressive but also perform flawlessly.</p>
+          <p>Whether you need a simple informational site, an e-commerce platform, a blog, or a complex web application, we have the expertise to bring your vision to life.</p>
+        </div>
         <button className="btn" onClick={() => handleShowWork(workRef1.current)}>View Our Work</button>
       </div>
 
@@ -76,7 +87,10 @@ const Website = (props: {
       </div>
 
       <div className="full top">
-        <p>Whether you're a small business, a startup, or a large enterprise, our website development services are tailored to meet your specific goals and budget. Let us help you create a powerful online presence that engages your audience and drives results.</p>
+        <div>
+          <p>Whether you're a small business, a startup, or a large enterprise, our website development services are tailored to meet your specific goals and budget.</p>
+          <p>Let us help you create a powerful online presence that engages your audience and drives results.</p>
+        </div>
         <button className="btn" onClick={() => handleShowWork(workRef2.current)}>View Our Work</button>
       </div>
 

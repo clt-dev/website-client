@@ -166,7 +166,7 @@ h3.dark span,
 }
 #home #intro .left p {
   color: #b3b3b3;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   margin: 0;
   padding: 20px 0 40px;
   letter-spacing: 0.5px;
@@ -286,51 +286,116 @@ h3.dark span,
 }
 #page {
   margin: 0 auto;
+  background: #1e1f1e;
   color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#page #pageLogo {
+  padding: 20px 0;
+  margin-left: 40px;
+  align-self: flex-start;
+}
+#page #pageLogo #logo {
+  width: 80px;
 }
 #page .banner {
+  background: #111;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-#page .banner div {
+#page .banner .image,
+#page .banner .copy {
   flex: 1 1 50%;
 }
 #page .banner .image {
-  background: lightgrey;
-  align-self: stretch;
+  overflow: hidden;
+  min-height: 50vh;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0;
 }
 #page .banner .copy {
   padding: 40px;
   box-sizing: border-box;
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+#page .banner .copy .bg {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  font-size: 18rem;
+  line-height: 14rem;
+  transform: translate(-30px, -50%);
+  color: black;
+  z-index: 1;
+}
+#page .banner .copy .bg span {
+  position: relative;
+  left: 10px;
+}
+#page .banner .copy h1,
+#page .banner .copy .desc {
+  position: relative;
+  z-index: 2;
 }
 #page .banner .copy h1 {
+  align-self: flex-start;
   margin-top: 0;
 }
 #page .banner .copy p {
   color: #b3b3b3;
-  font-size: 1.4rem;
+  padding: 0;
+}
+#page .banner.full {
+  display: block;
+  padding: 0;
+}
+#page .banner.full .image {
+  border-radius: 0;
+}
+#page .banner.full .image .logos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#page .banner.full .image .logos img {
+  width: 50%;
+  height: auto;
+}
+#page .banner.full .copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#page .banner.full .copy h1 {
+  font-size: 3rem;
+  margin: 0 0 20px;
+}
+#page .banner.full .copy .btn {
+  flex: auto;
+  margin: 0;
+}
+#page .banner.full .copy p {
+  margin: 0 0 40px;
 }
 #page .full {
   position: relative;
-  background: grey;
+  background: #1e1f1e;
   box-sizing: border-box;
   padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-#page .full:after {
-  content: "";
-  width: 100%;
-  height: 30px;
-  filter: blur(20px);
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.5);
-  pointer-events: none;
+  background-size: cover;
 }
 #page .full.top:after {
   top: -50px;
@@ -340,12 +405,18 @@ h3.dark span,
 }
 #page .full p {
   max-width: 800px;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   text-align: left;
   margin: 0 0 40px;
 }
+#page .full p:last-child {
+  margin: 0;
+}
+#page .full button {
+  margin-top: 40px;
+}
 #page .blocks {
-  background: white;
+  background: #eaebea;
   color: #111111;
   position: relative;
   z-index: 10;
@@ -362,6 +433,7 @@ h3.dark span,
   color: #666;
 }
 #page .cta {
+  width: 100%;
   min-height: 100vh;
   position: relative;
   text-align: center;
@@ -371,6 +443,7 @@ h3.dark span,
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background: #111;
 }
 #page .cta:after {
   content: "";
@@ -381,7 +454,7 @@ h3.dark span,
   right: 0;
   bottom: 0;
   z-index: 2;
-  background: rgba(17, 17, 17, 0.8);
+  background: rgba(17, 17, 17, 0.6);
 }
 #page .cta .copy {
   position: relative;
@@ -398,6 +471,9 @@ h3.dark span,
 }
 
 @media (min-width: 768px) {
+  #page #pageLogo {
+    margin-left: 60px;
+  }
   #page .banner {
     flex-direction: row;
     min-height: 100vh;
@@ -409,13 +485,44 @@ h3.dark span,
     font-size: 3rem;
     line-height: 3.6rem;
     line-break: break-word;
-    margin: 0;
   }
   #page .banner .copy .btn {
     margin-top: 40px;
   }
+  #page .banner.full {
+    padding: 0 40px;
+  }
+  #page .banner.full .copy h1 {
+    flex: 0 0 50%;
+    font-size: 5rem;
+    line-height: normal;
+    letter-spacing: 6px;
+    position: relative;
+    font-weight: lighter;
+    z-index: 2;
+  }
+  #page .banner.full .copy h1 span {
+    position: relative;
+    left: 3px;
+  }
+  #page .banner.full .copy .desc {
+    position: relative;
+    z-index: 2;
+  }
+  #page .banner.full .image {
+    border-radius: 20px 20px 0 0;
+  }
+  #page .banner.full .image .logos img {
+    width: 25%;
+  }
   #page .full {
     padding: 100px;
+  }
+  #page .full p {
+    font-size: 1.6rem;
+  }
+  #page .full button {
+    margin-top: 0;
   }
   #page .blocks {
     padding: 60px 0;
@@ -441,12 +548,20 @@ h3.dark span,
   }
 }
 @media (min-width: 991px) {
+  #page .banner.full .copy {
+    flex-direction: row;
+  }
+  #page .banner.full .copy h1 {
+    margin: 0;
+  }
+  #page .banner.full .copy .desc {
+    padding-left: 40px;
+  }
   #page .full {
     flex-direction: row-reverse;
   }
   #page .full p {
     padding-left: 40px;
-    margin: 0;
   }
   #page .full .btn {
     flex: 0 0 300px;
@@ -609,7 +724,8 @@ h3.dark span,
   align-items: flex-start;
 }
 .modal .modalCopy {
-  height: 100vh;
+  height: 100dvh;
+  width: 100%;
   overflow-y: scroll;
   box-sizing: border-box;
   padding-bottom: 60px;
@@ -677,6 +793,13 @@ h3.dark span,
   background: white;
   animation: blink 0.9s infinite;
   animation-timing-function: ease;
+}
+.modal .userInput.focus.error:after {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 18px;
+  background: red;
 }
 
 /*# sourceMappingURL=style.css.map */
