@@ -133,7 +133,7 @@ const InquiryForm = (props: {
 
   const logConversion = async () => {
     window.gtag('config', 'AW-11171481429');
-    window.gtag('event', 'inquiry_submit', {
+    window.gtag('event', 'conversion', {
       send_to: 'AW-11313458751/yymXCNWButgYEL_c1pIq',
     })
   }
