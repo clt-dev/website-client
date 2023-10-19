@@ -131,6 +131,13 @@ const InquiryForm = (props: {
     setActiveIndex(index);
   }
 
+  const logConversion = async () => {
+    window.gtag('config', 'AW-11171481429');
+    window.gtag('event', 'inquiry_submit', {
+      send_to: 'AW-11313458751/yymXCNWButgYEL_c1pIq',
+    })
+  }
+
   const handleSendInquiry = useCallback( async () => {
     try {
       let response = await APIUtils.callPost('api/inquiry/submit', inquiry);
@@ -139,6 +146,7 @@ const InquiryForm = (props: {
         console.log('server error');
         return;
       }
+      logConversion();
       setPromptsShown([]);
       setActiveIndex(5);
     } catch (err) {
@@ -155,7 +163,7 @@ const InquiryForm = (props: {
     if (activeIndex === 4) {
       handleSendInquiry();
     }
-    
+
   }, [activeIndex, handleSendInquiry]);
 
   return (

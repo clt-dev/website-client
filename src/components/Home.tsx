@@ -44,6 +44,13 @@ const Map = () => {
     }
   }
 
+  const logInquiryClick = async () => {
+    window.gtag('config', 'AW-11171481429');
+    window.gtag('event', 'inquiry_click', {
+      send_to: 'AW-11313458751/yymXCNWButgYEL_c1pIq',
+    })
+  }
+
   useEffect(() => {
     window.addEventListener('keydown', handleKeyPress);
     return () => {
@@ -53,6 +60,10 @@ const Map = () => {
 
   useEffect(() => {
     pauseRef.current = showInquiry;
+    
+    if (showInquiry) {
+      logInquiryClick();
+    }
   }, [showInquiry]);
 
   return (

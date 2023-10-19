@@ -10,16 +10,8 @@ const Homepage = (props: {
 
   const workRef = useRef<HTMLDivElement | null>(null);
 
-  // const logAnalytics = async () => {
-  //   window.gtag('config', 'AW-11171481429');
-  //   window.gtag('event', 'inquiry_click', {
-  //     send_to: 'AW-11313458751/yymXCNWButgYEL_c1pIq',
-  //   })
-  // }
-
   const handleBtnClick = () => {
     props.toggle();
-    // await logAnalytics();
   }
 
   const scrollToWork = () => {
