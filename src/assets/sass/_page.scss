@@ -5,10 +5,30 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  &.show {
+    #pageLogo {
+      opacity: 1;
+      transform: translate(0, 0);
+      transition: all 1s ease-in-out;
+      transition-delay: 0.4s;
+    }
+    .pageContainer {
+      opacity: 1;
+      transform: translate(0, 0);
+      transition: all 1s ease-in-out;
+    }
+  }
+  .pageContainer {
+    opacity: 0;
+    transform: translate(0, 20px);
+    transition: all 1s ease-in-out;
+  }
   #pageLogo {
-    padding: 20px 0;
-    margin-left: 40px;
+    padding: 10px 0;
+    margin-left: 10px;
     align-self: flex-start;
+    opacity: 0;
+    transition: all 1s ease-in-out;
     #logo {
       width: 80px;
     }
@@ -38,12 +58,13 @@
       flex-direction: column;
       position: relative;
       overflow: hidden;
+      border-radius: 0;
       .bg {
         position: absolute;
         top: 50%;
         left: 0;
-        font-size: 18rem;
-        line-height: 14rem;
+        font-size: 20rem;
+        line-height: 17rem;
         transform: translate(-30px,-50%);
         color: black;
         z-index: 1;
@@ -131,9 +152,11 @@
     }
     p {
       max-width: 800px;
+      margin: 0 0 40px;
       font-size: 1.4rem;
       text-align: left;
-      margin: 0 0 40px;
+      font-weight: 300;
+      color: darken(white, 30%);
       &:last-child {
         margin: 0;
       }
@@ -193,6 +216,7 @@
       }
       p {
         padding: 40px 0;
+        font-weight: bold;
       }
     }
   }
@@ -208,10 +232,14 @@
       min-height: 100vh;
       .copy {
         padding: 100px;
+        border-radius: 0 0 20px 20px;
         h1 {
           font-size: 3rem;
           line-height: 3.6rem;
           line-break: break-word;
+        }
+        p {
+          font-size: 1.2rem;
         }
         .btn {
           margin-top: 40px;
@@ -253,8 +281,8 @@
       p {
         font-size: 1.6rem;
       }
-      button {
-        margin-top: 0;
+      btn {
+        margin-top: 40px;
       }
     }
     .blocks {
@@ -267,7 +295,7 @@
         flex: 1 1 50%;
         padding: 40px 100px;
         h3 {
-          font-size: 2rem;
+          font-size: 1.6rem;
         }
       }
     }
@@ -300,10 +328,11 @@
     .full {
       flex-direction: row-reverse;
       p {
-        padding-left: 40px;
+        padding-left: 100px;
       }
       .btn {
         flex: 0 0 300px;
+        margin-top: 0;
       }
     }
   }

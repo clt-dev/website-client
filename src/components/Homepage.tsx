@@ -45,11 +45,12 @@ const Homepage = (props: {
         </div>
 
         <div className="right">
-          <a href="/services/website-design-development" className="keyTitle dark"><span>W</span>ebsite Design & Development</a>
-          <a href="/services/software-development" className="keyTitle dark"><span>S</span>oftware Development</a>
+          <Logo />
+          <a href="/services/website-design-development" className="keyTitle dark"><span className="key">W</span>ebsite <span className="hideMobile">Design & Development</span></a>
+          <a href="/services/software-development" className="keyTitle dark"><span className="key">S</span>oftware <span className="hideMobile">Development</span></a>
           {/* <a href="/services/product-engineering" className="keyTitle dark"><span>P</span>roduct Engineering</a>
           <a href="/services/user-interface-design" className="keyTitle dark"><span>U</span>ser-Interface Design</a> */}
-          <a href="/services/identity-design" className="keyTitle dark"><span>I</span>dentity & Brand Design</a>
+          <a href="/services/identity-design" className="keyTitle dark"><span className="key">I</span>dentity & Brand <span className="hideMobile">Design</span></a>
         </div>
         
         <div className="scroll" onClick={() => scrollToWork()}>

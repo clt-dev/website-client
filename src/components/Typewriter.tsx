@@ -44,10 +44,6 @@ const Typewriter = forwardRef((props: {
 	}
 
   const handleValueUpdate = (e: any) => {
-    if (props.modalRef) {
-      props.modalRef.scrollTop = props.modalRef.scrollHeight;
-    }
-
     if (props.isPhone) {
       return onPhoneChange(ref.current.value);
     }
@@ -109,29 +105,29 @@ const Typewriter = forwardRef((props: {
 
   return (
     <div onClick={handlePromptClick}>
-    <div 
-      className={typeComplete ? 'prompt complete' : 'prompt'} 
-      dangerouslySetInnerHTML={{
-      __html: currentText
-      }}>
-    </div>
-    {typeComplete && (
-      <div className={inputStyles}>
-        {props.isTextArea && (
-          <>
-            <textarea ref={ref} value={value} onChange={(e) => handleValueUpdate(e)} onKeyDown={(e) => props.keydown(e)}>
-            </textarea>
-            {value}
-          </>
-        )}
-        {!props.isTextArea && (
-          <>
-            <input ref={ref} type="text" value={value} onChange={(e) => handleValueUpdate(e)} onKeyDown={(e) => props.keydown(e)} />
-            <span onFocus={ref.current?.focus()}>{value}</span>
-          </>
-        )}
+      <div 
+        className={typeComplete ? 'prompt complete' : 'prompt'} 
+        dangerouslySetInnerHTML={{
+        __html: currentText
+        }}>
       </div>
-    )}
+      {typeComplete && (
+        <div className={inputStyles}>
+          {props.isTextArea && (
+            <>
+              <textarea ref={ref} value={value} onChange={(e) => handleValueUpdate(e)} onKeyDown={(e) => props.keydown(e)}>
+              </textarea>
+              {value}
+            </>
+          )}
+          {!props.isTextArea && (
+            <>
+              <input ref={ref} type="text" value={value} onChange={(e) => handleValueUpdate(e)} onKeyDown={(e) => props.keydown(e)} />
+              <span onFocus={ref.current?.focus()}>{value}</span>
+            </>
+          )}
+        </div>
+      )}
     </div>
   );
 });

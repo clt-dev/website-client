@@ -67,6 +67,7 @@ const InquiryForm = (props: {
   }
 
   const handleKeyPress = (e: any) => {
+
     const key = e.key.toLowerCase();
 
     if (activeIndex === 5) {
@@ -135,7 +136,7 @@ const InquiryForm = (props: {
       let response = await APIUtils.callPost('api/inquiry/submit', inquiry);
       if (response.status !== 200) {
         // TODO: handle server error response
-        console.log('error');
+        console.log('server error');
         return;
       }
       setPromptsShown([]);
@@ -146,10 +147,15 @@ const InquiryForm = (props: {
   }, [inquiry]);
 
   useEffect(() => {
+
+    modalRef?.current?.scrollIntoView({ behavior: 'smooth' });
+
     setHasFocus(activeIndex);
+
     if (activeIndex === 4) {
       handleSendInquiry();
     }
+    
   }, [activeIndex, handleSendInquiry]);
 
   return (

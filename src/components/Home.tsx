@@ -33,23 +33,30 @@ const Map = () => {
     if (key === 's') {
       window.location.pathname = '/services/software-development'
     }
-    if (key === 'p') {
-      window.location.pathname = '/services/product-engineering'
-    }
-    if (key === 'u') {
-      window.location.pathname = '/services/user-interface-design'
-    }
+    // if (key === 'p') {
+    //   window.location.pathname = '/services/product-engineering'
+    // }
+    // if (key === 'u') {
+    //   window.location.pathname = '/services/user-interface-design'
+    // }
     if (key === 'i') {
       window.location.pathname = '/services/identity-design'
     }
   }
 
   useEffect(() => {
+    window.addEventListener('keydown', handleKeyPress);
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress);
+    };
+  }, []);
+
+  useEffect(() => {
     pauseRef.current = showInquiry;
   }, [showInquiry]);
 
   return (
-    <div onKeyDown={handleKeyPress}>
+    <div>
     <InquiryForm 
       show={showInquiry}
       toggle={() => setShowInquiry(!showInquiry)}
