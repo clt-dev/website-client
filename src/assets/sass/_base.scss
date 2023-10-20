@@ -45,15 +45,15 @@ body, html {
   display: block;
   border-radius: 12px;
   box-sizing:border-box;
-  background: black;
-  border: 1.5px solid transparent;
+  background: white;
+  border: 2px solid transparent;
   width: 100%;
   &:hover {
     cursor: pointer;
     --bg: grey;
     --gradient: conic-gradient(
       from var(--angle),
-      red, yellow, lime, aqua, blue, magenta, red
+      #70D6FF, #FF70A6, #FF9770, #FFD670, #E9FF70, #70D6FF
     );
     background:
     linear-gradient(var(--bg),
@@ -73,7 +73,7 @@ body, html {
   margin: 0 auto;
   color: black;
   text-decoration: none;
-  font-weight: lighter;
+  font-weight: norma;
   text-transform: uppercase;
   letter-spacing: 2px;
   border-radius: 10px;

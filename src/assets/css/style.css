@@ -45,8 +45,8 @@ body, html {
   display: block;
   border-radius: 12px;
   box-sizing: border-box;
-  background: black;
-  border: 1.5px solid transparent;
+  background: white;
+  border: 2px solid transparent;
   width: 100%;
 }
 .btnWrap:hover {
@@ -54,7 +54,7 @@ body, html {
   --bg: grey;
   --gradient: conic-gradient(
     from var(--angle),
-    red, yellow, lime, aqua, blue, magenta, red
+    #70D6FF, #FF70A6, #FF9770, #FFD670, #E9FF70, #70D6FF
   );
   background: linear-gradient(var(--bg), var(--bg)) padding-box, var(--gradient) border-box;
   animation: rotate 2s infinite linear paused;
@@ -71,7 +71,7 @@ body, html {
   margin: 0 auto;
   color: black;
   text-decoration: none;
-  font-weight: lighter;
+  font-weight: norma;
   text-transform: uppercase;
   letter-spacing: 2px;
   border-radius: 10px;
@@ -230,6 +230,7 @@ h3.dark span,
   justify-content: center;
 }
 #home #intro .left {
+  max-width: 100%;
   box-sizing: border-box;
 }
 #home #intro .left #logo {
@@ -240,15 +241,14 @@ h3.dark span,
   line-height: 5.4rem;
   margin: 40px 0 0;
   align-self: flex-start;
-  color: grey;
+  color: white;
 }
 #home #intro .left p {
   color: #b3b3b3;
   font-size: 1.2rem;
   margin: 0;
   padding: 0 0 40px;
-  letter-spacing: 0.5px;
-  font-weight: lighter;
+  font-weight: 300;
 }
 #home #intro .left p a {
   text-decoration: none;
@@ -270,7 +270,7 @@ h3.dark span,
 }
 #home #intro .right a {
   font-size: 1.6rem;
-  font-weight: lighter;
+  font-weight: 300;
   color: white;
   text-decoration: none;
   margin-bottom: 10px;
@@ -427,6 +427,7 @@ h3.dark span,
   border-radius: 0;
   width: auto;
   margin: 0;
+  padding: 0 20px 0 0;
   background: none;
   color: white;
 }
@@ -541,6 +542,9 @@ h3.dark span,
   text-align: left;
   font-weight: 300;
   color: #b3b3b3;
+}
+#page .full p:last-child {
+  margin: 0;
 }
 #page .full .btnWrap {
   margin-top: 40px;
@@ -662,9 +666,6 @@ h3.dark span,
   #page .full p {
     font-size: 1.6rem;
   }
-  #page .full p:last-child {
-    margin: 0;
-  }
   #page .full .btnWrap {
     margin-top: 40px;
   }
@@ -773,7 +774,7 @@ h3.dark span,
   margin: 0;
 }
 #websites .wrap a .overlay p {
-  font-size: 1rem;
+  font-size: 0.8rem;
   margin: 0;
 }
 #websites .wrap a:hover {

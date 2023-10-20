@@ -23,6 +23,7 @@
       justify-content: center;
     }
     .left {
+      max-width: 100%;
       box-sizing: border-box;
       #logo {
         display: none;
@@ -32,15 +33,14 @@
         line-height: 5.4rem;
         margin: 40px 0 0;
         align-self: flex-start;
-        color: grey;
+        color: white;
       }
       p {
         color: darken(white, 30%);
         font-size: 1.2rem;
         margin: 0;
         padding: 0 0 40px;
-        letter-spacing: 0.5px;
-        font-weight: lighter;
+        font-weight: 300;
         // text-shadow: 0 2px 2px rgba(0,0,0,0.4);
         a {
           text-decoration: none;
@@ -63,7 +63,7 @@
       }
       a {
         font-size: 1.6rem;
-        font-weight: lighter;
+        font-weight: 300;
         color: white;
         text-decoration: none;
         margin-bottom: 10px;
