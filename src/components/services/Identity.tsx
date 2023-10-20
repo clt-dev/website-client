@@ -1,9 +1,9 @@
 import {useRef, useEffect, useState} from 'react';
+import PageHeader from '../PageHeader';
 import CTA from '../CTA';
 import WorkGrid from '../WorkGrid';
-
 import Logos from '../../assets/data/logos';
-import {ReactComponent as Logo} from '../../assets/img/logo.svg';
+import {Shine} from "../Shine";
 
 const Identity = (props: {
   showInquiry: (value: boolean) => void;
@@ -27,7 +27,7 @@ const Identity = (props: {
   }
 
   useEffect(() => {
-    setTimeout(() => setIsLoading(false), 500);
+    setTimeout(() => setIsLoading(false), 1000);
   }, []);
 
   useEffect(() => {
@@ -37,7 +37,9 @@ const Identity = (props: {
   return (
     <div id="page" className={`${slideIn ? 'show' : ''}`}>
 
-      <a href="/" id="pageLogo"><Logo /></a>
+      <PageHeader 
+        showInquiry={props.showInquiry}
+      />
 
       <div className="pageContainer">
       
@@ -54,7 +56,11 @@ const Identity = (props: {
             <h1>Identity<br />Design<br />Ser<span>v</span>ices</h1>
             <div className="desc">
               <p>Your brand's visual identity is the face it presents to the world, and our Identity Design Services are dedicated to crafting a distinctive and memorable brand image that sets you apart from the competition. We understand that a strong visual identity is essential for building brand recognition, trust, and loyalty.</p>
-              <button className="btn" onClick={() => props.showInquiry(true)}>Get A Quote</button>
+              <div className="btnWrap">
+                <Shine puffyness="3">
+                  <button className="btn" onClick={() => props.showInquiry(true)}>Get A Quote</button>
+                </Shine>
+              </div>
             </div>
           </div>
         </div>
@@ -64,54 +70,134 @@ const Identity = (props: {
             <p>Our team of talented identity designers specializes in creating cohesive and impactful brand identities that reflect your values, mission, and vision.</p>
             <p>Whether you're a startup establishing your brand or an established business looking to refresh your identity, our Identity Design Services are tailored to help you make a lasting impression.</p>
           </div>
-          <button className="btn" onClick={() => handleShowWork(workRef1.current)}>View Our Work</button>
+          <div className="btnWrap">
+            <Shine puffyness="3">
+              <button className="btn" onClick={() => handleShowWork(workRef1.current)}>Get A Quote</button>
+            </Shine>
+          </div>
         </div>
 
         <WorkGrid
           ref={workRef1}
         />
 
-        <div className="blocks">
-          <div>
-            <h3><span className="key">L</span>ogo Design</h3>
+        <section className="blocks">
+          <article>
+            <h3>
+              <div className="keyWrap">
+                <Shine puffyness="3">
+                  <span className="key">L</span>
+                </Shine>
+              </div>
+              <div className="word">
+                ogo Design
+              </div>
+            </h3>
             <p>We craft unique and versatile logos that serve as the cornerstone of your brand identity, instantly recognizable and adaptable across various mediums.</p>
-          </div>
-          <div>
-            <h3><span className="key">B</span>rand Guidelines</h3>
+          </article>
+          <article>
+            <h3>
+              <div className="keyWrap">
+                <Shine puffyness="3">
+                  <span className="key">B</span>
+                </Shine>
+              </div>
+              <div className="word">
+                rand Guidelines
+              </div>
+            </h3>
             <p>We develop comprehensive brand guidelines that define your brand's colors, typography, imagery, and usage rules, ensuring consistency in all your branding efforts.</p>
-          </div>
-          <div>
-            <h3><span className="key">V</span>isual Assets</h3>
+          </article>
+          <article>
+            <h3>
+              <div className="keyWrap">
+                <Shine puffyness="3">
+                  <span className="key">V</span>
+                </Shine>
+              </div>
+              <div className="word">
+                isual Assets
+              </div>
+            </h3>
             <p> Our designers create a range of visual assets, such as icons, graphics, and illustrations, that enhance your brand's visual storytelling.</p>
-          </div>
-          <div>
-            <h3><span className="key">P</span>ackaging Design</h3>
+          </article>
+          <article>
+            <h3>
+              <div className="keyWrap">
+                <Shine puffyness="3">
+                  <span className="key">P</span>
+                </Shine>
+              </div>
+              <div className="word">
+                ackaging Design
+              </div>
+            </h3>
             <p>If you have physical products, we design packaging that not only protects your items but also communicates your brand's personality and values.</p>
-          </div>
-          <div>
-            <h3><span className="key">U</span>sability Testing</h3>
+          </article>
+          <article>
+            <h3>
+              <div className="keyWrap">
+                <Shine puffyness="3">
+                  <span className="key">U</span>
+                </Shine>
+              </div>
+              <div className="word">
+                sability Testing
+              </div>
+            </h3>
             <p>We conduct usability testing to gather user feedback and make data-driven refinements to improve the overall user experience.</p>
-          </div>
-          <div>
-            <h3><span className="key">B</span>randing Collateral</h3>
+          </article>
+          <article>
+            <h3>
+              <div className="keyWrap">
+                <Shine puffyness="3">
+                  <span className="key">B</span>
+                </Shine>
+              </div>
+              <div className="word">
+                rand Collateral
+              </div>
+            </h3>
             <p>We design marketing materials, brochures, banners, and promotional items that align with your brand identity and make a strong impression.</p>
-          </div>
-          <div>
-            <h3><span className="key">D</span>igital Branding</h3>
+          </article>
+          <article>
+            <h3>
+              <div className="keyWrap">
+                <Shine puffyness="3">
+                  <span className="key">D</span>
+                </Shine>
+              </div>
+              <div className="word">
+                igital Branding
+              </div>
+            </h3>
             <p>Ensure a consistent online presence with branded social media profiles, email signatures, and website elements.</p>
-          </div>
-          <div>
-            <h3><span className="key">R</span>ebranding</h3>
+          </article>
+          <article>
+            <h3>
+              <div className="keyWrap">
+                <Shine puffyness="3">
+                  <span className="key">R</span>
+                </Shine>
+              </div>
+              <div className="word">
+                ebranding
+              </div>
+            </h3>
             <p>If you're undergoing a brand transformation, we guide you through the rebranding process, preserving brand equity while evolving your identity.</p>
-          </div>
-        </div>
+          </article>
+        </section>
 
         <div className="full top">
           <div>
             <p>Whether you're starting a new venture, evolving your brand, or simply want to stand out in a competitive market, our Identity Design Services are tailored to meet your specific goals and budget.</p>
             <p>Let us be your partner in creating a visual identity that resonates with your target audience and drives brand recognition and loyalty.</p>
           </div>
-          <button className="btn" onClick={() => handleShowWork(workRef2.current)}>View Our Work</button>
+          <div className="btnWrap">
+            <Shine puffyness="3">
+              <button className="btn" onClick={() => handleShowWork(workRef2.current)}>Get A Quote</button>
+            </Shine>
+          </div>
         </div>
 
         <WorkGrid

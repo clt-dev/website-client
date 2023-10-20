@@ -28,32 +28,69 @@ body, html {
 }
 
 .showMobile {
-  display: inherit !important;
+  display: initial !important;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+.btnWrap {
+  display: block;
+  border-radius: 12px;
+  box-sizing: border-box;
+  background: black;
+  border: 1.5px solid transparent;
+  width: 100%;
+}
+.btnWrap:hover {
+  cursor: pointer;
+  --bg: grey;
+  --gradient: conic-gradient(
+    from var(--angle),
+    red, yellow, lime, aqua, blue, magenta, red
+  );
+  background: linear-gradient(var(--bg), var(--bg)) padding-box, var(--gradient) border-box;
+  animation: rotate 2s infinite linear paused;
+}
+.btnWrap:is(:hover, :focus-within) {
+  animation-play-state: running;
 }
 
 .btn {
-  background: #f2f2f2;
+  background: #cccccc;
   text-align: center;
-  padding: 0 20px;
   width: 100%;
   line-height: 60px;
   margin: 0 auto;
   color: black;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: lighter;
   text-transform: uppercase;
   letter-spacing: 2px;
   border-radius: 10px;
   border: none;
   transition: all 0.3s ease-in-out;
   white-space: nowrap;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
 }
 .btn:hover {
   cursor: pointer;
   background: white;
   color: black;
-  letter-spacing: 2.5px;
+  letter-spacing: 2.1px;
   transition: all 0.3s ease-in-out;
+}
+.btn:focus, .btn:active {
+  outline: none;
 }
 
 p {
@@ -65,22 +102,48 @@ h3,
 .keyTitle {
   margin: 0;
   font-size: 2rem;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  position: relative;
+}
+h3 .keyWrap,
+.keyTitle .keyWrap {
+  width: 85px;
+  height: 80px;
+  background: linear-gradient(to left top, #9a9a9a, silver);
+  border-radius: 6px;
+  padding: 2px;
 }
 h3 .key,
 .keyTitle .key {
-  display: inline-block;
+  display: none;
   width: 85px;
   height: 80px;
-  border: 3px solid black;
+  font-size: 2rem;
   border-radius: 6px;
   box-sizing: border-box;
   display: inline-flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  padding: 0 10px 5px 0;
+  justify-content: center;
+  align-items: center;
   margin-right: 5px;
-  background: white;
+  background: lightgrey;
   font-weight: bold;
+}
+h3 .word,
+.keyTitle .word {
+  position: relative;
+  top: 40px;
+  left: 0;
+  text-indent: 90px;
+  display: block;
+  flex: 0 0 100%;
+  transform: translate(-88px, 0);
+  padding-bottom: 20px;
+}
+h3 .word span,
+.keyTitle .word span {
+  text-indent: 0;
 }
 h3.dark span,
 .keyTitle.dark span {
@@ -123,14 +186,18 @@ h3.dark span,
 }
 
 @media (min-width: 768px) {
+  .showMobile {
+    display: none !important;
+  }
   .hideMobile {
     display: inline-block !important;
   }
   .scroll {
     bottom: 80px;
   }
+  .btnWrap,
   .btn {
-    width: 300px;
+    max-width: 300px;
   }
   #home #intro blockquote {
     font-size: 1.6rem;
@@ -173,6 +240,7 @@ h3.dark span,
   line-height: 5.4rem;
   margin: 40px 0 0;
   align-self: flex-start;
+  color: grey;
 }
 #home #intro .left p {
   color: #b3b3b3;
@@ -211,21 +279,25 @@ h3.dark span,
   overflow: hidden;
   letter-spacing: 0.5px;
 }
+#home #intro .right a .keyWrap {
+  background: linear-gradient(to left top, #9a9a9a, #272727);
+}
 #home #intro .right a:last-child {
   margin: 0;
 }
 #home #intro .right a:hover {
   color: white;
 }
-#home #intro .right a:hover .key {
-  background: #222;
+#home #intro .right a:active .keyWrap .key {
+  background: #111211;
+  transform: scale(0.99);
 }
-#home #intro .scroll {
+#home .scroll {
   position: absolute;
   bottom: 40px;
   left: 50%;
   transform: translate(-50%, 0);
-  z-index: 2;
+  z-index: 99;
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -233,10 +305,10 @@ h3.dark span,
   color: darkgrey;
   font-size: 0.8rem;
 }
-#home #intro .scroll .arrow {
+#home .scroll .arrow {
   animation: bounce 1s infinite alternate;
 }
-#home #intro .scroll .arrow:before {
+#home .scroll .arrow:before {
   content: "";
   display: block;
   width: 8px;
@@ -248,7 +320,7 @@ h3.dark span,
   transform: translateX(-3px) rotate(-45deg);
   transform-origin: right;
 }
-#home #intro .scroll .arrow:after {
+#home .scroll .arrow:after {
   content: "";
   display: block;
   width: 8px;
@@ -260,7 +332,7 @@ h3.dark span,
   transform: translateY(5px) rotate(-135deg);
   transform-origin: left;
 }
-#home #intro .scroll:hover {
+#home .scroll:hover {
   cursor: pointer;
 }
 
@@ -281,9 +353,6 @@ h3.dark span,
   }
   #home #intro .left p {
     font-size: 1.4rem;
-  }
-  #home #intro .left .btn {
-    margin: 10px 0 0;
   }
   #home #intro .right {
     flex: 1 1 50%;
@@ -314,31 +383,52 @@ h3.dark span,
   flex-direction: column;
   align-items: center;
 }
-#page.show #pageLogo {
+#page.show .pageHeader {
   opacity: 1;
   transform: translate(0, 0);
   transition: all 1s ease-in-out;
-  transition-delay: 0.4s;
+  transition-delay: 0.2s;
 }
 #page.show .pageContainer {
   opacity: 1;
-  transform: translate(0, 0);
+  transform: scale(1);
   transition: all 1s ease-in-out;
 }
 #page .pageContainer {
+  max-width: 100%;
   opacity: 0;
-  transform: translate(0, 20px);
+  transform: scale(0.99);
   transition: all 1s ease-in-out;
 }
-#page #pageLogo {
-  padding: 10px 0;
-  margin-left: 10px;
-  align-self: flex-start;
+#page .pageHeader {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #1e1f1e;
+  width: 100%;
+  height: 60px;
   opacity: 0;
+  transform: translate(0, 0);
   transition: all 1s ease-in-out;
 }
-#page #pageLogo #logo {
+#page .pageHeader nav {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  box-sizing: border-box;
+}
+#page .pageHeader #logo {
   width: 80px;
+  fill: white;
+  padding: 10px;
+}
+#page .pageHeader .btn {
+  border-radius: 0;
+  width: auto;
+  margin: 0;
+  background: none;
+  color: white;
 }
 #page .banner {
   background: #111;
@@ -417,7 +507,7 @@ h3.dark span,
   align-items: center;
 }
 #page .banner.full .copy h1 {
-  font-size: 3rem;
+  font-size: 2.4rem;
   margin: 0 0 20px;
 }
 #page .banner.full .copy .btn {
@@ -452,26 +542,25 @@ h3.dark span,
   font-weight: 300;
   color: #b3b3b3;
 }
-#page .full p:last-child {
-  margin: 0;
-}
-#page .full button {
+#page .full .btnWrap {
   margin-top: 40px;
 }
 #page .blocks {
-  background: #eaebea;
+  background: #b6b9b6;
   color: #111111;
   position: relative;
   z-index: 10;
 }
-#page .blocks div {
+#page .blocks article {
   box-sizing: border-box;
   padding: 40px;
 }
-#page .blocks div h3 {
-  font-size: 2.4rem;
+#page .blocks article h3 {
+  font-size: 1.4rem;
+  line-height: 2.4rem;
 }
-#page .blocks div p {
+#page .blocks article p {
+  font-size: 1.2rem;
   margin-bottom: 0;
   color: #666;
 }
@@ -502,6 +591,9 @@ h3.dark span,
 #page .cta .copy {
   position: relative;
   z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 #page .cta .copy #logo {
   position: relative;
@@ -515,8 +607,9 @@ h3.dark span,
 }
 
 @media (min-width: 768px) {
-  #page #pageLogo {
-    margin-left: 60px;
+  #page .pageHeader {
+    padding: 0 60px;
+    box-sizing: border-box;
   }
   #page .banner {
     flex-direction: row;
@@ -569,7 +662,10 @@ h3.dark span,
   #page .full p {
     font-size: 1.6rem;
   }
-  #page .full btn {
+  #page .full p:last-child {
+    margin: 0;
+  }
+  #page .full .btnWrap {
     margin-top: 40px;
   }
   #page .blocks {
@@ -579,11 +675,10 @@ h3.dark span,
     align-items: center;
     flex-wrap: wrap;
   }
-  #page .blocks div {
-    flex: 1 1 50%;
+  #page .blocks article {
     padding: 40px 100px;
   }
-  #page .blocks div h3 {
+  #page .blocks article h3 {
     font-size: 1.6rem;
   }
   #page .cta {
@@ -611,9 +706,12 @@ h3.dark span,
   #page .full p {
     padding-left: 100px;
   }
-  #page .full .btn {
+  #page .full .btnWrap {
     flex: 0 0 300px;
     margin-top: 0;
+  }
+  #page .blocks article {
+    flex: 0 0 50%;
   }
 }
 #websites {

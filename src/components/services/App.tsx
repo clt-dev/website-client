@@ -1,9 +1,9 @@
 import {useRef, useEffect, useState} from 'react';
+import PageHeader from '../PageHeader';
 import CTA from '../CTA';
 import WorkGrid from '../WorkGrid';
-
-import {ReactComponent as Logo} from '../../assets/img/logo.svg';
 import banner from '../../assets/img/services/appdev.jpg';
+import {Shine} from "../Shine";
 
 const App = (props: {
   showInquiry: (value: boolean) => void;
@@ -28,7 +28,7 @@ const App = (props: {
   }
 
   useEffect(() => {
-    setTimeout(() => setIsLoading(false), 500);
+    setTimeout(() => setIsLoading(false), 1000);
   }, []);
 
   useEffect(() => {
@@ -38,7 +38,9 @@ const App = (props: {
   return (
     <div id="page" className={`${slideIn ? 'show' : ''}`}>
       
-      <a href="/" id="pageLogo"><Logo /></a>
+      <PageHeader 
+        showInquiry={props.showInquiry}
+      />
 
       <div className="pageContainer">
 
@@ -49,7 +51,11 @@ const App = (props: {
             <h1>Software<br />Development<br />Ser<span>v</span>ices</h1>
             <div className="desc">
               <p>In the digital age, a well-crafted mobile or web application can be a game-changer for your business. Our application development services are designed to turn your ideas into innovative and user-friendly software solutions that cater to your unique needs.</p>
-              <button className="btn" onClick={() => props.showInquiry(true)}>Get A Quote</button>
+              <div className="btnWrap">
+                <Shine puffyness="3">
+                  <button className="btn" onClick={() => props.showInquiry(true)}>Get A Quote</button>
+                </Shine>
+              </div>
             </div>
           </div>
         </div>
@@ -59,54 +65,134 @@ const App = (props: {
             <p>Our seasoned team of developers specializes in creating cutting-edge applications that deliver exceptional user experiences.</p>
             <p>Whether you need a mobile app for iOS and Android, a web-based platform, or a custom software solution, we have the expertise to bring your vision to life.</p>
           </div>
-          <button className="btn" onClick={() => handleShowWork(workRef1.current)}>View Our Work</button>
+          <div className="btnWrap">
+            <Shine puffyness="3">
+              <button className="btn" onClick={() => handleShowWork(workRef1.current)}>Get A Quote</button>
+            </Shine>
+          </div>
         </div>
 
         <WorkGrid
           ref={workRef1}
         />
 
-        <div className="blocks">
-          <div>
-            <h3><span className="key">C</span>ustom App Development</h3>
+        <section className="blocks">
+          <article>
+            <h3>
+              <div className="keyWrap">
+                <Shine puffyness="3">
+                  <span className="key">C</span>
+                </Shine>
+              </div>
+              <div className="word">
+                ustom App Dev<span className="hideMobile">elopment</span>
+              </div>
+            </h3>
             <p>We build tailor-made applications that align with your business objectives, ensuring they are scalable, secure, and perform seamlessly.</p>
-          </div>
-          <div>
-            <h3><span className="key">M</span>obile App Development</h3>
+          </article>
+          <article>
+            <h3>
+              <div className="keyWrap">
+                <Shine puffyness="3">
+                  <span className="key">M</span>
+                </Shine>
+              </div>
+              <div className="word">
+                obile App Dev<span className="hideMobile">elopment</span>
+              </div>
+            </h3>
             <p>Our mobile app experts develop apps for iOS and Android platforms, leveraging the latest technologies to provide smooth navigation and optimal performance.</p>
-          </div>
-          <div>
-            <h3><span className="key">W</span>eb App Development</h3>
+          </article>
+          <article>
+            <h3>
+              <div className="keyWrap">
+                <Shine puffyness="3">
+                  <span className="key">W</span>
+                </Shine>
+              </div>
+              <div className="word">
+                eb App Dev<span className="hideMobile">elopment</span>
+              </div>
+            </h3>
             <p>We create responsive and interactive web applications that work flawlessly across all devices and browsers.</p>
-          </div>
-          <div>
-            <h3><span className="key">C</span>ross-Platform Development</h3>
+          </article>
+          <article>
+            <h3>
+              <div className="keyWrap">
+                <Shine puffyness="3">
+                  <span className="key">C</span>
+                </Shine>
+              </div>
+              <div className="word">
+                ross-Platform Dev<span className="hideMobile">elopment</span>
+              </div>
+            </h3>
             <p>Optimize your reach by developing applications that work on multiple platforms with efficiency and consistency.</p>
-          </div>
-          <div>
-            <h3><span className="key">U</span>ser-Centric Design</h3>
+          </article>
+          <article>
+            <h3>
+              <div className="keyWrap">
+                <Shine puffyness="3">
+                  <span className="key">U</span>
+                </Shine>
+              </div>
+              <div className="word">
+                ser-Interface
+              </div>
+            </h3>
             <p>Our design team focuses on user-centric principles, ensuring that your application is not only functional but also visually appealing and intuitive.</p>
-          </div>
-          <div>
-            <h3><span className="key">I</span>ntegration Services</h3>
+          </article>
+          <article>
+            <h3>
+              <div className="keyWrap">
+                <Shine puffyness="3">
+                  <span className="key">I</span>
+                </Shine>
+              </div>
+              <div className="word">
+                ntegration
+              </div>
+            </h3>
             <p>Seamlessly integrate your application with third-party APIs, services, and databases to enhance functionality and provide a comprehensive user experience.</p>
-          </div>
-          <div>
-            <h3><span className="key">Q</span>uality Assurance</h3>
+          </article>
+          <article>
+            <h3>
+              <div className="keyWrap">
+                <Shine puffyness="3">
+                  <span className="key">Q</span>
+                </Shine>
+              </div>
+              <div className="word">
+                uality Assurance
+              </div>
+            </h3>
             <p>Rigorous testing and quality assurance procedures are implemented to guarantee bug-free and secure applications.</p>
-          </div>
-          <div>
-            <h3><span className="key">O</span>ngoing Support</h3>
+          </article>
+          <article>
+            <h3>
+              <div className="keyWrap">
+                <Shine puffyness="3">
+                  <span className="key">O</span>
+                </Shine>
+              </div>
+              <div className="word">
+                ngoing Support
+              </div>
+            </h3>
             <p>We offer post-launch support, maintenance, and updates to keep your application up-to-date and running smoothly.</p>
-          </div>
-        </div>
+          </article>
+        </section>
 
         <div className="full top">
           <div>
             <p>Whether you're a startup with a groundbreaking idea or an established enterprise looking to streamline your operations, our application development services are tailored to meet your specific goals and budget.</p>
             <p>Let us help you transform your concept into a powerful digital reality.</p>
           </div>
-          <button className="btn" onClick={() => handleShowWork(workRef2.current)}>View Our Work</button>
+          <div className="btnWrap">
+            <Shine puffyness="3">
+              <button className="btn" onClick={() => handleShowWork(workRef2.current)}>Get A Quote</button>
+            </Shine>
+          </div>
         </div>
 
         <WorkGrid 

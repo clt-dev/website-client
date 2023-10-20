@@ -32,6 +32,7 @@
         line-height: 5.4rem;
         margin: 40px 0 0;
         align-self: flex-start;
+        color: grey;
       }
       p {
         color: darken(white, 30%);
@@ -70,59 +71,67 @@
         text-overflow: ellipsis;
         overflow: hidden;
         letter-spacing: 0.5px;
+        .keyWrap {
+          background: linear-gradient(to left top, lighten(grey, 10%), darken(grey, 35%));
+        }
         &:last-child {
           margin: 0;
         }
         &:hover {
           color: white;
-          .key {
-            background: #222;
+        }
+        &:active {
+          .keyWrap {
+            .key {
+              background: darken($dark, 5%);
+              transform: scale(0.99);
+            }
           }
         }
       }
     }
-    .scroll {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translate(-50%,0);
-      z-index: 2;
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: darkgrey;
-      font-size: 0.8rem;
-      .arrow {
-        animation: bounce 1s infinite alternate;
-        &:before {
-          content: "";
-          display: block;
-          width: 8px;
-          height: 1px;
-          background: grey;
-          bottom: -5px;
-          left: 50%;
-          position: fixed;
-          transform: translateX(-3px) rotate(-45deg);
-          transform-origin: right;
-        }
-        &:after {
-          content: "";
-          display: block;
-          width: 8px;
-          height: 1px;
-          background: grey;
-          bottom: -5px;
-          left: 50%;
-          position: fixed;
-          transform: translateY(5px) rotate(-135deg);
-          transform-origin: left;
-        }
+  }
+  .scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translate(-50%,0);
+    z-index: 99;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: darkgrey;
+    font-size: 0.8rem;
+    .arrow {
+      animation: bounce 1s infinite alternate;
+      &:before {
+        content: "";
+        display: block;
+        width: 8px;
+        height: 1px;
+        background: grey;
+        bottom: -5px;
+        left: 50%;
+        position: fixed;
+        transform: translateX(-3px) rotate(-45deg);
+        transform-origin: right;
       }
-      &:hover {
-        cursor: pointer;
+      &:after {
+        content: "";
+        display: block;
+        width: 8px;
+        height: 1px;
+        background: grey;
+        bottom: -5px;
+        left: 50%;
+        position: fixed;
+        transform: translateY(5px) rotate(-135deg);
+        transform-origin: left;
       }
+    }
+    &:hover {
+      cursor: pointer;
     }
   }
 }
@@ -144,9 +153,6 @@
         }
         p {
           font-size: 1.4rem;
-        }
-        .btn {
-          margin: 10px 0 0;
         }
       }
       .right {

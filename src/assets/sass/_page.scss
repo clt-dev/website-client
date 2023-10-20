@@ -6,31 +6,52 @@
   flex-direction: column;
   align-items: center;
   &.show {
-    #pageLogo {
+    .pageHeader {
       opacity: 1;
       transform: translate(0, 0);
       transition: all 1s ease-in-out;
-      transition-delay: 0.4s;
+      transition-delay: 0.2s;
     }
     .pageContainer {
       opacity: 1;
-      transform: translate(0, 0);
+      transform: scale(1);
       transition: all 1s ease-in-out;
     }
   }
   .pageContainer {
+    max-width: 100%;
     opacity: 0;
-    transform: translate(0, 20px);
+    transform: scale(0.99);
     transition: all 1s ease-in-out;
   }
-  #pageLogo {
-    padding: 10px 0;
-    margin-left: 10px;
-    align-self: flex-start;
+  .pageHeader {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: $dark;
+    width: 100%;
+    height: 60px;
     opacity: 0;
+    transform: translate(0, 0);
     transition: all 1s ease-in-out;
+    nav {
+      height: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      box-sizing: border-box;
+    }
     #logo {
       width: 80px;
+      fill: white;
+      padding: 10px;
+    }
+    .btn {
+      border-radius: 0;
+      width: auto;
+      margin: 0;
+      background: none;
+      color: white;
     }
   }
   .banner {
@@ -107,7 +128,7 @@
         flex-direction: column;
         align-items: center;
         h1 {
-          font-size: 3rem;
+          font-size: 2.4rem;
           margin: 0 0 20px;
         }
         .btn {
@@ -157,26 +178,25 @@
       text-align: left;
       font-weight: 300;
       color: darken(white, 30%);
-      &:last-child {
-        margin: 0;
-      }
     }
-    button {
+    .btnWrap {
       margin-top: 40px;
     }
   }
   .blocks {
-    background: lighten($dark, 80%);
+    background: lighten($dark, 60%);
     color: #111111;
     position: relative;
     z-index: 10;
-    div {
+    article {
       box-sizing: border-box;
       padding: 40px;
       h3 {
-        font-size: 2.4rem;
+        font-size: 1.4rem;
+        line-height: 2.4rem;
       }
       p {
+        font-size: 1.2rem;
         margin-bottom: 0;
         color: #666;
       }
@@ -208,6 +228,9 @@
     .copy {
       position: relative;
       z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       #logo {
         position: relative;
         top: 0;
@@ -224,8 +247,9 @@
 
 @media (min-width: 768px) {
   #page {
-    #pageLogo {
-      margin-left: 60px;
+    .pageHeader {
+      padding: 0 60px;
+      box-sizing: border-box;
     }
     .banner {
       flex-direction: row;
@@ -280,8 +304,11 @@
       padding: 100px;
       p {
         font-size: 1.6rem;
+        &:last-child {
+          margin: 0;
+        }
       }
-      btn {
+      .btnWrap {
         margin-top: 40px;
       }
     }
@@ -291,8 +318,7 @@
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      div {
-        flex: 1 1 50%;
+      article {
         padding: 40px 100px;
         h3 {
           font-size: 1.6rem;
@@ -301,6 +327,7 @@
     }
     .cta {
       padding: 100px;
+
       p {
         max-width: 800px;
         font-size: 2rem;
@@ -330,9 +357,14 @@
       p {
         padding-left: 100px;
       }
-      .btn {
+      .btnWrap {
         flex: 0 0 300px;
         margin-top: 0;
+      }
+    }
+    .blocks {
+      article {
+        flex: 0 0 50%;
       }
     }
   }
