@@ -39,7 +39,8 @@
     "build": "react-scripts build",
     "start": "react-scripts start",
     "sass": "sass --watch src/assets/sass:src/assets/css",
-    "dev": "concurrently \"yarn run start\" \"yarn run sass\""
+    "dev": "concurrently \"yarn run start\" \"yarn run sass\"",
+    "deploy": "sudo cp -r ~/cltdev.com/client/build/* /var/www/html/cltdev.com"
   },
   "eslintConfig": {
     "extends": "react-app"
