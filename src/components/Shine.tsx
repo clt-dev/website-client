@@ -1,4 +1,4 @@
-import React from "react";
+import {ComponentProps, ReactNode, useId, useRef, useEffect} from "react";
 
 const Shine = ({
   children,
@@ -6,19 +6,19 @@ const Shine = ({
   puffyness = "1",
   ...otherProps
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   lightColor?: `#${string}`;
   puffyness?: "0.5" | "0.75" | "1" | "1.25" | "1.5" | "1.75" | "2" | "3";
-} & React.ComponentProps<"div">) => {
-  const filterId = React.useId();
-  const filterRef = React.useRef<SVGFilterElement>(null);
-  const childrenWrapperRef = React.useRef<HTMLDivElement>(null);
-  const mouse = React.useRef({
+} & ComponentProps<"div">) => {
+  const filterId = useId();
+  const filterRef = useRef<SVGFilterElement>(null);
+  const childrenWrapperRef = useRef<HTMLDivElement>(null);
+  const mouse = useRef({
     x: 0,
     y: 0,
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     const children = childrenWrapperRef.current;
     const filterElement = filterRef.current;
     const lightElement = filterElement?.querySelector("fePointLight");
@@ -89,9 +89,9 @@ const Shine = ({
           <feSpecularLighting
             result="light-source"
             // represents the height of the surface for a light filter primitive
-            surfaceScale="2"
+            surfaceScale="3"
             // The bigger the value the bigger the reflection
-            specularConstant="0.75"
+            specularConstant="0.25"
             // controls the focus for the light source. The bigger the value the brighter the light
             specularExponent="120"
             lightingColor={lightColor}
