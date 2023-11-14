@@ -9,6 +9,7 @@ import './assets/css/style.css';
 declare global {
   interface Window {
     gtag: (type: string, title: string, data?: object) => void;
+    lintrk: (type: string, data?: object) => void;
   }
 }
 

@@ -1,4 +1,4 @@
-import {ComponentProps, ReactNode, useId, useRef, useEffect} from "react";
+import {ComponentProps, ReactNode, useId, useRef, useEffect, useState} from "react";
 
 const Shine = ({
   children,
@@ -17,7 +17,7 @@ const Shine = ({
     x: 0,
     y: 0,
   });
-
+  
   useEffect(() => {
     const children = childrenWrapperRef.current;
     const filterElement = filterRef.current;
@@ -69,52 +69,52 @@ const Shine = ({
       }}
       {...otherProps}
     >
-      <svg
-        width="0"
-        height="0"
-        // This is crucial. Without these styles the effect breaks on some browsers
-        style={{
-          position: "fixed",
-          top: 0,
-          right: 0,
-          bottom: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          pointerEvents: "none",
-        }}
-      >
-        <filter id={filterId} ref={filterRef} colorInterpolationFilters="sRGB">
-          <feGaussianBlur in="SourceAlpha" stdDeviation={puffyness} />
-          <feSpecularLighting
-            result="light-source"
-            // represents the height of the surface for a light filter primitive
-            surfaceScale="3"
-            // The bigger the value the bigger the reflection
-            specularConstant="0.25"
-            // controls the focus for the light source. The bigger the value the brighter the light
-            specularExponent="120"
-            lightingColor={lightColor}
-          >
-            <fePointLight x="60" y="69" z="300" />
-          </feSpecularLighting>
-          <feComposite
-            result="reflections"
-            in="light-source"
-            in2="SourceAlpha"
-            operator="in"
-          />
-          <feComposite
-            in="SourceGraphic"
-            in2="reflections"
-            operator="arithmetic"
-            k1="0"
-            k2="1"
-            k3="1"
-            k4="0"
-          />
-        </filter>
-      </svg>
+        <svg
+          width="0"
+          height="0"
+          // This is crucial. Without these styles the effect breaks on some browsers
+          style={{
+            position: "fixed",
+            top: 0,
+            right: 0,
+            bottom: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            pointerEvents: "none"
+          }}
+        >
+          <filter id={filterId} ref={filterRef} colorInterpolationFilters="sRGB">
+            <feGaussianBlur in="SourceAlpha" stdDeviation={puffyness} />
+            <feSpecularLighting
+              result="light-source"
+              // represents the height of the surface for a light filter primitive
+              surfaceScale="3"
+              // The bigger the value the bigger the reflection
+              specularConstant="0.5"
+              // controls the focus for the light source. The bigger the value the brighter the light
+              specularExponent="120"
+              lightingColor={lightColor}
+            >
+              <fePointLight x="60" y="69" z="300" />
+            </feSpecularLighting>
+            <feComposite
+              result="reflections"
+              in="light-source"
+              in2="SourceAlpha"
+              operator="in"
+            />
+            <feComposite
+              in="SourceGraphic"
+              in2="reflections"
+              operator="arithmetic"
+              k1="0"
+              k2="1"
+              k3="1"
+              k4="0"
+            />
+          </filter>
+        </svg>
       <div
         style={{ filter: `url(#${filterId})`, isolation: "isolate" }}
         ref={childrenWrapperRef}

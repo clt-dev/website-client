@@ -132,6 +132,7 @@ const InquiryForm = (props: {
   }
 
   const logConversion = async () => {
+    window.lintrk('track', { conversion_id: 15035714 });
     window.gtag('config', 'AW-11171481429');
     window.gtag('event', 'conversion', {
       send_to: 'AW-11313458751/yymXCNWButgYEL_c1pIq',
