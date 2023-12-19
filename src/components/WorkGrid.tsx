@@ -1,7 +1,8 @@
 import {forwardRef} from 'react';
 
 import realeyez from '../assets/img/websites/realeyez_bg.jpg';
-import customNature from '../assets/img/websites/customNature_bg.jpg';
+// import customNature from '../assets/img/websites/customNature_bg.jpg';
+import globe from '../assets/img/websites/globe_bg.jpg';
 import ap from '../assets/img/websites/ap_bg.jpg';
 import smokeBreak from '../assets/img/websites/smokebreak_bg.jpg';
 import paakhouse from '../assets/img/websites/paakhouse_bg.jpg';
@@ -17,6 +18,14 @@ const WorkGrid = forwardRef((props: {
   return (
     <section id="websites" className={props.show ? 'show' : ''} ref={ref}>
       <div className="wrap">
+        <a href="https://globetest.cltdev.com" target="_BLANK" rel="noopener noreferrer">
+          <img src={globe} alt="Globe" />
+          <div className="overlay">
+            <h3>3D Globe</h3>
+            <p className="desc">3D globe NPM package that animates arcs of LAT/LNG data points.</p>
+            <p>globetest.cltdev.com</p>
+          </div>
+        </a>
         <a href="http://fyc.dreamworks.com" target="_BLANK" rel="noopener noreferrer">
           <img src={dreamworks} alt="Dreamworks FYC 2021" />
           <div className="overlay">
@@ -39,14 +48,6 @@ const WorkGrid = forwardRef((props: {
             <h3>PGM Outfitters</h3>
             <p className="desc">Website for PGM Outfitters showcasing their deer feeder product line.</p>
             <p>pgmoutfitters.com</p>
-          </div>
-        </a>
-        <a href="https://customnatureproducts.com" target="_BLANK" rel="noopener noreferrer">
-          <img src={customNature} alt="Custom Nature, LLC" />
-          <div className="overlay">
-            <h3>Custom Nature, LLC</h3>
-            <p className="desc">Ecommerce website to showcase and sell a line of beauty products for Custom Nature, LLC.</p>
-            <p>customnatureproducts.com</p>
           </div>
         </a>
         <a href="https://paakhouse.org" target="_BLANK" rel="noopener noreferrer">

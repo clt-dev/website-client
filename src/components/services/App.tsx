@@ -67,7 +67,7 @@ const App = (props: {
           </div>
           <div className="btnWrap">
             <Shine puffyness="3">
-              <button className="btn" onClick={() => handleShowWork(workRef1.current)}>Get A Quote</button>
+              <button className="btn" onClick={() => handleShowWork(workRef1.current)}>View Our Work</button>
             </Shine>
           </div>
         </div>
@@ -190,7 +190,7 @@ const App = (props: {
           </div>
           <div className="btnWrap">
             <Shine puffyness="3">
-              <button className="btn" onClick={() => handleShowWork(workRef2.current)}>Get A Quote</button>
+              <button className="btn" onClick={() => handleShowWork(workRef2.current)}>View Our Work</button>
             </Shine>
           </div>
         </div>

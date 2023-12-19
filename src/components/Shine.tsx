@@ -1,4 +1,4 @@
-import {ComponentProps, ReactNode, useId, useRef, useEffect, useState} from "react";
+import {ComponentProps, ReactNode, useId, useRef, useEffect} from "react";
 
 const Shine = ({
   children,
