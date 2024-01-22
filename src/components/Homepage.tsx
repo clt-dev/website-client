@@ -24,57 +24,16 @@ const Homepage = (props: {
   return (
     <div id="home">
 
-      <section id="intro">
+      <div className="textSection">
 
-        <div className="left">
+        <div className="copy">
           <Logo />
           <h1>Hello World.</h1>
           <p> 
             We are creative guns for hire.
             We aim to please, but shoot to kill. 
-            We are the artists, the problem solvers, the software engineers you've been looking for.
+            We are the artists, the problem solvers, the software engineers you've been looking for...
           </p>
-          <div className="btnWrap">
-            <Shine puffyness="3">
-              <button className="btn" onClick={() => handleBtnClick()}>Get A Quote</button>
-            </Shine>
-          </div>
-        </div>
-
-        <div className="right">
-          <Logo />
-          <a href="/services/website-design-development" className="keyTitle dark">
-            <div className="keyWrap">
-              <Shine puffyness="3">
-                <span className="key">W</span>
-              </Shine>
-            </div>
-            <div className="word">
-              ebsite <span className="hideMobile">Design & Development</span>
-            </div>
-          </a>
-          <a href="/services/software-development" className="keyTitle dark">
-            <Shine puffyness="3">
-              <div className="keyWrap">
-                <span className="key">S</span>
-              </div>
-            </Shine>
-            <div className="word">
-              oftware <span className="hideMobile">Development</span>
-            </div>
-          </a>
-          {/* <a href="/services/product-engineering" className="keyTitle dark"><span>P</span>roduct Engineering</a>
-          <a href="/services/user-interface-design" className="keyTitle dark"><span>U</span>ser-Interface Design</a> */}
-          <a href="/services/identity-design" className="keyTitle dark">
-            <Shine puffyness="3">
-              <div className="keyWrap">
-                <span className="key">I</span>
-              </div>
-            </Shine>
-            <div className="word">
-              dentity & Brand <span className="hideMobile">Design</span>
-            </div>
-          </a>
         </div>
 
         <div className="scroll" onClick={() => scrollToWork()}>
@@ -82,12 +41,25 @@ const Homepage = (props: {
           <div className="arrow"></div>
         </div>
 
-      </section>
+      </div>
 
       <WorkGrid 
         ref={workRef}
         show={true}
       />
+
+      <div className="textSection">
+        <div className="copy">
+          <article className="block">
+            <p>...We are CLT dev, a Charlotte, North Carolina based service provider for <a href="/services/website-design-development">website design & development</a>, <a href="/services/software-development">custom software development</a>, and <a href="/services/identity-design">identity & brand design</a>.</p>
+            <div className="btnWrap">
+              <Shine puffyness="3">
+                <button className="btn" onClick={() => handleBtnClick()}>Let's talk</button>
+              </Shine>
+            </div>
+          </article>
+        </div>
+      </div>
 
     </div>
   )

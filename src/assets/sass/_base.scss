@@ -44,25 +44,37 @@ body, html {
 .btnWrap {
   display: block;
   border-radius: 12px;
-  box-sizing:border-box;
-  background: white;
+  box-sizing: border-box;
+  // background: white;
   border: 2px solid transparent;
   width: 100%;
-  &:hover {
-    cursor: pointer;
-    --bg: grey;
-    --gradient: conic-gradient(
-      from var(--angle),
-      #70D6FF, #FF70A6, #FF9770, #FFD670, #E9FF70, #70D6FF
-    );
-    background:
-    linear-gradient(var(--bg),
-    var(--bg)) padding-box,
-    var(--gradient) border-box;
-    animation: rotate 2s infinite linear paused;
-  }
+  cursor: pointer;
+  --bg: grey;
+  --gradient: conic-gradient(
+    from var(--angle),
+    #70D6FF, #FF70A6, #FF9770, #FFD670, #E9FF70, #70D6FF
+  );
+  background:
+  linear-gradient(var(--bg),
+  var(--bg)) padding-box,
+  var(--gradient) border-box;
+  animation: rotate 2s infinite linear running;
+  // animation-play-state: running;
+  // &:hover {
+  //   cursor: pointer;
+  //   --bg: grey;
+  //   --gradient: conic-gradient(
+  //     from var(--angle),
+  //     #70D6FF, #FF70A6, #FF9770, #FFD670, #E9FF70, #70D6FF
+  //   );
+  //   background:
+  //   linear-gradient(var(--bg),
+  //   var(--bg)) padding-box,
+  //   var(--gradient) border-box;
+  //   animation: rotate 2s infinite linear paused;
+  // }
   &:is(:hover, :focus-within) {
-    animation-play-state: running;
+    animation-play-state: paused;
   }
 }
 .btn {

@@ -45,11 +45,8 @@ body, html {
   display: block;
   border-radius: 12px;
   box-sizing: border-box;
-  background: white;
   border: 2px solid transparent;
   width: 100%;
-}
-.btnWrap:hover {
   cursor: pointer;
   --bg: grey;
   --gradient: conic-gradient(
@@ -57,10 +54,10 @@ body, html {
     #70D6FF, #FF70A6, #FF9770, #FFD670, #E9FF70, #70D6FF
   );
   background: linear-gradient(var(--bg), var(--bg)) padding-box, var(--gradient) border-box;
-  animation: rotate 2s infinite linear paused;
+  animation: rotate 2s infinite linear running;
 }
 .btnWrap:is(:hover, :focus-within) {
-  animation-play-state: running;
+  animation-play-state: paused;
 }
 
 .btn {
@@ -207,12 +204,11 @@ h3.dark span,
   position: relative;
   background: #1e1f1e;
 }
-#home #intro {
-  min-height: 100vh;
+#home .textSection {
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column-reverse;
+  flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
   position: relative;
@@ -221,76 +217,45 @@ h3.dark span,
   box-sizing: border-box;
   color: white;
 }
-#home #intro .left,
-#home #intro .right {
-  flex: 0 0 50%;
+#home .textSection .copy {
+  max-width: 100%;
+  box-sizing: border-box;
   align-self: stretch;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-#home #intro .left {
-  max-width: 100%;
-  box-sizing: border-box;
+#home .textSection .copy #logo {
+  width: 110px;
+  margin-bottom: 40px;
 }
-#home #intro .left #logo {
-  display: none;
-}
-#home #intro .left h1 {
+#home .textSection .copy h1 {
   font-size: 3rem;
-  line-height: 5.4rem;
-  margin: 40px 0 0;
+  margin: 0 0 20px;
   align-self: flex-start;
   color: white;
 }
-#home #intro .left p {
-  color: #b3b3b3;
-  font-size: 1.2rem;
+#home .textSection .copy p {
+  color: #666666;
+  font-size: 1.8rem;
   margin: 0;
   padding: 0 0 40px;
   font-weight: 300;
 }
-#home #intro .left p a {
+#home .textSection .copy p a {
   text-decoration: none;
-  font-weight: bold;
   font-family: "helvetica", sans-serif;
-  color: #333333;
+  color: #b3b3b3;
+  transition: all 0.3s ease-in-out;
 }
-#home #intro .left .btn {
+#home .textSection .copy p a:hover {
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+#home .textSection .copy .btn {
   align-self: flex-start;
   margin: 0;
-}
-#home #intro .right {
-  box-sizing: border-box;
-  border-radius: 10px;
-}
-#home #intro .right #logo {
-  display: block;
-  margin-bottom: 40px;
-}
-#home #intro .right a {
-  font-size: 1.6rem;
-  font-weight: 300;
-  color: white;
-  text-decoration: none;
-  margin-bottom: 10px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  letter-spacing: 0.5px;
-}
-#home #intro .right a .keyWrap {
-  background: linear-gradient(to left top, #9a9a9a, #272727);
-}
-#home #intro .right a:last-child {
-  margin: 0;
-}
-#home #intro .right a:hover {
-  color: white;
-}
-#home #intro .right a:active .keyWrap .key {
-  background: #111211;
-  transform: scale(0.99);
 }
 #home .scroll {
   position: absolute;
@@ -302,7 +267,7 @@ h3.dark span,
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: darkgrey;
+  color: #666666;
   font-size: 0.8rem;
 }
 #home .scroll .arrow {
@@ -337,45 +302,35 @@ h3.dark span,
 }
 
 @media (min-width: 768px) {
-  #home #intro {
+  #home .textSection {
+    min-height: 100dvh;
     padding: 40px;
   }
-  #home #intro .scroll {
+  #home .textSection .scroll {
     display: flex;
   }
-  #home #intro .left {
-    padding: 40px 40px 40px 0;
-  }
-  #home #intro .left h1 {
-    font-size: 4.4rem;
-    margin: 0 0 20px;
+  #home .textSection .copy h1 {
+    margin: 0;
+    font-size: 6rem;
     white-space: nowrap;
   }
-  #home #intro .left p {
-    font-size: 1.4rem;
-  }
-  #home #intro .right {
-    flex: 1 1 50%;
-    margin: 0;
-    border: none;
-    background: none;
-  }
-  #home #intro .right a {
-    font-size: 1.4rem;
-  }
-  #home #intro .right a .word {
-    text-indent: 95px;
+  #home .textSection .copy p {
+    font-size: 3rem;
   }
 }
 @media (min-width: 991px) {
-  #home #intro {
+  #home .textSection {
     flex-direction: row;
     flex-wrap: nowrap;
   }
+  #home .textSection .copy {
+    margin: 0 100px;
+  }
 }
 @media (min-width: 1200px) {
-  #home #intro .left {
-    padding: 0 100px;
+  #home .textSection .copy {
+    max-width: 1200px;
+    margin: 0 auto;
   }
 }
 #page {
@@ -581,7 +536,8 @@ h3.dark span,
   margin-bottom: 0;
   color: #666;
 }
-#page .cta {
+
+.cta {
   width: 100%;
   min-height: 100vh;
   position: relative;
@@ -594,7 +550,7 @@ h3.dark span,
   justify-content: center;
   background: #111;
 }
-#page .cta:after {
+.cta:after {
   content: "";
   position: absolute;
   display: block;
@@ -605,20 +561,20 @@ h3.dark span,
   z-index: 2;
   background: rgba(17, 17, 17, 0.6);
 }
-#page .cta .copy {
+.cta .copy {
   position: relative;
   z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-#page .cta .copy #logo {
+.cta .copy #logo {
   position: relative;
   top: 0;
   left: 0;
   width: 200px;
 }
-#page .cta .copy p {
+.cta .copy p {
   padding: 40px 0;
   font-weight: bold;
 }
