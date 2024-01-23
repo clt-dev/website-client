@@ -183,7 +183,6 @@
       }
     }
     p {
-      max-width: 800px;
       margin: 0 0 40px;
       font-size: 1.4rem;
       text-align: left;
@@ -303,6 +302,7 @@
           .desc {
             position: relative;
             z-index: 2;
+            align-self: flex-start;
           }
         }
         .image {
@@ -322,6 +322,7 @@
       }
       .btnWrap {
         margin-top: 40px;
+        align-self: flex-start;
       }
     }
     .blocks {
@@ -351,6 +352,28 @@
 
 @media (min-width: 991px) {
   #page {
+    .blocks {
+      article {
+        flex: 0 0 50%;
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  #page {
+    .full {
+      flex-direction: row-reverse;
+      p {
+        padding-left: 100px;
+        max-width: 800px;
+      }
+      .btnWrap {
+        flex: 0 0 300px;
+        margin-top: 0;
+        align-self: center;
+      }
+    }
     .banner {
       &.full {
         .copy {
@@ -362,21 +385,6 @@
             padding-left: 40px;
           }
         }
-      }
-    }
-    .full {
-      flex-direction: row-reverse;
-      p {
-        padding-left: 100px;
-      }
-      .btnWrap {
-        flex: 0 0 300px;
-        margin-top: 0;
-      }
-    }
-    .blocks {
-      article {
-        flex: 0 0 50%;
       }
     }
   }

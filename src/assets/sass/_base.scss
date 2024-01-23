@@ -45,7 +45,6 @@ body, html {
   display: block;
   border-radius: 12px;
   box-sizing: border-box;
-  // background: white;
   border: 2px solid transparent;
   width: 100%;
   cursor: pointer;
@@ -54,38 +53,25 @@ body, html {
     from var(--angle),
     #70D6FF, #FF70A6, #FF9770, #FFD670, #E9FF70, #70D6FF
   );
-  background:
+  background-image: var(--gradient);
+  background: 
   linear-gradient(var(--bg),
   var(--bg)) padding-box,
   var(--gradient) border-box;
   animation: rotate 2s infinite linear running;
-  // animation-play-state: running;
-  // &:hover {
-  //   cursor: pointer;
-  //   --bg: grey;
-  //   --gradient: conic-gradient(
-  //     from var(--angle),
-  //     #70D6FF, #FF70A6, #FF9770, #FFD670, #E9FF70, #70D6FF
-  //   );
-  //   background:
-  //   linear-gradient(var(--bg),
-  //   var(--bg)) padding-box,
-  //   var(--gradient) border-box;
-  //   animation: rotate 2s infinite linear paused;
-  // }
   &:is(:hover, :focus-within) {
     animation-play-state: paused;
   }
 }
 .btn {
-  background: darken(white, 20%);
+  background: lighten(black, 5%);
   text-align: center;
   width: 100%;
   line-height: 60px;
   margin: 0 auto;
-  color: black;
+  color: white;
   text-decoration: none;
-  font-weight: norma;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 2px;
   border-radius: 10px;
@@ -95,15 +81,21 @@ body, html {
   position: relative;
   z-index: 2;
   box-sizing: border-box;
+  text-shadow: none;
+  font-size: 1.2rem;
   &:hover {
     cursor: pointer;
-    background: white;
-    color: black;
+    background: lighten(black, 10%);
     letter-spacing: 2.1px;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
   }
-  &:focus,
   &:active {
+    background: lighten(black, 8%);
+    outline: none;
+    box-shadow: 0 0 5px 5px black inset;
+    transition: none;
+  }
+  &:focus {
     outline: none;
   }
 }

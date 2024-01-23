@@ -51,7 +51,7 @@ const Homepage = (props: {
       <div className="textSection">
         <div className="copy">
           <article className="block">
-            <p>...We are CLT dev, a Charlotte, North Carolina based service provider for <a href="/services/website-design-development">website design & development</a>, <a href="/services/software-development">custom software development</a>, and <a href="/services/identity-design">identity & brand design</a>.</p>
+            <p>We are CLT dev, a Charlotte, North Carolina based service provider for <a href="/services/website-design-development">website design & development</a>, <a href="/services/software-development">software development</a>, and <a href="/services/identity-design">identity & brand design</a>.</p>
             <div className="btnWrap">
               <Shine puffyness="3">
                 <button className="btn" onClick={() => handleBtnClick()}>Let's talk</button>

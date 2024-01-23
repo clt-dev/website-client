@@ -14,7 +14,7 @@ const CTA = (props: {
         <p>{props.copy}</p>
         <div className="btnWrap">
           <Shine puffyness="3">
-            <button className="btn" onClick={() => props.showInquiry(true)}>Get Started</button>
+            <button className="btn" onClick={() => props.showInquiry(true)}>Let's Talk</button>
           </Shine>
         </div>
       </div>
