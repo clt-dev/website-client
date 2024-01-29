@@ -1,0 +1,143 @@
+#OffTheDock {
+  background: white;
+  width: 100%;
+  color: $dark;
+  .colorScheme {
+    display: flex;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    div {
+      width: 20%;
+      display: block;
+      &:nth-child(1) {
+        background-color: #F1E4B2;
+      }
+      &:nth-child(2) {
+        background-color: #FF8D6B;
+      }
+      &:nth-child(3) {
+        background-color: #45C2B1;
+      }
+      &:nth-child(4) {
+        background-color: #A191B2;
+      }
+      &:nth-child(5) {
+        background-color: #002D74;
+      }
+    }
+  }
+  .pageContainer {
+    background: white;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    .graphics {
+      box-sizing: border-box;
+      padding: 20px;
+    }
+    svg {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+    }
+    .logo {
+      display: flex;
+      justify-content: center;
+      box-sizing: border-box;
+      margin-top: 100px;
+    }
+    .icon {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 100px 0;
+      svg {
+        max-width: 80%;
+      }
+    }
+    .tsi {
+      display: flex;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+    .stickers {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 100px;
+      margin: 100px 0;
+      svg {
+        width: 60%;
+      }
+    }
+    .sticker3 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .businessCards {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 100px 0;
+    }
+    .thirds {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 100px;
+      svg {
+        width: 60%;
+      }
+    }
+    .merch {
+      margin-top: 100px;
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+@media(min-width: 768px) {
+  #OffTheDock {
+    .pageContainer {
+      .logo {
+        height: 100dvh;
+        margin: 0;
+        svg {
+          width: 800px;
+        }
+      }
+      .stickers {
+        #sticker1 {
+          width: 40%;
+        }
+      }
+      .merch div,
+      .stickers,
+      .thirds {
+        flex-direction: row;
+      }
+      .merch div img {
+        max-width: 50%;
+      }
+    }
+  }
+}

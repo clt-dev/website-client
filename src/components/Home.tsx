@@ -8,6 +8,8 @@ import Product from './services/Product';
 import UserInterface from './services/UserInterface';
 import Identity from './services/Identity';
 
+import OffTheDock from './projects/OffTheDock';
+
 import InquiryForm from './InquiryForm';
 
 const Map = () => {
@@ -113,6 +115,14 @@ const Map = () => {
             path="/services/identity-design" 
             element={
               <Identity 
+                showInquiry={(value: boolean) => setShowInquiry(value)}
+              />
+            } 
+          />
+          <Route 
+            path="/projects/off-the-dock"
+            element={
+              <OffTheDock 
                 showInquiry={(value: boolean) => setShowInquiry(value)}
               />
             } 

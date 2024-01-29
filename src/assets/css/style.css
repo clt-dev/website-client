@@ -938,4 +938,142 @@ h3.dark span,
   background: red;
 }
 
+#OffTheDock {
+  background: white;
+  width: 100%;
+  color: #1e1f1e;
+}
+#OffTheDock .colorScheme {
+  display: flex;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+}
+#OffTheDock .colorScheme div {
+  width: 20%;
+  display: block;
+}
+#OffTheDock .colorScheme div:nth-child(1) {
+  background-color: #F1E4B2;
+}
+#OffTheDock .colorScheme div:nth-child(2) {
+  background-color: #FF8D6B;
+}
+#OffTheDock .colorScheme div:nth-child(3) {
+  background-color: #45C2B1;
+}
+#OffTheDock .colorScheme div:nth-child(4) {
+  background-color: #A191B2;
+}
+#OffTheDock .colorScheme div:nth-child(5) {
+  background-color: #002D74;
+}
+#OffTheDock .pageContainer {
+  background: white;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+#OffTheDock .pageContainer .graphics {
+  box-sizing: border-box;
+  padding: 20px;
+}
+#OffTheDock .pageContainer svg {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+#OffTheDock .pageContainer .logo {
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  margin-top: 100px;
+}
+#OffTheDock .pageContainer .icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 100px 0;
+}
+#OffTheDock .pageContainer .icon svg {
+  max-width: 80%;
+}
+#OffTheDock .pageContainer .tsi {
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+#OffTheDock .pageContainer .stickers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  margin: 100px 0;
+}
+#OffTheDock .pageContainer .stickers svg {
+  width: 60%;
+}
+#OffTheDock .pageContainer .sticker3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#OffTheDock .pageContainer .businessCards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px 0;
+}
+#OffTheDock .pageContainer .thirds {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+#OffTheDock .pageContainer .thirds svg {
+  width: 60%;
+}
+#OffTheDock .pageContainer .merch {
+  margin-top: 100px;
+}
+#OffTheDock .pageContainer .merch div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#OffTheDock .pageContainer .merch img {
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  #OffTheDock .pageContainer .logo {
+    height: 100dvh;
+    margin: 0;
+  }
+  #OffTheDock .pageContainer .logo svg {
+    width: 800px;
+  }
+  #OffTheDock .pageContainer .stickers #sticker1 {
+    width: 40%;
+  }
+  #OffTheDock .pageContainer .merch div,
+  #OffTheDock .pageContainer .stickers,
+  #OffTheDock .pageContainer .thirds {
+    flex-direction: row;
+  }
+  #OffTheDock .pageContainer .merch div img {
+    max-width: 50%;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
