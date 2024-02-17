@@ -212,6 +212,32 @@ h3.dark span,
   position: relative;
   background: #1e1f1e;
 }
+#home #websites {
+  background: none;
+}
+#home .clientList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40px 0;
+}
+#home .clientList a {
+  display: block;
+  max-width: 80px;
+}
+#home .clientList a:hover svg path {
+  fill: white;
+  transition: all 0.3s ease-in-out;
+}
+#home .clientList svg {
+  width: 100%;
+}
+#home .clientList svg path {
+  fill: #666666;
+  transition: all 0.3s ease-in-out;
+}
 #home .textSection {
   margin: 0 auto;
   display: flex;
@@ -239,13 +265,18 @@ h3.dark span,
 }
 #home .textSection .copy h1 {
   font-size: 3rem;
-  margin: 0 0 20px;
+  margin: 0;
   align-self: flex-start;
   color: white;
 }
+#home .textSection .copy h2 {
+  font-size: 2.4rem;
+  margin: 0;
+}
 #home .textSection .copy p {
   color: #666666;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
   margin: 0;
   padding: 0 0 40px;
   font-weight: 300;
@@ -261,9 +292,11 @@ h3.dark span,
   color: white;
   transition: all 0.3s ease-in-out;
 }
+#home .textSection .copy .btnWrap {
+  margin: 0 0 40px;
+}
 #home .textSection .copy .btn {
   align-self: flex-start;
-  margin: 0;
 }
 #home .scroll {
   position: absolute;
@@ -311,19 +344,23 @@ h3.dark span,
 
 @media (min-width: 768px) {
   #home .textSection {
-    min-height: 100dvh;
-    padding: 40px;
+    padding: 80px 40px;
   }
   #home .textSection .scroll {
     display: flex;
   }
-  #home .textSection .copy h1 {
+  #home .textSection .copy h1,
+  #home .textSection .copy h2 {
     margin: 0;
-    font-size: 6rem;
+    font-size: 5rem;
     white-space: nowrap;
+  }
+  #home .textSection .copy h2 {
+    font-size: 3.6rem;
   }
   #home .textSection .copy p {
     font-size: 2rem;
+    line-height: normal;
   }
 }
 @media (min-width: 991px) {
@@ -342,9 +379,6 @@ h3.dark span,
   #home .textSection .copy {
     max-width: 1080px;
     margin: 0 auto;
-  }
-  #home .textSection .copy p {
-    font-size: 2.6rem;
   }
 }
 #page {
@@ -412,6 +446,7 @@ h3.dark span,
   padding: 0 20px 0 0;
   background: none;
   color: white;
+  font-size: 0.8rem;
 }
 #page .banner {
   background: #111;
@@ -709,9 +744,11 @@ h3.dark span,
   max-height: 0;
   height: auto;
   overflow: hidden;
+  position: relative;
+  z-index: 999;
 }
 #websites.show {
-  padding: 10px;
+  scroll-padding: 10px;
   max-height: 9999px;
   transition: all 0.8s ease-in-out;
 }
@@ -733,7 +770,6 @@ h3.dark span,
 #websites .wrap a img {
   width: 100%;
   margin: 0 0 -5px;
-  opacity: 0.8;
   transform: scale(1);
   transition: all 0.2s ease-in-out;
 }
@@ -783,6 +819,10 @@ h3.dark span,
 @media (min-width: 768px) {
   #websites.show {
     padding: 40px;
+  }
+  #websites .wrap {
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid black;
   }
   #websites .wrap a {
     flex: 0 0 50%;

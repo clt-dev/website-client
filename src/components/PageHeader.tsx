@@ -9,7 +9,7 @@ const PageHeader = (props: {
     <div className="pageHeader">
       <nav>
         <Logo onClick={() => NavUtils.redirectToRoot()}/>
-        <button className="btn" onClick={() => props.showInquiry(true)}>Contact Us</button>
+        <button className="btn" onClick={() => props.showInquiry(true)}>Contact</button>
       </nav>
     </div>
   )

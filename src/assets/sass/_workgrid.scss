@@ -4,8 +4,10 @@
   max-height: 0;
   height: auto;
   overflow: hidden;
+  position: relative;
+  z-index: 999;
   &.show {
-    padding: 10px;
+    scroll-padding: 10px;
     max-height: 9999px;
     transition: all 0.8s ease-in-out;
   }
@@ -25,7 +27,6 @@
       img {
         width: 100%;
         margin: 0 0 -5px;
-        opacity: 0.8;
         transform: scale(1);
         transition: all 0.2s ease-in-out;
       }
@@ -81,6 +82,8 @@
       padding: 40px;
     }
     .wrap {
+      box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+      border: 1px solid black;
       a {
         flex: 0 0 50%;
         .overlay {
