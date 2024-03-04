@@ -1,10 +1,10 @@
 import {forwardRef} from 'react';
 
-import realeyez from '../assets/img/websites/realeyez_bg.jpg';
-// import customNature from '../assets/img/websites/customNature_bg.jpg';
+// import realeyez from '../assets/img/websites/realeyez_bg.jpg';
+// import smokeBreak from '../assets/img/websites/smokebreak_bg.jpg';
+import customNature from '../assets/img/websites/customNature_bg.jpg';
 import globe from '../assets/img/websites/globe_bg.jpg';
 import ap from '../assets/img/websites/ap_bg.jpg';
-import smokeBreak from '../assets/img/websites/smokebreak_bg.jpg';
 import paakhouse from '../assets/img/websites/paakhouse_bg.jpg';
 import fiveStar from '../assets/img/websites/5star_bg.jpg';
 import dreamworks from '../assets/img/websites/dreamworks_bg.jpg';
@@ -67,12 +67,12 @@ const WorkGrid = forwardRef((props: {
             <p>5starvintage.com</p>
           </div>
         </a>
-        <a href="https://pgmoutfitters.com" target="_BLANK" rel="noopener noreferrer">
-          <img src={pgmoutfitters} alt="Next Generation Deer Feeders" />
+        <a href="https://customnatureproducts.com" target="_BLANK" rel="noopener noreferrer">
+          <img src={customNature} alt="Custom Nature Products" />
           <div className="overlay">
-            <h3>PGM Outfitters</h3>
-            <p className="desc">Website for PGM Outfitters showcasing their deer feeder product line.</p>
-            <p>pgmoutfitters.com</p>
+            <h3>Coconut Culture</h3>
+            <p className="desc">Product portfolio website for skincare and beauty product line.</p>
+            <p>customnatureproducts.com</p>
           </div>
         </a>
         <a href="https://traitmarketplace.com" target="_BLANK" rel="noopener noreferrer">
@@ -83,12 +83,12 @@ const WorkGrid = forwardRef((props: {
             <p>traitmarketplace.com</p>
           </div>
         </a>
-        <a href="https://smokebreak.live" target="_BLANK" rel="noopener noreferrer">
-          <img src={smokeBreak} alt="Smoke Break" />
+        <a href="https://pgmoutfitters.com" target="_BLANK" rel="noopener noreferrer">
+          <img src={pgmoutfitters} alt="Next Generation Deer Feeders" />
           <div className="overlay">
-            <h3>Smoke Break Live</h3>
-            <p className="desc">Ecommerce website built around the sale of novelty throw pillows.</p>
-            <p>smokebreak.live</p>
+            <h3>PGM Outfitters</h3>
+            <p className="desc">Website for PGM Outfitters showcasing their deer feeder product line.</p>
+            <p>pgmoutfitters.com</p>
           </div>
         </a>
       </div>
