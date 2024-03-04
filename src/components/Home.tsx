@@ -47,6 +47,10 @@ const Map = () => {
   }
 
   useEffect(() => {
+    // log google tag homepage view
+    window.gtag('event', 'conversion', {
+      'send_to': 'AW-11313458751/GZj7CJiPzZgZEL_c1pIq'
+    });
     window.addEventListener('keydown', handleKeyPress);
     return () => {
       window.removeEventListener('keydown', handleKeyPress);

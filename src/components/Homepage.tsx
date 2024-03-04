@@ -22,6 +22,8 @@ const Homepage = (props: {
 
   const handleBtnClick = () => {
     window.lintrk('track', { conversion_id: 15977058 });
+    // track inquiry btn click google tag conversion
+    window.gtag('event', 'conversion', {'send_to': 'AW-11313458751/BaNGCN7jx5gZEL_c1pIq'});
     props.toggle();
   }
 
