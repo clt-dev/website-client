@@ -10,6 +10,7 @@ import fiveStar from '../assets/img/websites/5star_bg.jpg';
 import dreamworks from '../assets/img/websites/dreamworks_bg.jpg';
 import traitmarketplace from '../assets/img/websites/traitmarketplace_bg.jpg';
 import pgmoutfitters from '../assets/img/websites/pgm-outfitters.jpg';
+import offthedock from '../assets/img/websites/offthedock.jpg';
 
 const WorkGrid = forwardRef((props: {
   show?: boolean
@@ -18,14 +19,6 @@ const WorkGrid = forwardRef((props: {
   return (
     <section id="websites" className={props.show ? 'show' : ''} ref={ref}>
       <div className="wrap">
-        <a href="https://globetest.cltdev.com" target="_BLANK" rel="noopener noreferrer">
-          <img src={globe} alt="Globe" />
-          <div className="overlay">
-            <h3>3D Globe</h3>
-            <p className="desc">3D globe NPM package that animates arcs of LAT/LNG data points.</p>
-            <p>globetest.cltdev.com</p>
-          </div>
-        </a>
         <a href="http://fyc.dreamworks.com" target="_BLANK" rel="noopener noreferrer">
           <img src={dreamworks} alt="Dreamworks FYC 2021" />
           <div className="overlay">
@@ -42,14 +35,6 @@ const WorkGrid = forwardRef((props: {
             <p>andersonpaak.com</p>
           </div>
         </a>
-        <a href="https://pgmoutfitters.com" target="_BLANK" rel="noopener noreferrer">
-          <img src={pgmoutfitters} alt="Next Generation Deer Feeders" />
-          <div className="overlay">
-            <h3>PGM Outfitters</h3>
-            <p className="desc">Website for PGM Outfitters showcasing their deer feeder product line.</p>
-            <p>pgmoutfitters.com</p>
-          </div>
-        </a>
         <a href="https://paakhouse.org" target="_BLANK" rel="noopener noreferrer">
           <img src={paakhouse} alt=".Paak House" />
           <div className="overlay">
@@ -58,12 +43,20 @@ const WorkGrid = forwardRef((props: {
             <p>paakhouse.org</p>
           </div>
         </a>
-        <a href="https://traitmarketplace.com" target="_BLANK" rel="noopener noreferrer">
-          <img src={traitmarketplace} alt="Trait Marketplace" />
+        <a href="https://cltdev.com/projects/off-the-dock" target="_BLANK" rel="noopener noreferrer">
+          <img src={offthedock} alt="Off The Dock" />
           <div className="overlay">
-            <h3>Creepz Merch</h3>
-            <p className="desc">A Web3 ecommerce project that uses NFT trait verification to sell items.</p>
-            <p>traitmarketplace.com</p>
+            <h3>Off The Dock</h3>
+            <p className="desc">Identity design for a Honduras excursion outfitter.</p>
+            <p>offthedockadventures.com</p>
+          </div>
+        </a>
+        <a href="https://globetest.cltdev.com" target="_BLANK" rel="noopener noreferrer">
+          <img src={globe} alt="Globe" />
+          <div className="overlay">
+            <h3>3D Globe</h3>
+            <p className="desc">3D globe NPM package that animates arcs of LAT/LNG data points.</p>
+            <p>globetest.cltdev.com</p>
           </div>
         </a>
         <a href="https://5starvintage.com" target="_BLANK" rel="noopener noreferrer">
@@ -74,20 +67,28 @@ const WorkGrid = forwardRef((props: {
             <p>5starvintage.com</p>
           </div>
         </a>
+        <a href="https://pgmoutfitters.com" target="_BLANK" rel="noopener noreferrer">
+          <img src={pgmoutfitters} alt="Next Generation Deer Feeders" />
+          <div className="overlay">
+            <h3>PGM Outfitters</h3>
+            <p className="desc">Website for PGM Outfitters showcasing their deer feeder product line.</p>
+            <p>pgmoutfitters.com</p>
+          </div>
+        </a>
+        <a href="https://traitmarketplace.com" target="_BLANK" rel="noopener noreferrer">
+          <img src={traitmarketplace} alt="Trait Marketplace" />
+          <div className="overlay">
+            <h3>Creepz Merch</h3>
+            <p className="desc">A Web3 ecommerce project that uses NFT trait verification to sell items.</p>
+            <p>traitmarketplace.com</p>
+          </div>
+        </a>
         <a href="https://smokebreak.live" target="_BLANK" rel="noopener noreferrer">
           <img src={smokeBreak} alt="Smoke Break" />
           <div className="overlay">
             <h3>Smoke Break Live</h3>
             <p className="desc">Ecommerce website built around the sale of novelty throw pillows.</p>
             <p>smokebreak.live</p>
-          </div>
-        </a>
-        <a href="http://realeyezapparel.com" target="_BLANK" rel="noopener noreferrer">
-          <img src={realeyez} alt="Realeyez" />
-          <div className="overlay">
-            <h3>Realeyez</h3>
-            <p className="desc">Portfolio website for a streetwear based brand of clothing and artwork.</p>
-            <p>realeyezapparel.com</p>
           </div>
         </a>
       </div>
