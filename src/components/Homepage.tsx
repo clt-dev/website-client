@@ -21,14 +21,9 @@ const Homepage = (props: {
   const workRef = useRef<HTMLDivElement | null>(null);
 
   const handleBtnClick = () => {
+    window.lintrk('track', { conversion_id: 15977058 });
     props.toggle();
   }
-
-  // const scrollToWork = () => {
-  //   if (workRef.current) {
-  //     workRef.current.scrollIntoView({behavior: 'smooth'})
-  //   }
-  // }
 
   return (
     <div id="home">
@@ -43,12 +38,12 @@ const Homepage = (props: {
             We aim to please, but shoot to kill. 
             We are the artists, the problem solvers, the software engineers you've been looking for...
           </p>
+          <div className="btnWrap">
+            <Shine puffyness="3">
+              <button className="btn" onClick={() => handleBtnClick()}>Get Started</button>
+            </Shine>
+          </div>
         </article>
-
-        {/* <article className="scroll" onClick={() => scrollToWork()}>
-          portfolio
-          <div className="arrow"></div>
-        </article> */}
 
       </section>
 
