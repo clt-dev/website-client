@@ -311,31 +311,24 @@ h3.dark span,
   display: block;
   text-align: center;
   text-transform: uppercase;
-  color: #666666;
+  color: white;
   transition: all 0.2s ease-in-out;
 }
 #home .textSection .copy .btnGroup a svg {
   width: 100%;
   height: 25px;
+  transform: translateY(0);
+  transition: all 0.2s ease-in-out;
 }
 #home .textSection .copy .btnGroup a svg path,
 #home .textSection .copy .btnGroup a svg circle {
-  fill: #666666;
-  transition: all 0.2s ease-in-out;
+  fill: white;
 }
 #home .textSection .copy .btnGroup a:hover {
   cursor: pointer;
 }
-#home .textSection .copy .btnGroup a:hover span {
-  color: white;
-  transition: all 0.2s ease-in-out;
-}
 #home .textSection .copy .btnGroup a:hover svg {
-  transition: all 0.2s ease-in-out;
-}
-#home .textSection .copy .btnGroup a:hover svg path,
-#home .textSection .copy .btnGroup a:hover svg circle {
-  fill: white;
+  transform: translateY(-5px);
   transition: all 0.2s ease-in-out;
 }
 #home .textSection .copy .btn {
