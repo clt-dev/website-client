@@ -11,6 +11,9 @@ import {ReactComponent as Dreamworks} from '../assets/img/clients/dreamworks.svg
 import {ReactComponent as Dribbble} from '../assets/img/clients/dribbble.svg';
 import {ReactComponent as WKNDHRS} from '../assets/img/clients/wkndhrs.svg';
 
+import {ReactComponent as Email} from '../assets/img/icons/envelope.svg';
+import {ReactComponent as Phone} from '../assets/img/icons/phone.svg';
+
 const Homepage = (props: {
   inquiry: boolean;
   toggle: () => void;
@@ -40,10 +43,20 @@ const Homepage = (props: {
             We aim to please, but shoot to kill. 
             We are the artists, the problem solvers, the software engineers you've been looking for...
           </p>
-          <div className="btnWrap">
-            <Shine puffyness="3">
-              <button className="btn" onClick={() => handleBtnClick()}>Get Started</button>
-            </Shine>
+          <div className="btnGroup">
+            <div className="btnWrap">
+              <Shine puffyness="3">
+                <button className="btn" onClick={() => handleBtnClick()}>Get Started</button>
+              </Shine>
+            </div>
+            <a href="mailto:kylebebeau@gmail.com?subject=CLT Dev Project Inquiry">
+              <Email />
+              <span>Email</span>
+            </a>
+            <a href="tel:8039848700">
+              <Phone />
+              <span>Call</span>
+            </a>
           </div>
         </article>
 
@@ -62,10 +75,20 @@ const Homepage = (props: {
             We are a wildly creative Charlotte, NC based software agency.
             We code custom software solutions for business systems and build MVP's for tech startups.
           </p>
-          <div className="btnWrap">
-            <Shine puffyness="3">
-              <button className="btn" onClick={() => handleBtnClick()}>Let's talk</button>
-            </Shine>
+          <div className="btnGroup">
+            <div className="btnWrap">
+              <Shine puffyness="3">
+                <button className="btn" onClick={() => handleBtnClick()}>Let's talk</button>
+              </Shine>
+            </div>
+            <a href="mailto:kylebebeau@gmail.com?subject=CLT Dev Project Inquiry">
+              <Email />
+              <span>Email</span>
+            </a>
+            <a href="tel:8039848700">
+              <Phone />
+              <span>Call</span>
+            </a>
           </div>
           <section>
             <h3 className="title">We've worked with...</h3>
