@@ -100,7 +100,7 @@
             display: block;
             text-align: center;
             text-transform: uppercase;
-            color: black;
+            color: #666666;
             transition: all 0.2s ease-in-out;
           }
           svg {
@@ -108,6 +108,7 @@
             height: 25px;
             path,
             circle {
+              fill: #666666;
               transition: all 0.2s ease-in-out;
             }
           }

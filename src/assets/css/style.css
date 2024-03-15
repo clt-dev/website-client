@@ -311,7 +311,7 @@ h3.dark span,
   display: block;
   text-align: center;
   text-transform: uppercase;
-  color: black;
+  color: #666666;
   transition: all 0.2s ease-in-out;
 }
 #home .textSection .copy .btnGroup a svg {
@@ -320,6 +320,7 @@ h3.dark span,
 }
 #home .textSection .copy .btnGroup a svg path,
 #home .textSection .copy .btnGroup a svg circle {
+  fill: #666666;
   transition: all 0.2s ease-in-out;
 }
 #home .textSection .copy .btnGroup a:hover {
