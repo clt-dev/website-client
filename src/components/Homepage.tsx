@@ -81,7 +81,7 @@ const Homepage = (props: {
                 <button className="btn" onClick={() => handleBtnClick()}>Let's talk</button>
               </Shine>
             </div>
-            <a href="mailto:kylebebeau@gmail.com?subject=CLT Dev Project Inquiry">
+            <a href="mailto:kyle@cltdev.com?subject=CLT Dev Project Inquiry">
               <Email />
               <span>Email</span>
             </a>
