@@ -1,18 +1,19 @@
 import {forwardRef} from 'react';
 
-// import realeyez from '../assets/img/websites/realeyez_bg.jpg';
 // import smokeBreak from '../assets/img/websites/smokebreak_bg.jpg';
 // import customNature from '../assets/img/websites/customNature_bg.jpg';
 // import paakhouse from '../assets/img/websites/paakhouse_bg.jpg';
+// import traitmarketplace from '../assets/img/websites/traitmarketplace_bg.jpg';
+
 import globe from '../assets/img/websites/globe_bg.jpg';
 import ap from '../assets/img/websites/ap_bg.jpg';
 import potion from '../assets/img/websites/potion_bg.jpg';
 import fiveStar from '../assets/img/websites/5star_bg.jpg';
 import dreamworks from '../assets/img/websites/dreamworks_bg.jpg';
-import traitmarketplace from '../assets/img/websites/traitmarketplace_bg.jpg';
 import pgmoutfitters from '../assets/img/websites/pgm-outfitters.jpg';
 import offthedock from '../assets/img/websites/offthedock.jpg';
 import seiyan from '../assets/img/websites/seiyan_bg.jpg';
+import realeyez from '../assets/img/websites/realeyez2_bg.jpg';
 
 const WorkGrid = forwardRef((props: {
   show?: boolean
@@ -77,12 +78,12 @@ const WorkGrid = forwardRef((props: {
             <p>seiyantoken.com</p>
           </div>
         </a>
-        <a href="https://traitmarketplace.com" target="_BLANK" rel="noopener noreferrer">
-          <img src={traitmarketplace} alt="Trait Marketplace" />
+        <a href="https://realeyezapparel.com" target="_BLANK" rel="noopener noreferrer">
+          <img src={realeyez} alt="Realeyez Apparel" />
           <div className="overlay">
-            <h3>Creepz Merch</h3>
-            <p className="desc">A Web3 ecommerce project that uses NFT trait verification to sell items.</p>
-            <p>traitmarketplace.com</p>
+            <h3>Realeyez</h3>
+            <p className="desc">A streetwear clothing and art collection curated as a capsule release.</p>
+            <p>realeyezapparel.com</p>
           </div>
         </a>
         <a href="https://pgmoutfitters.com" target="_BLANK" rel="noopener noreferrer">
