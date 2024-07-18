@@ -2,15 +2,17 @@ import {forwardRef} from 'react';
 
 // import realeyez from '../assets/img/websites/realeyez_bg.jpg';
 // import smokeBreak from '../assets/img/websites/smokebreak_bg.jpg';
-import customNature from '../assets/img/websites/customNature_bg.jpg';
+// import customNature from '../assets/img/websites/customNature_bg.jpg';
+// import paakhouse from '../assets/img/websites/paakhouse_bg.jpg';
 import globe from '../assets/img/websites/globe_bg.jpg';
 import ap from '../assets/img/websites/ap_bg.jpg';
-import paakhouse from '../assets/img/websites/paakhouse_bg.jpg';
+import potion from '../assets/img/websites/potion_bg.jpg';
 import fiveStar from '../assets/img/websites/5star_bg.jpg';
 import dreamworks from '../assets/img/websites/dreamworks_bg.jpg';
 import traitmarketplace from '../assets/img/websites/traitmarketplace_bg.jpg';
 import pgmoutfitters from '../assets/img/websites/pgm-outfitters.jpg';
 import offthedock from '../assets/img/websites/offthedock.jpg';
+import seiyan from '../assets/img/websites/seiyan_bg.jpg';
 
 const WorkGrid = forwardRef((props: {
   show?: boolean
@@ -35,12 +37,12 @@ const WorkGrid = forwardRef((props: {
             <p>andersonpaak.com</p>
           </div>
         </a>
-        <a href="https://paakhouse.org" target="_BLANK" rel="noopener noreferrer">
-          <img src={paakhouse} alt=".Paak House" />
+        <a href="https://go-potion.com" target="_BLANK" rel="noopener noreferrer">
+          <img src={potion} alt="Potion" />
           <div className="overlay">
-            <h3>.Paak House</h3>
-            <p className="desc">Event website for Brandon Anderson non-profit that hosts a annual concert in the park.</p>
-            <p>paakhouse.org</p>
+            <h3>Potion</h3>
+            <p className="desc">AI powered invoice and contract management software.</p>
+            <p>go-potion.com</p>
           </div>
         </a>
         <a href="https://cltdev.com/projects/off-the-dock" target="_BLANK" rel="noopener noreferrer">
@@ -67,12 +69,12 @@ const WorkGrid = forwardRef((props: {
             <p>5starvintage.com</p>
           </div>
         </a>
-        <a href="https://customnatureproducts.com" target="_BLANK" rel="noopener noreferrer">
-          <img src={customNature} alt="Custom Nature Products" />
+        <a href="https://seiyantoken.com" target="_BLANK" rel="noopener noreferrer">
+          <img src={seiyan} alt="Seiyan Token" />
           <div className="overlay">
-            <h3>Coconut Culture</h3>
-            <p className="desc">Product portfolio website for skincare and beauty product line.</p>
-            <p>customnatureproducts.com</p>
+            <h3>Seiyan Token</h3>
+            <p className="desc">Seiyan token is the OG memecoin on the SEI network.</p>
+            <p>seiyantoken.com</p>
           </div>
         </a>
         <a href="https://traitmarketplace.com" target="_BLANK" rel="noopener noreferrer">
