@@ -22,7 +22,7 @@ const WorkGrid = forwardRef((props: {
   return (
     <section id="websites" className={props.show ? 'show' : ''} ref={ref}>
       <div className="wrap">
-        <a href="http://fyc.dreamworks.com" target="_BLANK" rel="noopener noreferrer">
+        <a href="https://dreamworks.cltdev.com" target="_BLANK" rel="noopener noreferrer">
           <img src={dreamworks} alt="Dreamworks FYC 2021" />
           <div className="overlay">
             <h3>Dreamworks</h3>
